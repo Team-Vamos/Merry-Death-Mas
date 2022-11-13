@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 629102439695327060}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: BulletPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 717024592128292833}
   - component: {fileID: 4069274015951821076}
   m_Layer: 0
-  m_Name: Capsule (1)
+  m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

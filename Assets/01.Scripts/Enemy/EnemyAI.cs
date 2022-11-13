@@ -18,6 +18,7 @@ public enum EnemyAtkType
 
 public class EnemyAI : MonoBehaviour
 {
+
     private EnemySpawn enemySpawn;
     [SerializeField]
     private EnemyTargetType enemyTargetType;

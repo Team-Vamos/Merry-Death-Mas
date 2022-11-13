@@ -49,8 +49,8 @@ public class EnemySpawn : MonoBehaviour
     {
         Vector3 originPosition = rangeObject.transform.position;
         // 콜라이더의 사이즈를 가져오는 bound.size 사용
-        float range_X = rangeCollider.bounds.size.x;
-        float range_Z = rangeCollider.bounds.size.z;
+        float range_X = rangeCollider.bounds.size.x+10;
+        float range_Z = rangeCollider.bounds.size.z+10;
 
         range_X = Random.Range((range_X / 2) * -1, range_X / 2);
         range_Z = Random.Range((range_Z / 2) * -1, range_Z / 2);
