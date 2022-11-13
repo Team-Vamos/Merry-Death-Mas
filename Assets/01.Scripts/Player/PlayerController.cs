@@ -11,7 +11,9 @@ namespace SD
      
         [Header("Player Setting")]
         public float turnSpeed = 10f;
-        public float runSpeed = 3f;
+        public float walkSpeed = 3f;
+        private float spd = 3f;
+        public float runSpeed = 5f;
         public bool stopMoverment = false;
         
         public bool moving { get; set; }
@@ -26,7 +28,8 @@ namespace SD
         private Transform camTrans;
         private Vector3 camForward;
 
-        private Vector3 offset;  
+        private Vector3 offset;
+        private float inputSpeed = 0f;
         
         void Awake()
         {
@@ -42,7 +45,18 @@ namespace SD
             //input 
             m_Horizontal = Input.GetAxis(Const.Horizontal);
             m_Vertical = Input.GetAxis(Const.Vetical);
- 
+
+            if (Input.GetKey(KeyCode.LeftShift) && moving)
+            {
+                spd = runSpeed;
+                inputSpeed = Mathf.Lerp(inputSpeed, 1, Time.deltaTime);
+            }
+            else if (moving)
+            {
+                spd = walkSpeed;
+                inputSpeed = (moving) ? 0.5f * Mathf.Clamp01(Mathf.Abs(m_Horizontal) + Mathf.Abs(m_Vertical)) : Mathf.Lerp(inputSpeed,0,Time.deltaTime);
+            }
+
             // move vector 
             if (camTrans != null)
             {
@@ -51,13 +65,13 @@ namespace SD
                 m_MoveVector.Normalize();
             }
             //animation    
+
+
             bool has_H_Input = !Mathf.Approximately(m_Horizontal, 0);
             bool has_V_Input = !Mathf.Approximately(m_Vertical, 0);
 
             if (!stopMoverment) moving = has_H_Input || has_V_Input;
             else moving = false;
-
-            float inputSpeed = Mathf.Clamp01( Mathf.Abs(m_Horizontal) + Mathf.Abs(m_Vertical));
 
             m_Animator.SetBool(Const.Moving, moving);
             m_Animator.SetFloat(Const.Speed, inputSpeed);
@@ -68,7 +82,7 @@ namespace SD
                 Vector3 desiredForward = Vector3.RotateTowards(transform.forward, m_MoveVector, turnSpeed * Time.deltaTime, 0f);
                 m_Rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(desiredForward), turnSpeed);
                 m_Rigidbody.MoveRotation(m_Rotation);
-                m_Rigidbody.MovePosition(m_Rigidbody.position + inputSpeed*m_MoveVector * runSpeed * Time.deltaTime);
+                m_Rigidbody.MovePosition(m_Rigidbody.position + inputSpeed*m_MoveVector * spd * Time.deltaTime);
             }
 
         }   
