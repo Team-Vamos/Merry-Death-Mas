@@ -18,6 +18,7 @@ public enum EnemyAtkType
 
 public class EnemyAI : MonoBehaviour
 {
+    private Animator anim;
 
     private EnemySpawn enemySpawn;
     [SerializeField]
@@ -32,14 +33,14 @@ public class EnemyAI : MonoBehaviour
 
     public LayerMask whatIsGround, whatIsPlayer;
 
-    public Transform BulletPosition;
+    private Transform BulletPosition;
     
     public float health;
 
     //Patroling
-    public Vector3 walkPoint;
+    private Vector3 walkPoint;
     bool walkPointSet;
-    public float walkPointRange;
+    private float walkPointRange;
 
     //Attacking
     public float timeBetweenAttacks;
@@ -47,12 +48,15 @@ public class EnemyAI : MonoBehaviour
     public GameObject projectile;
 
     //States
-    public float sightRange, attackRange;
-    public bool playerInSightRange, playerInAttackRange;
+    private float sightRange = 1001f;
+    public float attackRange;
+    private bool playerInSightRange;
+    public bool playerInAttackRange;
 
     private void Start()
     {
 
+        anim = GetComponent<Animator>();
     }
 
     private void Awake()
@@ -80,7 +84,7 @@ public class EnemyAI : MonoBehaviour
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
 
         if (!playerInSightRange && !playerInAttackRange) Patroling();
-        if (playerInSightRange && !playerInAttackRange) ChasePlayer();
+        if (playerInSightRange && !playerInAttackRange&&alreadyAttacked==false) ChasePlayer();
         if (playerInAttackRange && playerInSightRange) AttackPlayer();
     }
 
@@ -112,13 +116,16 @@ public class EnemyAI : MonoBehaviour
     private void ChasePlayer()
     {
         agent.SetDestination(Target.position);
+        Debug.Log("Move");
+        anim.SetBool("ToTarget", true);
+
     }
 
     private void AttackPlayer()
     { 
         agent.SetDestination(transform.position);
-
         transform.LookAt(Target);
+        anim.SetBool("ToTarget", false);
 
         if (!alreadyAttacked)
         {
@@ -131,12 +138,10 @@ public class EnemyAI : MonoBehaviour
                     ///End of attack code
                     break;
                 case EnemyAtkType.shortRange:
+                    anim.SetTrigger("Attack");
                     Debug.Log("Attack");
                     break;
             }
-
-
-
 
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
@@ -144,6 +149,7 @@ public class EnemyAI : MonoBehaviour
     }
     private void ResetAttack()
     {
+        
         alreadyAttacked = false;
     }
 
@@ -151,7 +157,10 @@ public class EnemyAI : MonoBehaviour
     {
         health -= damage;
 
-        if (health <= 0) Invoke(nameof(DestroyEnemy), 0.5f);
+        if (health <= 0)
+        {
+            Invoke(nameof(DestroyEnemy), 0.5f);
+        }
     }
     private void DestroyEnemy()
     {
@@ -162,7 +171,5 @@ public class EnemyAI : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, attackRange);
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, sightRange);
     }
 }

@@ -3,14 +3,31 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+[System.Serializable]
+public class SpawnMonsters
+{
+    public GameObject[] spawnMonsters;
+    public int[] spawnPersent;
+    public int SpawnMonsterValue;
+    public int SpawnMonsterBetweenTime;
+}
+
+
+
 public class EnemySpawn : MonoBehaviour
 {
-    public GameObject rangeObject;
-    BoxCollider rangeCollider;
+    public Transform Tree;
+
+
+
+    public int radius;
 
     public int NightTime;
     public int AfternoonTime;
 
+    
+
+    private int WaveCnt = 0 ;
     
     public bool night;
 
@@ -18,10 +35,7 @@ public class EnemySpawn : MonoBehaviour
     private float time;
 
 
-    private void Awake()
-    {
-        rangeCollider = rangeObject.GetComponent<BoxCollider>();
-    }
+    public SpawnMonsters[] Wave;
 
     private void Update()
     {
@@ -40,6 +54,7 @@ public class EnemySpawn : MonoBehaviour
             {
                 time = AfternoonTime;
                 night = false;
+                WaveCnt++;
             }
         }
         timeText.text = Mathf.Ceil (time).ToString();
@@ -47,17 +62,19 @@ public class EnemySpawn : MonoBehaviour
 
     Vector3 Return_RandomPosition()
     {
-        Vector3 originPosition = rangeObject.transform.position;
-        // 콜라이더의 사이즈를 가져오는 bound.size 사용
-        float range_X = rangeCollider.bounds.size.x+10;
-        float range_Z = rangeCollider.bounds.size.z+10;
+        Vector3 treePosition = Tree.position;
 
-        range_X = Random.Range((range_X / 2) * -1, range_X / 2);
-        range_Z = Random.Range((range_Z / 2) * -1, range_Z / 2);
-        Vector3 RandomPostion = new Vector3(range_X, 0f, range_Z);
+        float a = treePosition.x;
+        float b = treePosition.z;
 
-        Vector3 respawnPosition = originPosition + RandomPostion;
-        return respawnPosition;
+        float x = Random.Range(-radius + a, radius + b);
+        float z_b = Mathf.Sqrt(Mathf.Pow(radius, 2) - Mathf.Pow(x - a, 2));
+        z_b *= Random.Range(0, 2) == 0 ? -1 : 1;
+        float z = z_b + b;
+
+        Vector3 randomPosition = new Vector3(x, 0, z);
+
+        return randomPosition;
     }
 
     // 소환할 Object
@@ -73,14 +90,26 @@ public class EnemySpawn : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(Wave[WaveCnt].SpawnMonsterBetweenTime);
 
             // 생성 위치 부분에 위에서 만든 함수 Return_RandomPosition() 함수 대입
-            if(night==true)
+            if (night == true)
             {
-                GameObject instantCapsul = Instantiate(capsul, Return_RandomPosition(), Quaternion.identity);
-            }
+                for(int i=0;i<Wave[WaveCnt].spawnMonsters.Length;i++)
+                {
+                    
+                    Instantiate(Wave[WaveCnt].spawnMonsters[i], Return_RandomPosition(), Quaternion.identity);
+                }
 
+                //GameObject instantCapsul = Instantiate(capsul, Return_RandomPosition(), Quaternion.identity);
+            }
         }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(Tree.position, radius);
     }
 }
