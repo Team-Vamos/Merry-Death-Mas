@@ -7,8 +7,7 @@ using UnityEngine.UI;
 public class SpawnMonsters
 {
     public GameObject[] spawnMonsters;
-    public int[] spawnPersent;
-    public int SpawnMonsterValue;
+    public int[] SpawnMonsterValue;
     public int SpawnMonsterBetweenTime;
 }
 
@@ -95,10 +94,9 @@ public class EnemySpawn : MonoBehaviour
             // 생성 위치 부분에 위에서 만든 함수 Return_RandomPosition() 함수 대입
             if (night == true)
             {
-                for(int i=0;i<Wave[WaveCnt].spawnMonsters.Length;i++)
+                if(Wave[WaveCnt].spawnMonsters.Length>=2)
                 {
-                    
-                    Instantiate(Wave[WaveCnt].spawnMonsters[i], Return_RandomPosition(), Quaternion.identity);
+                    Instantiate(Wave[WaveCnt].spawnMonsters[0], Return_RandomPosition(), Quaternion.identity);
                 }
 
                 //GameObject instantCapsul = Instantiate(capsul, Return_RandomPosition(), Quaternion.identity);

@@ -331,8 +331,8 @@ Transform:
   m_GameObject: {fileID: 1391888216552696}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 4793021511278964}
   - {fileID: 4102875869836252}
@@ -349,7 +349,7 @@ Animator:
   m_GameObject: {fileID: 1391888216552696}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 8c53cffd52097cf4582f0a090c9a833e, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8620f6444dae23d4eaaaee8c560eb043, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -371,24 +371,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4dd6c3cac4657b346b2b2c4ded0649ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyTargetType: 0
+  enemyTargetType: 1
   enemyAtkType: 1
-  agent: {fileID: 0}
+  agent: {fileID: 8590095019579540015}
   Target: {fileID: 0}
   whatIsGround:
     serializedVersion: 2
-    m_Bits: 384
+    m_Bits: 128
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 256
-  BulletPosition: {fileID: 0}
-  health: 0
-  walkPoint: {x: 0, y: 0, z: 0}
-  walkPointRange: 0
-  timeBetweenAttacks: 0
+  health: 10
+  timeBetweenAttacks: 3
   projectile: {fileID: 0}
-  attackRange: 0
-  playerInSightRange: 0
+  attackRange: 0.7
   playerInAttackRange: 0
 --- !u!195 &8590095019579540015
 NavMeshAgent:
