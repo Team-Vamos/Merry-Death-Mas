@@ -304,7 +304,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 544.94, y: 442.03}
+  m_AnchoredPosition: {x: 318, y: 202}
   m_SizeDelta: {x: 830.126, y: 195.947}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &398591750
@@ -329,7 +329,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 94
+    m_FontSize: 91
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 10
@@ -375,7 +375,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 399087271}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.000046349}
+  m_LocalPosition: {x: 0, y: 0, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -384,7 +384,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -544.94, y: 442.03}
+  m_AnchoredPosition: {x: -229, y: 230}
   m_SizeDelta: {x: 830.126, y: 195.947}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &399087273
@@ -409,7 +409,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 94
+    m_FontSize: 35
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 10
@@ -722,7 +722,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -742,7 +742,7 @@ Canvas:
   m_GameObject: {fileID: 1422757276}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_Camera: {fileID: 696462756}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -1614,20 +1614,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Tree: {fileID: 1756388532}
   radius: 33
-  NightTime: 10
+  NightTime: 5
   AfternoonTime: 10
   night: 0
   timeText: {fileID: 398591750}
   Wave:
   - spawnMonsters:
     - {fileID: 1391888216552696, guid: 0c74bed2ad49fad4d94fca86441ad49f, type: 3}
-    - {fileID: 0}
-    SpawnMonsterValue: 0000000000000000
-    SpawnMonsterBetweenTime: 0
+    - {fileID: 1391888216552696, guid: dac94dfcb3cbf0547a31a5fb3c9f2280, type: 3}
+    SpawnMonsterPersent: 0100000001000000
+    SpawnMonsterBetweenTime: 1
   - spawnMonsters:
-    - {fileID: 0}
-    - {fileID: 0}
-    SpawnMonsterValue: 
+    - {fileID: 1391888216552696, guid: 0c74bed2ad49fad4d94fca86441ad49f, type: 3}
+    - {fileID: 1391888216552696, guid: 0c74bed2ad49fad4d94fca86441ad49f, type: 3}
+    - {fileID: 1391888216552696, guid: 0c74bed2ad49fad4d94fca86441ad49f, type: 3}
+    SpawnMonsterPersent: 010000000100000001000000
     SpawnMonsterBetweenTime: 0
   capsul: {fileID: 1190601789873990, guid: a8145fd98e506094980d05080bde9072, type: 3}
 --- !u!4 &1860320894

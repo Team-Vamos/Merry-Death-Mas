@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class SpawnMonsters
 {
     public GameObject[] spawnMonsters;
-    public int[] SpawnMonsterValue;
+    public int[] SpawnMonsterPersent;
     public int SpawnMonsterBetweenTime;
 }
 
@@ -17,16 +17,12 @@ public class EnemySpawn : MonoBehaviour
 {
     public Transform Tree;
 
-
-
     public int radius;
 
     public int NightTime;
     public int AfternoonTime;
 
-    
-
-    private int WaveCnt = 0 ;
+    private int WaveCnt = 0;
     
     public bool night;
 
@@ -56,6 +52,7 @@ public class EnemySpawn : MonoBehaviour
                 WaveCnt++;
             }
         }
+        Debug.Log("MaxPersent : "+MaxPersent());
         timeText.text = Mathf.Ceil (time).ToString();
     }
 
@@ -90,16 +87,31 @@ public class EnemySpawn : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(Wave[WaveCnt].SpawnMonsterBetweenTime);
+            RandomValue();
+        }
+    }
 
-            // 생성 위치 부분에 위에서 만든 함수 Return_RandomPosition() 함수 대입
-            if (night == true)
+    int MaxPersent()
+    {
+        int a = 0;
+        for(int i = 0;i<Wave[WaveCnt].SpawnMonsterPersent.Length;i++)
+        {
+            a += Wave[WaveCnt].SpawnMonsterPersent[i];
+        }
+        return a;
+    }
+
+    void RandomValue()
+    {
+        int a = Random.Range(1, MaxPersent());
+        for(int i =0;i<Wave[WaveCnt].SpawnMonsterPersent.Length;i++)
+        {
+            a -= Wave[WaveCnt].SpawnMonsterPersent[i];
+            if(a<=0)
             {
-                if(Wave[WaveCnt].spawnMonsters.Length>=2)
-                {
-                    Instantiate(Wave[WaveCnt].spawnMonsters[0], Return_RandomPosition(), Quaternion.identity);
-                }
-
-                //GameObject instantCapsul = Instantiate(capsul, Return_RandomPosition(), Quaternion.identity);
+                Debug.Log(a);
+                Instantiate(Wave[WaveCnt].spawnMonsters[i], Return_RandomPosition(), Quaternion.identity);
+                break;
             }
         }
     }
