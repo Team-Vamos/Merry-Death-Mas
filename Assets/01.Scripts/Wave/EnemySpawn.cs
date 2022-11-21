@@ -52,7 +52,6 @@ public class EnemySpawn : MonoBehaviour
                 WaveCnt++;
             }
         }
-        Debug.Log("MaxPersent : "+MaxPersent());
         timeText.text = Mathf.Ceil (time).ToString();
     }
 
@@ -74,7 +73,6 @@ public class EnemySpawn : MonoBehaviour
     }
 
     // º“»Ø«“ Object
-    public GameObject capsul;
     private void Start()
     {
         night = true;
@@ -103,13 +101,13 @@ public class EnemySpawn : MonoBehaviour
 
     void RandomValue()
     {
-        int a = Random.Range(1, MaxPersent());
+        int a = Random.Range(1, MaxPersent()+1);
         for(int i =0;i<Wave[WaveCnt].SpawnMonsterPersent.Length;i++)
         {
             a -= Wave[WaveCnt].SpawnMonsterPersent[i];
+            
             if(a<=0)
             {
-                Debug.Log(a);
                 Instantiate(Wave[WaveCnt].spawnMonsters[i], Return_RandomPosition(), Quaternion.identity);
                 break;
             }

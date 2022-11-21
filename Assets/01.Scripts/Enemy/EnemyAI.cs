@@ -37,17 +37,16 @@ public class EnemyAI : MonoBehaviour
     
     public float health;
 
-    //Patroling
     private Vector3 walkPoint;
     bool walkPointSet;
     private float walkPointRange;
 
-    //Attacking
+
     public float timeBetweenAttacks;
     bool alreadyAttacked;
     public GameObject projectile;
 
-    //States
+
     private float sightRange = 1001f;
     public float attackRange;
     private bool playerInSightRange;
@@ -97,13 +96,12 @@ public class EnemyAI : MonoBehaviour
 
         Vector3 distanceToWalkPoint = transform.position - walkPoint;
 
-        //Walkpoint reached
+
         if (distanceToWalkPoint.magnitude < 1f)
             walkPointSet = false;
     }
     private void SearchWalkPoint()
     {
-        //Calculate random point in range
         float randomZ = Random.Range(-walkPointRange, walkPointRange);
         float randomX = Random.Range(-walkPointRange, walkPointRange);
 
@@ -116,7 +114,6 @@ public class EnemyAI : MonoBehaviour
     private void ChasePlayer()
     {
         agent.SetDestination(Target.position);
-        Debug.Log("Move");
         anim.SetBool("ToTarget", true);
 
     }
@@ -132,14 +129,11 @@ public class EnemyAI : MonoBehaviour
             switch(enemyAtkType)
             {
                 case EnemyAtkType.longRange:
-                    ///Attack code here
                     Rigidbody rb = Instantiate(projectile, BulletPosition.position, Quaternion.identity).GetComponent<Rigidbody>();
                     rb.AddForce(transform.forward * 32f, ForceMode.Impulse);
-                    ///End of attack code
                     break;
                 case EnemyAtkType.shortRange:
                     anim.SetTrigger("Attack");
-                    Debug.Log("Attack");
                     break;
             }
 
