@@ -8,4 +8,5 @@ public static class Const
     public static string Vetical = "Vertical";
     public static string Moving = "Move";
     public static string Speed = "Speed";
+    public static string Dig = "Dig";
 }
