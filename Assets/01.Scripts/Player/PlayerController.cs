@@ -52,6 +52,7 @@ namespace SD
         [SerializeField]
         private Transform shootPos;
 
+
         void Awake()
         {
             m_Rigidbody = GetComponent<Rigidbody>();
@@ -184,6 +185,7 @@ namespace SD
                 snowObj.SetActive(false);
                 GameManager.Instance.AddSnow(Random.Range(1, 5));
             }
+
         }
 
         private void OnTriggerEnter(Collider collision)
