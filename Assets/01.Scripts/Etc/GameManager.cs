@@ -11,6 +11,9 @@ public class GameManager : MonoSingleton<GameManager>
         get => snows;
     }
 
+    public int SnowBallDmg = 3;
+    public int ShovelDmg = 4;
+
     public void AddSnow(int amount)
     {
         snows += amount;

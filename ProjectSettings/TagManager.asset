@@ -7,6 +7,8 @@ TagManager:
   - Snow
   - Tree
   - Enemy
+  - Shovel
+  - SnowBall
   layers:
   - Default
   - TransparentFX
