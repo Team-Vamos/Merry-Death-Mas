@@ -9,4 +9,6 @@ public static class Const
     public static string Moving = "Move";
     public static string Speed = "Speed";
     public static string Dig = "Dig";
+    public static string Shoot = "Shoot";
+    public static string Melee = "Melee";
 }

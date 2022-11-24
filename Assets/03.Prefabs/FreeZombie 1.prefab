@@ -315,6 +315,7 @@ GameObject:
   - component: {fileID: 95394820208651578}
   - component: {fileID: 6247545559681897019}
   - component: {fileID: 8590095019579540015}
+  - component: {fileID: -3794279063805991823}
   m_Layer: 9
   m_Name: FreeZombie 1
   m_TagString: Enemy
@@ -396,7 +397,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.2
-  m_Speed: 5.77
+  m_Speed: 3
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -408,6 +409,20 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!136 &-3794279063805991823
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1391888216552696}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.3
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!1 &1412685104993132
 GameObject:
   m_ObjectHideFlags: 0

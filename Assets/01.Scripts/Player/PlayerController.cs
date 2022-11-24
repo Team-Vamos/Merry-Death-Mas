@@ -3,6 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
+enum AtkMode
+{
+    Shovel, Melee, Gun
+}
+
 namespace SD
 {
 
@@ -14,7 +19,7 @@ namespace SD
         public float walkSpeed = 3f;
         private float spd = 3f;
         public float runSpeed = 5f;
-        public bool stopMoverment = false;
+        public bool stopMovement = false;
 
         public bool moving { get; set; }
 
@@ -33,6 +38,20 @@ namespace SD
 
         private bool isSnow = false;
         private GameObject snowObj = null;
+        private bool isEnemyClose = false;
+
+        private AtkMode atkMode = AtkMode.Shovel;
+        private bool isAtk = false;
+
+        [SerializeField]
+        private GameObject[] tools;
+
+        [SerializeField]
+        private GameObject snowBall;
+
+        [SerializeField]
+        private Transform shootPos;
+
 
         void Awake()
         {
@@ -44,27 +63,9 @@ namespace SD
 
         void FixedUpdate()
         {
-
             //input 
             m_Horizontal = Input.GetAxis(Const.Horizontal);
             m_Vertical = Input.GetAxis(Const.Vetical);
-
-            if (Input.GetKey(KeyCode.LeftShift))
-            {
-                spd = runSpeed;
-                inputSpeed = Mathf.Lerp(inputSpeed, 1, Time.deltaTime);
-            }
-            else
-            {
-                spd = walkSpeed;
-                inputSpeed = (moving) ? 0.5f * Mathf.Clamp01(Mathf.Abs(m_Horizontal) + Mathf.Abs(m_Vertical)) : Mathf.Lerp(inputSpeed, 0, Time.deltaTime);
-            }
-
-            if (Input.GetMouseButtonDown(0))
-            {
-                stopMoverment = true;
-                m_Animator.SetTrigger(Const.Dig);
-            }
 
             // move vector 
             if (camTrans != null)
@@ -79,7 +80,7 @@ namespace SD
             bool has_H_Input = !Mathf.Approximately(m_Horizontal, 0);
             bool has_V_Input = !Mathf.Approximately(m_Vertical, 0);
 
-            if (!stopMoverment) moving = has_H_Input || has_V_Input;
+            if (!stopMovement) moving = has_H_Input || has_V_Input;
             else moving = false;
 
             m_Animator.SetBool(Const.Moving, moving);
@@ -92,14 +93,99 @@ namespace SD
                 m_Rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(desiredForward), turnSpeed);
                 m_Rigidbody.MoveRotation(m_Rotation);
                 m_Rigidbody.MovePosition(m_Rigidbody.position + inputSpeed * m_MoveVector * spd * Time.deltaTime);
+
             }
 
         }
 
+        private void Update()
+        {
+            if (Input.GetKey(KeyCode.LeftShift))
+            {
+                spd = runSpeed;
+                inputSpeed = Mathf.Lerp(inputSpeed, 1, Time.deltaTime);
+            }
+            else
+            {
+                spd = walkSpeed;
+                inputSpeed = (moving) ? 0.5f * Mathf.Clamp01(Mathf.Abs(m_Horizontal) + Mathf.Abs(m_Vertical)) : Mathf.Lerp(inputSpeed, 0, Time.deltaTime);
+            }
+
+            if (Input.GetMouseButtonDown(0))
+            {
+                if (!isAtk) Atk();
+            }
+
+            if (!isAtk)
+            {
+                float wheelInput = Input.GetAxis("Mouse ScrollWheel");
+
+                if (wheelInput > 0)
+                {
+                    atkMode = isEnemyClose ? AtkMode.Melee : AtkMode.Shovel;
+                    tools[1].SetActive(false);
+                    tools[0].SetActive(true);
+                }
+                else if (wheelInput < 0)
+                {
+                    atkMode = AtkMode.Gun;
+
+                    tools[0].SetActive(false);
+                    tools[1].SetActive(true);
+                }
+            }
+        }
+
+        private void Atk()
+        {
+            isAtk = true;
+            stopMovement = true;
+            switch (atkMode)
+            {
+                case AtkMode.Shovel:
+                    m_Animator.SetTrigger(Const.Dig);
+                    break;
+
+                case AtkMode.Melee:
+                    m_Animator.SetTrigger(Const.Melee);
+                    break;
+
+                case AtkMode.Gun:
+                    //Shoot
+                    m_Animator.SetTrigger(Const.Shoot);
+                    if (GameManager.Instance.getSnow > 0) GameManager.Instance.AddSnow(-1);
+                    break;
+            }
+        }
+
+        private void ChangeTool()
+        {
+            switch (atkMode)
+            {
+                case AtkMode.Shovel:
+                case AtkMode.Melee:
+                    tools[1].SetActive(false);
+                    tools[0].SetActive(true);
+                    break;
+                case AtkMode.Gun:
+                    tools[0].SetActive(false);
+                    tools[1].SetActive(true);
+                    break;
+            }
+        }
+        /// <summary>
+        /// After Dig
+        /// </summary>
         public void ableMove()
         {
-            stopMoverment = false;
-            if(snowObj != null) snowObj.SetActive(false);
+            isAtk = false;
+            stopMovement = false;
+            if (isSnow && snowObj != null)
+            {
+                snowObj.SetActive(false);
+                GameManager.Instance.AddSnow(Random.Range(1, 5));
+            }
+
         }
 
         private void OnTriggerEnter(Collider collision)
@@ -108,6 +194,15 @@ namespace SD
             {
                 isSnow = true;
                 snowObj = collision.gameObject;
+            }
+            else if (collision.gameObject.CompareTag("Enemy"))
+            {
+                isEnemyClose = true;
+
+                if (atkMode != AtkMode.Gun)
+                {
+                    atkMode = AtkMode.Melee;
+                }
             }
         }
 
@@ -118,7 +213,20 @@ namespace SD
                 isSnow = false;
                 snowObj = null;
             }
+            else if (collision.gameObject.CompareTag("Enemy"))
+            {
+                isEnemyClose = false;
+
+                if (atkMode != AtkMode.Gun)
+                {
+                    atkMode = AtkMode.Shovel;
+                }
+            }
+        }
+
+        public void Shoot()
+        {
+            Instantiate(snowBall, shootPos);
         }
     }
 }
-

@@ -4,9 +4,11 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - Snow
   - Tree
   - Enemy
-  - Snow
+  - Shovel
+  - SnowBall
   layers:
   - Default
   - TransparentFX
