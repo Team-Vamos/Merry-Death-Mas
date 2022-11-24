@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2393326}
   - component: {fileID: 6467790}
   m_Layer: 0
-  m_Name: Christmas_Tree_V1_03
+  m_Name: TreeMain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
