@@ -3,22 +3,19 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Tree
-  - Enemy
-  - Snow
+  tags: []
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Particles
+  - 
   - Water
   - UI
-  - RTEffect
-  - Ground
-  - Player
-  - Enemy
-  - SnowBall
+  - 
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - 

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Turret : MonoBehaviour
+public class TreeTurret : MonoBehaviour
 {
     [SerializeField]
     private Transform target;
@@ -19,7 +19,8 @@ public class Turret : MonoBehaviour
 
     public string EnemyTag = "Enemy";
 
-    public Transform partToRotate;
+    public float fireRate = 1f;
+    private float fireCountDown = 0f;
 
     private void Start()
     {
@@ -27,15 +28,18 @@ public class Turret : MonoBehaviour
     }
     private void Update()
     {
-        if (target != null)
-        {
-
-        }
         LockOnTarget();
+        if (fireCountDown <= 0f)
+        {
+            Shoot();
+            fireCountDown = AttackDelay;
+        }
+        fireCountDown -= Time.deltaTime;
     }
     void LockOnTarget()
     {
         transform.LookAt(target);
+
     }
 
     void UpdateTarget()
@@ -47,13 +51,13 @@ public class Turret : MonoBehaviour
         foreach (GameObject enemy in enemies)
         {
             float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
-            if(distanceToEnemy<shortestDis)
+            if (distanceToEnemy < shortestDis)
             {
                 shortestDis = distanceToEnemy;
                 nearesetEnemy = enemy;
             }
         }
-        if(nearesetEnemy!=null&&shortestDis<=attackRange)
+        if (nearesetEnemy != null && shortestDis <= attackRange)
         {
             target = nearesetEnemy.transform;
             Debug.Log("FindTarget");
@@ -64,11 +68,10 @@ public class Turret : MonoBehaviour
         }
     }
 
-    IEnumerator Shoot()
+    void Shoot()
     {
-        yield return new WaitForSeconds(AttackDelay);
-            Rigidbody rb = Instantiate(BulletPre, firePoint.position, Quaternion.identity).GetComponent<Rigidbody>();
-            rb.AddForce(transform.forward * 32f, ForceMode.Impulse);    
+        Rigidbody rb = Instantiate(BulletPre, firePoint.position, Quaternion.identity).GetComponent<Rigidbody>();
+        rb.AddForce(transform.forward * 32f, ForceMode.Impulse);
     }
 
     private void OnDrawGizmosSelected()
