@@ -9,38 +9,56 @@ public class Upgrade : MonoBehaviour
 
     public Canvas UpgradeCanvas;
 
-    public Image GuideImage;
+    public Canvas GuideImage;
+
+    private bool Enabled = false;
+
+    private bool IsEnabledRange;
 
     public float radius;
+
+    public LayerMask whatIsPlayer;
 
     public UpgradeData[] Data;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        
+        UpgradeCanvas.enabled = false;
+        GuideImage.enabled = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Collider[] col = Physics.OverlapSphere(Tree.position, radius);
-        
-        foreach(Collider co in col)
+        IsEnabledRange = Physics.CheckSphere(transform.position, radius, whatIsPlayer);
+
+        if (IsEnabledRange)
         {
-            if(co.CompareTag("Player"))
+            Debug.Log("EOejfoi");
+            GuideImage.enabled = true;
+            if(Input.GetKeyDown(KeyCode.E)&&Enabled==false)
             {
-                GuideImage.enabled = true;
-                if(Input.GetKeyDown(KeyCode.E))
-                {
-                    UpgradeCanvas.enabled = true;
-                }
+                UpgradePanelEnabled(0f, true, true);
+
             }
-            else
+            else if(Enabled==true&&Input.GetKeyDown(KeyCode.E))
             {
-                GuideImage.enabled = false;
+                UpgradePanelEnabled(1f, false, false);
             }
         }
+        else
+        {
+            GuideImage.enabled = false;
+        }
+    }
+
+    void UpgradePanelEnabled(float timeScale,bool UpgradeCanvasenabled,bool Enabledcheck)
+    {
+        Time.timeScale = timeScale;
+
+        UpgradeCanvas.enabled = UpgradeCanvasenabled;
+        Enabled = Enabledcheck;
     }
 
     private void OnDrawGizmos()
