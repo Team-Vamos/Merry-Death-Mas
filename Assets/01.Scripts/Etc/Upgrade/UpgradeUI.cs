@@ -13,11 +13,28 @@ namespace TreeUpgrade
         public Button BuyButton;
 
         public int currentIndex = 0;
+        public int currentLevel = 0;
         private void Start()
         {
+            currentLevel = UpgradeData.TreeUpgrade[currentIndex].NowUpgrade;
             ItemName.text = UpgradeData.TreeUpgrade[currentIndex].UpName;
-            ItemLevel.text = "Level : "+UpgradeData.TreeUpgrade[currentIndex].NowUpgrade;
-            UpgradeCostText.text = "Candy : " + UpgradeData.TreeUpgrade[currentIndex].UpgradeLevel[UpgradeData.TreeUpgrade[currentIndex].NowUpgrade].BuyCost;
+            ItemLevel.text = "Level : "+currentLevel;
+            UpgradeCostText.text =  UpgradeData.TreeUpgrade[currentIndex].UpgradeLevel[currentLevel].BuyCost.ToString();
+        }
+
+        public void NextLevel()
+        {
+            if (currentLevel < UpgradeData.TreeUpgrade[currentIndex].MaxUpgrade)
+            {
+                currentLevel++;
+                ItemName.text = UpgradeData.TreeUpgrade[currentIndex].UpName;
+                ItemLevel.text = "Level : " + currentLevel;
+                UpgradeCostText.text = UpgradeData.TreeUpgrade[currentIndex].UpgradeLevel[currentLevel].BuyCost.ToString();
+            }
+            else
+            {
+                BuyButton.interactable = false;
+            }
         }
     }
 

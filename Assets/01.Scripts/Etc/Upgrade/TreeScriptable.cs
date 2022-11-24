@@ -16,7 +16,8 @@ namespace TreeUpgrade
 
         public string UpName;
         public bool isMaxUp;
-        public int NowUpgrade = 1;
+        public int NowUpgrade = 0;
+        public int MaxUpgrade = 5;
         public UpgradeInfo[] UpgradeLevel;
     }
 
