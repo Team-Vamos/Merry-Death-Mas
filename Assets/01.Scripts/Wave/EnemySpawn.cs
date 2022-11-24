@@ -44,12 +44,12 @@ public class EnemySpawn : MonoBehaviour
             {
                 time = NightTime;
                 night = true;
+                WaveCnt++;
             }
             else if(night==true)
             {
                 time = AfternoonTime;
                 night = false;
-                WaveCnt++;
             }
         }
         timeText.text = Mathf.Ceil (time).ToString();
