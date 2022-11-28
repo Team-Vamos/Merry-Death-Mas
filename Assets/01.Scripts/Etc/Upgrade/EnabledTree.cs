@@ -31,12 +31,14 @@ public class EnabledTree : MonoBehaviour
         playerInTree = Physics.CheckSphere(transform.position, Range, PlayerLayer);
         EnabledUpgradeUI();
 
-        if(Timer<=0f)
+        if (Timer<=0f)
         {
+
             IsOpenTree = true;
         }
         else if (!IsOpenTree)
         {
+
             Timer -= Time.deltaTime;
         }
 
@@ -63,6 +65,10 @@ public class EnabledTree : MonoBehaviour
                 TreeCanvas.enabled = false;
                 Enabled = false;
             }
+        }
+        else
+        {
+            GuideCanvas.enabled = false;
         }
     }
 
