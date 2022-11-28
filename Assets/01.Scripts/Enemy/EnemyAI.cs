@@ -52,15 +52,15 @@ public class EnemyAI : MonoBehaviour
     private bool playerInSightRange;
     public bool playerInAttackRange;
 
+    public bool isAtk = false;
+
+    [SerializeField]
+    Renderer _renderer;
+
+
     private void Start()
     {
-
-        anim = GetComponent<Animator>();
-    }
-
-    private void Awake()
-    {
-        switch(enemyTargetType)
+        switch (enemyTargetType)
         {
             case EnemyTargetType.Player:
                 Target = GameObject.Find("Player").transform;
@@ -72,7 +72,11 @@ public class EnemyAI : MonoBehaviour
                 break;
 
         }
+    }
 
+    private void Awake()
+    {
+        anim = GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
     }
 
@@ -133,6 +137,7 @@ public class EnemyAI : MonoBehaviour
                     rb.AddForce(transform.forward * 32f, ForceMode.Impulse);
                     break;
                 case EnemyAtkType.shortRange:
+                    isAtk = true;
                     anim.SetTrigger("Attack");
                     break;
             }
@@ -141,21 +146,33 @@ public class EnemyAI : MonoBehaviour
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
         }
     }
+
     private void ResetAttack()
     {
-        
         alreadyAttacked = false;
     }
 
     public void TakeDamage(int damage)
     {
         health -= damage;
-
+        StartCoroutine(Hit());
         if (health <= 0)
         {
             Invoke(nameof(DestroyEnemy), 0.5f);
         }
     }
+
+    private IEnumerator Hit()
+    {
+        _renderer.materials[0].color = Color.red;
+        _renderer.materials[1].color = Color.red;
+        yield return new WaitForSeconds(0.1f);
+        _renderer.materials[0].color = Color.white;
+        _renderer.materials[1].color = Color.white;
+
+
+    }
+
     private void DestroyEnemy()
     {
         Destroy(gameObject);
@@ -165,5 +182,26 @@ public class EnemyAI : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, attackRange);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("Shovel"))
+        {
+            TakeDamage(GameManager.Instance.ShovelDmg);
+        }
+
+        if(other.CompareTag("SnowBall"))
+        {
+            TakeDamage(GameManager.Instance.SnowBallDmg);
+            StartCoroutine(Freeze());
+        }
+    }
+
+    private IEnumerator Freeze()
+    {
+        agent.isStopped = true;
+        yield return new WaitForSeconds(GameManager.Instance.FreezeTime);
+        agent.isStopped = false;
     }
 }

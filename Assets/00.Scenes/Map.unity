@@ -191,6 +191,37 @@ LightingSettings:
   m_PVRFilteringAtrousPositionSigmaIndirect: 2
   m_PVRFilteringAtrousPositionSigmaAO: 1
   m_PVRTiledBaking: 0
+--- !u!1 &338679118
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 338679119}
+  m_Layer: 0
+  m_Name: RespawnPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &338679119
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 338679118}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 15.55, y: 0, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &342197420
 GameObject:
   m_ObjectHideFlags: 0
@@ -251,8 +282,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d1b1dd1c023bfd40932348516253a42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SnowBallDmg: 3
+  SnowBallDmg: 10
   ShovelDmg: 4
+  FreezeTime: 2
+  snowPileTime: 2
+  multiply: 1
 --- !u!4 &418691251
 Transform:
   m_ObjectHideFlags: 0
@@ -266,7 +300,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &639943041
 PrefabInstance:
@@ -599,7 +633,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e823cd5b5d27c0f4b8256e7c12ee3e6d, type: 2}
+  - {fileID: 2100000, guid: 6dff3f6145e24fb429c3f00ac9da45ba, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1354,7 +1388,7 @@ ParticleSystem:
     m_UseMeshMaterialIndex: 0
     m_UseMeshColors: 1
     alignToDirection: 0
-    m_Texture: {fileID: 0}
+    m_Texture: {fileID: 2800000, guid: 9fd44b195a60c4640b941629dc30b820, type: 3}
     m_TextureClipChannel: 3
     m_TextureClipThreshold: 0
     m_TextureUVChannel: 0
@@ -5833,7 +5867,7 @@ PrefabInstance:
     - target: {fileID: 6628986935490177111, guid: 85394e0a61deeda41a5c85bd6e581a1a,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6628986935490177111, guid: 85394e0a61deeda41a5c85bd6e581a1a,
         type: 3}
@@ -6201,10 +6235,10 @@ BoxCollider:
   m_GameObject: {fileID: 2096380031}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
-  m_Size: {x: 0.7051936, y: 1.837157, z: 0.07993109}
-  m_Center: {x: 0.032209564, y: -0.31652048, z: 0.0019079008}
+  m_Size: {x: 0.7030481, y: 1.9150957, z: 0.45070553}
+  m_Center: {x: 0.033370137, y: -0.3554905, z: 0.09416294}
 --- !u!1 &20683077466476478
 GameObject:
   m_ObjectHideFlags: 0
@@ -6747,9 +6781,15 @@ MonoBehaviour:
   tools:
   - {fileID: 2096380031}
   - {fileID: 6410367040676685471}
+  shovelCollider: {fileID: 2096380034}
   snowBall: {fileID: 4904884725537179666, guid: 7d94951097c07eb4a857752ee06b9884,
     type: 3}
   shootPos: {fileID: 342197421}
+  Hp: 10
+  respawnPos: {fileID: 338679119}
+  playerMaterial:
+  - {fileID: 2100000, guid: 829fb7808d20da440bacbca6b482c9b9, type: 2}
+  - {fileID: 2100000, guid: c6bbbd67abf4251499c06584497fa75d, type: 2}
 --- !u!136 &1265177029809873233
 CapsuleCollider:
   m_ObjectHideFlags: 0

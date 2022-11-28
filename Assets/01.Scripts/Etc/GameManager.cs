@@ -4,21 +4,26 @@ using UnityEngine;
 
 public class GameManager : MonoSingleton<GameManager>
 {
-    private int snows = 0;
+    public int SnowBallDmg = 10; //´«µ¢ÀÌ µ¥¹ÌÁö
+    public int ShovelDmg = 5;   //»ð µ¥¹ÌÁö
+
+    public float FreezeTime = 3f; //Àû ºù°á ½Ã°£
+
+    public float snowPileTime = 10f; //´« 1´Ü°è ½×ÀÌ´Â ½Ã°£
+
+    private int snows = 0; //ÇÃ·¹ÀÌ¾î°¡ Áö´Ñ ´« ¼ö
+
+    public int playerHp = 10;
+    public int playeAtk = 2;
 
     public int getSnow
     {
         get => snows;
     }
+    
+    public int multiply = 1;
 
-    public int SnowBallDmg = 3;
-    public int ShovelDmg = 4;
-    public int ShovelKnockBack = 3;
-    public int minSnow = 1;
-    public int maxSnow = 5;
+    public void AddSnow(int amount) => snows += amount * multiply;
 
-    public void AddSnow(int amount)
-    {
-        snows += amount;
-    }    
+    public void UseSnow() => --snows;
 }

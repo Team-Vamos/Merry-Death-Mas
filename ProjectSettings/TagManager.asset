@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - Shovel
   - SnowBall
+  - EnemyAtk
   layers:
   - Default
   - TransparentFX
