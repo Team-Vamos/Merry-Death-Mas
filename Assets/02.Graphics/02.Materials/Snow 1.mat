@@ -70,6 +70,10 @@ Material:
         m_Texture: {fileID: 10300, guid: 0000000000000000f000000000000000, type: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _NoiseTexture:
+        m_Texture: {fileID: 2800000, guid: 239aed188b8470041b13dc007d4c5f49, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -119,12 +123,16 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _EnvironmentReflections: 1
+    - _FurnelPower: 3.32
+    - _GlitterOffset: 0.9
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
+    - _GradiantPower: 2
     - _Height: 5
     - _Hight: 9.03
     - _Metallic: 0
+    - _NoiseRotationSpd: 10
     - _OcclusionStrength: 1
     - _Parallax: 0.005
     - _QueueControl: 0
@@ -142,10 +150,15 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
+    - _BaseColor1: {r: 0.9198113, g: 1, b: 0.99759436, a: 0}
+    - _BaseColor2: {r: 0.9669811, g: 1, b: 0.9973585, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _FUrnelColor: {r: 0.9292453, g: 0.9693396, b: 1, a: 1}
+    - _GlitterColor: {r: 0.7877358, g: 0.88394904, b: 1, a: 1}
     - _Ground: {r: -1, g: 0, b: 0, a: 0}
     - _Hight: {r: 2, g: 0, b: 0, a: 0}
+    - _NoiseScake: {r: 8, g: 8, b: 0, a: 0}
     - _Smooth: {r: 0, g: 0, b: 0, a: 0}
     - _Smooth2: {r: 1, g: 0, b: 0, a: 0}
     - _Snow: {r: 9, g: 0, b: 0, a: 0}

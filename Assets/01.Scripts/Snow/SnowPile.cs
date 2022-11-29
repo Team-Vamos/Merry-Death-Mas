@@ -10,11 +10,19 @@ public class SnowPile : MonoBehaviour
     private void Awake()
     {
         meshRenderer = GetComponent<MeshRenderer>();    
+        StartCoroutine(SnowStack());
     }
 
-    private void Start()
+    private void OnEnable()
     {
+        snowStack = 0f;
         StartCoroutine(SnowStack());
+    }
+
+    private void OnDisable()
+    {
+        snowStack = 0f;
+        StopAllCoroutines();
     }
 
     private IEnumerator SnowStack()

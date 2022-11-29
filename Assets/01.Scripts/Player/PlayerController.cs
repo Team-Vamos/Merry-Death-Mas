@@ -60,12 +60,27 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private Material[] playerMaterial;
 
+    private Renderer[] renderers;
+
+
+    private void OnEnable()
+    {
+        stopMovement = false;
+        isAtk = false;
+        isEnemyClose = false;
+        isSnow = false; 
+        snowObj = null;
+    }
+
     void Awake()
     {
         m_Rigidbody = GetComponent<Rigidbody>();
         m_Animator = GetComponent<Animator>();
         Hp = GameManager.Instance.playerHp;
-        camTrans = Camera.main.transform;
+        camTrans = Camera.main.transform; 
+        playerMaterial[0].color = Color.white;
+        playerMaterial[1].color = Color.white;
+        renderers = GetComponentsInChildren<Renderer>();
     }
 
 
@@ -108,10 +123,11 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKey(KeyCode.LeftShift))
+
+        if (Input.GetKey(KeyCode.LeftShift) && moving)
         {
-            spd = runSpeed;
-            inputSpeed = Mathf.Lerp(inputSpeed, 1, Time.deltaTime);
+                spd = runSpeed;
+                inputSpeed = Mathf.Lerp(inputSpeed, 1, Time.deltaTime);
         }
         else
         {
@@ -190,6 +206,7 @@ public class PlayerController : MonoBehaviour
                 break;
         }
     }
+
     /// <summary>
     /// After Dig
     /// </summary>
@@ -200,7 +217,7 @@ public class PlayerController : MonoBehaviour
 
         if (isSnow && snowObj != null)
         {
-            snowObj.SetActive(false);
+            GameManager.Instance.DeSpawnSnow(snowObj);
             GameManager.Instance.AddSnow(Mathf.RoundToInt(snowObj.GetComponent<MeshRenderer>().material.GetFloat("_Height")));
             snowObj = null;
             isSnow = false;
@@ -273,12 +290,14 @@ public class PlayerController : MonoBehaviour
         playerMaterial[1].color = Color.white;
 
 
-        if (Hp == 0)
+        if (Hp < 0)
         {
             //ui 표시 Respawn 대기 시간
-            yield return new WaitForSeconds(3f);
             transform.position = respawnPos.position;
             Hp = GameManager.Instance.playerHp;
+            GameManager.Instance.RespawnPlayer();
+            gameObject.SetActive(false);
         }
     }
+
 }
