@@ -62,6 +62,8 @@ public class PlayerController : MonoBehaviour
 
     private Renderer[] renderers;
 
+    [SerializeField]
+    private float range;
 
     private void OnEnable()
     {
@@ -138,6 +140,32 @@ public class PlayerController : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             if (!isAtk) Atk();
+        }
+
+        //if (transform.position.x > range)
+        //{
+        //    transform.position = new Vector3(range, transform.position.y, transform.position.z);
+        //}
+        //else if (transform.position.x < -range)
+        //{
+        //    transform.position = new Vector3(-range, transform.position.y, transform.position.z);
+        //}
+        //if (transform.position.z > range)
+        //{
+        //    transform.position = new Vector3(transform.position.x, transform.position.y, range);
+        //}
+        //else if (transform.position.z < -range)
+        //{
+        //    transform.position = new Vector3(transform.position.x, transform.position.y, -range);
+        //}
+
+        float dist = Vector3.Distance(transform.position, Vector3.zero); // the distance from player current position to the circleCenter
+
+        if (dist > range)
+        {
+            Vector3 fromOrigintoObject = transform.position - Vector3.zero;
+            fromOrigintoObject *= range / dist;
+            transform.position = Vector3.zero + fromOrigintoObject;
         }
 
         if (!isAtk)
