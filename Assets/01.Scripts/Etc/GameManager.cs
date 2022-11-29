@@ -99,4 +99,12 @@ public class GameManager : MonoSingleton<GameManager>
         //∫Œ»∞ ¿Ã∆—∆Æ?
         player.SetActive(true);
     }
+
+    public void ResetSanta(GameObject santa)
+    {
+        float randomX = Random.Range(10f, 30f);
+
+        santa.transform.position = new Vector3(randomX, 25f, -100f);
+        santa.SetActive(false);
+    }
 }
