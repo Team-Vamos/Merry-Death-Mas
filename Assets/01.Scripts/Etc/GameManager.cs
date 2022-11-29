@@ -9,7 +9,7 @@ public class GameManager : MonoSingleton<GameManager>
     private GameObject SnowPile;
 
     public int SnowBallDmg = 10; //´«µ¢ÀÌ µ¥¹ÌÁö
-    public int ShovelDmg = 5;   //»ð µ¥¹ÌÁö
+    public int ShovelDmg { get; set; }//»ð µ¥¹ÌÁö
 
     public float FreezeTime = 3f; //Àû ºù°á ½Ã°£
 
@@ -35,12 +35,19 @@ public class GameManager : MonoSingleton<GameManager>
     {
         get => snows;
     }
-    
+
+    private void Awake()
+    {
+        ShovelDmg = 5;
+    }
+
     public int multiply = 1;
 
     public void AddSnow(int amount) => snows += amount * multiply;
 
     public void UseSnow() => --snows;
+
+    public void MultiplyShovelDmg(int amount) => ShovelDmg *= ((100 + amount) / 100);
 
     [SerializeField]
     private Transform PoolManager;

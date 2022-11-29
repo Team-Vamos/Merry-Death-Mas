@@ -3,23 +3,38 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace TreeUpgrade
-{
+
     public class UpgradeUI : MonoBehaviour
     {
         public TreeScriptable UpgradeData;
         public Image UpgradeImage;
         public Text ItemLevel, ItemName, UpgradeCostText;
         public Button BuyButton;
+        [SerializeField]
+        private bool IsBuy;
+
+        private int value1, value2, value3;
 
         public int currentIndex = 0;
         public int currentLevel = 0;
+
+
+
         private void Start()
         {
-            currentLevel = UpgradeData.TreeUpgrade[currentIndex].NowUpgrade;
-            ItemName.text = UpgradeData.TreeUpgrade[currentIndex].UpName;
-            ItemLevel.text = "Level : "+currentLevel;
-            UpgradeCostText.text =  UpgradeData.TreeUpgrade[currentIndex].UpgradeLevel[currentLevel].BuyCost.ToString();
+
+            UpdateValues();
+            UpdateLevelInfo();
+        }
+
+        private void Update()
+        {
+            if(currentLevel == UpgradeData.TreeUpgrade[currentIndex].MaxUpgrade)
+            {
+                UpgradeCostText.text = "MAX".ToString();
+                UpgradeData.TreeUpgrade[currentIndex].isMaxUp = true;
+                BuyButton.interactable = false;
+            }
         }
 
         public void NextLevel()
@@ -27,16 +42,52 @@ namespace TreeUpgrade
             if (currentLevel < UpgradeData.TreeUpgrade[currentIndex].MaxUpgrade)
             {
                 currentLevel++;
-                ItemName.text = UpgradeData.TreeUpgrade[currentIndex].UpName;
-                ItemLevel.text = "Level : " + currentLevel;
-                UpgradeCostText.text = UpgradeData.TreeUpgrade[currentIndex].UpgradeLevel[currentLevel].BuyCost.ToString();
+                UpdateValues();
+                UpdateLevelInfo();
+            }
+        }
+
+        void UpdateValues()
+        {
+            value1 = UpgradeData.TreeUpgrade[currentIndex].UpgradeLevel[currentLevel].value1;
+            value2 = UpgradeData.TreeUpgrade[currentIndex].UpgradeLevel[currentLevel].value2;
+            value3 = UpgradeData.TreeUpgrade[currentIndex].UpgradeLevel[currentLevel].value3;
+        }
+
+        void UpdateLevelInfo()
+        {
+            ItemName.text = UpgradeData.TreeUpgrade[currentIndex].UpName;
+            ItemLevel.text = "Level : " + currentLevel;
+            UpgradeCostText.text = UpgradeData.TreeUpgrade[currentIndex].UpgradeLevel[currentLevel].BuyCost.ToString();
+        }
+
+        public void CandyCane()
+        {
+            Debug.Log("Value 1 : "+value1);
+            if (currentLevel <= 0)
+            {
+                Debug.Log("아이템 구매");
+
+            GameManager.Instance.MultiplyShovelDmg(value1);
+            Debug.Log(GameManager.Instance.ShovelDmg);
             }
             else
             {
-                BuyButton.interactable = false;
-            }
+            GameManager.Instance.MultiplyShovelDmg(value1);
+            Debug.Log("캔디 강화");
+            Debug.Log(GameManager.Instance.ShovelDmg);
+        }
+
+        }
+
+        public void Turr(int value1)
+        {
+
+        }
+
+        public void Star()
+        {
+
         }
     }
-
-}
 

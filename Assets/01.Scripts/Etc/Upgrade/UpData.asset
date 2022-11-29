@@ -16,11 +16,12 @@ MonoBehaviour:
   - UpName: "\uB9C9\uB300 \uC0AC\uD0D5"
     isMaxUp: 0
     NowUpgrade: 1
+    MaxUpgrade: 5
     UpgradeLevel:
     - BuyCost: 6
       value1: 10
-      value2: 0
-      value3: 0
+      value2: 10
+      value3: 190
     - BuyCost: 12
       value1: 20
       value2: 0
@@ -37,9 +38,14 @@ MonoBehaviour:
       value1: 50
       value2: 0
       value3: 0
+    - BuyCost: 30
+      value1: 50
+      value2: 0
+      value3: 0
   - UpName: "\uD138 \uC7A5\uD654"
     isMaxUp: 0
     NowUpgrade: 1
+    MaxUpgrade: 5
     UpgradeLevel:
     - BuyCost: 6
       value1: 2
