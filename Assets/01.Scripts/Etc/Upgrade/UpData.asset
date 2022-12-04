@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TreeUpgrade:
   - UpName: "\uB9C9\uB300 \uC0AC\uD0D5"
-    isMaxUp: 0
-    NowUpgrade: 1
+    ItemImage: {fileID: 21300000, guid: 421f93245dc346c43bab510dffe7db11, type: 3}
+    isMaxUp: 1
     MaxUpgrade: 5
     UpgradeLevel:
     - BuyCost: 6
@@ -39,31 +39,64 @@ MonoBehaviour:
       value2: 0
       value3: 0
     - BuyCost: 30
-      value1: 50
+      value1: 60
       value2: 0
       value3: 0
-  - UpName: "\uD138 \uC7A5\uD654"
-    isMaxUp: 0
-    NowUpgrade: 1
+  - UpName: "\uC120\uBB3C\uC0C1\uC790"
+    ItemImage: {fileID: 21300000, guid: 8e5aaaac56414c5428f25ca21fa8727b, type: 3}
+    isMaxUp: 1
     MaxUpgrade: 5
     UpgradeLevel:
     - BuyCost: 6
-      value1: 2
+      value1: 10
       value2: 0
       value3: 0
     - BuyCost: 12
-      value1: 4
+      value1: 20
       value2: 0
       value3: 0
     - BuyCost: 18
-      value1: 6
+      value1: 30
       value2: 0
       value3: 0
     - BuyCost: 24
-      value1: 8
+      value1: 40
       value2: 0
       value3: 0
     - BuyCost: 30
+      value1: 50
+      value2: 0
+      value3: 0
+    - BuyCost: 30
+      value1: 60
+      value2: 0
+      value3: 0
+  - UpName: "\uD138 \uC7A5\uD654"
+    ItemImage: {fileID: 21300000, guid: 9eb807ea6396b6f45ace5f43febe4a2b, type: 3}
+    isMaxUp: 0
+    MaxUpgrade: 5
+    UpgradeLevel:
+    - BuyCost: 6
       value1: 10
+      value2: 0
+      value3: 0
+    - BuyCost: 12
+      value1: 20
+      value2: 0
+      value3: 0
+    - BuyCost: 18
+      value1: 30
+      value2: 0
+      value3: 0
+    - BuyCost: 24
+      value1: 40
+      value2: 0
+      value3: 0
+    - BuyCost: 30
+      value1: 50
+      value2: 0
+      value3: 0
+    - BuyCost: 30
+      value1: 60
       value2: 0
       value3: 0

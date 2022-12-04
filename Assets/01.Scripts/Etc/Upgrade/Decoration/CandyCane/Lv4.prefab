@@ -1,0 +1,161 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2067065174205905249
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2067065174205905254}
+  m_Layer: 0
+  m_Name: Lv4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2067065174205905254
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2067065174205905249}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2067065173939013547}
+  - {fileID: 2067065174200236807}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &2067065173938548057
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2067065174205905254}
+    m_Modifications:
+    - target: {fileID: 170010, guid: 9d21682eb45dd044a9a0d26d5352f4e2, type: 3}
+      propertyPath: m_Name
+      value: Christmas_Candy_00 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 486130, guid: 9d21682eb45dd044a9a0d26d5352f4e2, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 486130, guid: 9d21682eb45dd044a9a0d26d5352f4e2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.94499993
+      objectReference: {fileID: 0}
+    - target: {fileID: 486130, guid: 9d21682eb45dd044a9a0d26d5352f4e2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.7659998
+      objectReference: {fileID: 0}
+    - target: {fileID: 486130, guid: 9d21682eb45dd044a9a0d26d5352f4e2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3.4109998
+      objectReference: {fileID: 0}
+    - target: {fileID: 486130, guid: 9d21682eb45dd044a9a0d26d5352f4e2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.4598849
+      objectReference: {fileID: 0}
+    - target: {fileID: 486130, guid: 9d21682eb45dd044a9a0d26d5352f4e2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.15099214
+      objectReference: {fileID: 0}
+    - target: {fileID: 486130, guid: 9d21682eb45dd044a9a0d26d5352f4e2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.8750406
+      objectReference: {fileID: 0}
+    - target: {fileID: 486130, guid: 9d21682eb45dd044a9a0d26d5352f4e2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.0033655437
+      objectReference: {fileID: 0}
+    - target: {fileID: 486130, guid: 9d21682eb45dd044a9a0d26d5352f4e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 7.642
+      objectReference: {fileID: 0}
+    - target: {fileID: 486130, guid: 9d21682eb45dd044a9a0d26d5352f4e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -125.603
+      objectReference: {fileID: 0}
+    - target: {fileID: 486130, guid: 9d21682eb45dd044a9a0d26d5352f4e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -15.649
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9d21682eb45dd044a9a0d26d5352f4e2, type: 3}
+--- !u!4 &2067065173939013547 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 486130, guid: 9d21682eb45dd044a9a0d26d5352f4e2,
+    type: 3}
+  m_PrefabInstance: {fileID: 2067065173938548057}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2067065174200561021
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2067065174205905254}
+    m_Modifications:
+    - target: {fileID: 193158, guid: a6803f38f5492a846a254a30a359f917, type: 3}
+      propertyPath: m_Name
+      value: Christmas_Candy_03 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 464506, guid: a6803f38f5492a846a254a30a359f917, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 464506, guid: a6803f38f5492a846a254a30a359f917, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.584
+      objectReference: {fileID: 0}
+    - target: {fileID: 464506, guid: a6803f38f5492a846a254a30a359f917, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.545
+      objectReference: {fileID: 0}
+    - target: {fileID: 464506, guid: a6803f38f5492a846a254a30a359f917, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3.8259997
+      objectReference: {fileID: 0}
+    - target: {fileID: 464506, guid: a6803f38f5492a846a254a30a359f917, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.99715763
+      objectReference: {fileID: 0}
+    - target: {fileID: 464506, guid: a6803f38f5492a846a254a30a359f917, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.07534371
+      objectReference: {fileID: 0}
+    - target: {fileID: 464506, guid: a6803f38f5492a846a254a30a359f917, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 464506, guid: a6803f38f5492a846a254a30a359f917, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 464506, guid: a6803f38f5492a846a254a30a359f917, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 8.642
+      objectReference: {fileID: 0}
+    - target: {fileID: 464506, guid: a6803f38f5492a846a254a30a359f917, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 464506, guid: a6803f38f5492a846a254a30a359f917, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a6803f38f5492a846a254a30a359f917, type: 3}
+--- !u!4 &2067065174200236807 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 464506, guid: a6803f38f5492a846a254a30a359f917,
+    type: 3}
+  m_PrefabInstance: {fileID: 2067065174200561021}
+  m_PrefabAsset: {fileID: 0}
