@@ -53,6 +53,7 @@ public class EnemyAI : MonoBehaviour
     public bool playerInAttackRange;
 
     public bool isAtk = false;
+    private bool stop = false;
 
     [SerializeField]
     Renderer _renderer;
@@ -60,18 +61,7 @@ public class EnemyAI : MonoBehaviour
 
     private void Start()
     {
-        switch (enemyTargetType)
-        {
-            case EnemyTargetType.Player:
-                Target = GameObject.Find("Player").transform;
-                break;
-            case EnemyTargetType.Tree:
-                Target = GameObject.Find("Tree").transform;
-                break;
-            case EnemyTargetType.anyone:
-                break;
-
-        }
+        FindTarget();
     }
 
     private void Awake()
@@ -87,8 +77,33 @@ public class EnemyAI : MonoBehaviour
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
 
         if (!playerInSightRange && !playerInAttackRange) Patroling();
-        if (playerInSightRange && !playerInAttackRange&&alreadyAttacked==false) ChasePlayer();
+        if (playerInSightRange && !playerInAttackRange&&alreadyAttacked==false && !stop) ChasePlayer();
         if (playerInAttackRange && playerInSightRange) AttackPlayer();
+
+        if(Target == null)
+        {
+            stop = true;
+            FindTarget();
+        }
+    }
+
+    private void FindTarget()
+    {
+        switch (enemyTargetType)
+        {
+            case EnemyTargetType.Player:
+                Target = GameObject.Find("Player").transform;
+                break;
+            case EnemyTargetType.Tree:
+                Target = GameObject.Find("Tree").transform;
+                break;
+            case EnemyTargetType.anyone:
+                break;
+            default:
+                FindTarget();
+                break;
+
+        }
     }
 
     private void Patroling()
@@ -169,8 +184,6 @@ public class EnemyAI : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         _renderer.materials[0].color = Color.white;
         _renderer.materials[1].color = Color.white;
-
-
     }
 
     private void DestroyEnemy()
