@@ -26,6 +26,7 @@ public class GameManager : MonoSingleton<GameManager>
     public int playerHp = 10;
     public int playeAtk = 2;
 
+<<<<<<< Updated upstream
     public int snowSpawnRate = 8;
 
     [SerializeField]
@@ -36,6 +37,9 @@ public class GameManager : MonoSingleton<GameManager>
 
     [SerializeField]
     private GameObject RespawnPanel;
+=======
+    public int candy = 10;
+>>>>>>> Stashed changes
 
     public int getSnow
     {
