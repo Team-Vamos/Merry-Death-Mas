@@ -8,6 +8,7 @@ public class UpgradeUI : MonoBehaviour
     public TreeScriptable UpgradeData;
     public Image UpgradeImage;
 
+
     public Text ItemLevel, ItemName, UpgradeCostText;
     public Button BuyButton;
     [SerializeField]
@@ -17,7 +18,7 @@ public class UpgradeUI : MonoBehaviour
 
     public int currentIndex = 0;
     public int currentLevel = 0;
-
+    public GameObject[] Decoration;
 
 
     private void Start()
@@ -35,9 +36,13 @@ public class UpgradeUI : MonoBehaviour
         Debug.Log("CurIndx: "+currentIndex + "        " + "CurLv: "+currentLevel+"     "+"Value1: "+value1);
     }
 
+    public void DecoEnable()
+    {
+        Decoration[currentLevel].SetActive(true);
+    }
+
     public void NextLevel()
     {
-
         if (currentLevel < UpgradeData.TreeUpgrade[currentIndex].MaxUpgrade)
         {
             currentLevel++;
@@ -76,13 +81,13 @@ public class UpgradeUI : MonoBehaviour
         {
             Debug.Log("아이템 구매");
             GameManager.Instance.MultiplyShovelDmg(value1);
-            Debug.Log(GameManager.Instance.ShovelDmg);
+            Debug.Log("삽 공격력 : "+GameManager.Instance.ShovelDmg);
         }
         else
         {
             GameManager.Instance.MultiplyShovelDmg(value1);
             Debug.Log("캔디 강화");
-            Debug.Log(GameManager.Instance.ShovelDmg);
+            Debug.Log("삽 공격력 : " + GameManager.Instance.ShovelDmg);
         }
 
     }
