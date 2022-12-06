@@ -107,4 +107,5 @@ public class GameManager : MonoSingleton<GameManager>
         santa.transform.position = new Vector3(randomX, 25f, -100f);
         santa.SetActive(false);
     }
+
 }
