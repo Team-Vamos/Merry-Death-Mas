@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;   
 
 public enum EnemyTargetType
 {
@@ -37,10 +38,18 @@ public class EnemyAI : MonoBehaviour
     
     public float health;
 
+    private float MaxHealth;
+
+    
+
     private Vector3 walkPoint;
     bool walkPointSet;
     private float walkPointRange;
 
+    public Slider healthBar;
+
+    public int DropCandyMin;
+    public int DropCandyMax;
 
     public float timeBetweenAttacks;
     bool alreadyAttacked;
@@ -61,6 +70,7 @@ public class EnemyAI : MonoBehaviour
 
     private void Start()
     {
+        health = MaxHealth;
         FindTarget();
     }
 
@@ -72,6 +82,18 @@ public class EnemyAI : MonoBehaviour
 
     private void Update()
     {
+        if(health>=MaxHealth)
+        {
+            healthBar.gameObject.SetActive(false);
+        }
+        else
+        {
+            Health();
+            healthBar.gameObject.SetActive(true);
+        }
+
+
+
         //Check for sight and attack range
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
@@ -85,6 +107,11 @@ public class EnemyAI : MonoBehaviour
             stop = true;
             FindTarget();
         }
+    }
+
+    void Health()
+    {
+        healthBar.value = health / MaxHealth;
     }
 
     private void FindTarget()
@@ -167,7 +194,7 @@ public class EnemyAI : MonoBehaviour
         alreadyAttacked = false;
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
         health -= damage;
         StartCoroutine(Hit());
@@ -189,6 +216,7 @@ public class EnemyAI : MonoBehaviour
     private void DestroyEnemy()
     {
         Destroy(gameObject);
+        GameManager.Instance.candy +=GameManager.Instance.RandomCandy(DropCandyMin, DropCandyMax);
     }
 
     private void OnDrawGizmosSelected()

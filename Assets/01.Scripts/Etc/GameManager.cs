@@ -9,7 +9,13 @@ public class GameManager : MonoSingleton<GameManager>
     private GameObject SnowPile;
 
     public int SnowBallDmg = 10; //´«µ¢ÀÌ µ¥¹ÌÁö
-    public int ShovelDmg { get; set; }//»ð µ¥¹ÌÁö
+
+    public float ShovelDmg
+    {
+        get => shovelDmg;
+    }//»ð µ¥¹ÌÁö
+
+    private float shovelDmg = 5; //»ð µ¥¹ÌÁö
 
     public float FreezeTime = 3f; //Àû ºù°á ½Ã°£
 
@@ -31,6 +37,9 @@ public class GameManager : MonoSingleton<GameManager>
     [SerializeField]
     private GameObject RespawnPanel;
 
+    public int candy = 10;
+
+
     public int getSnow
     {
         get => snows;
@@ -38,7 +47,7 @@ public class GameManager : MonoSingleton<GameManager>
 
     private void Awake()
     {
-        ShovelDmg = 5;
+        shovelDmg = 5;
     }
 
     public int multiply = 1;
@@ -47,7 +56,7 @@ public class GameManager : MonoSingleton<GameManager>
 
     public void UseSnow() => --snows;
 
-    public void MultiplyShovelDmg(int amount) => ShovelDmg *= ((100 + amount) / 100);
+    public void MultiplyShovelDmg(float amount) => shovelDmg += (shovelDmg * (amount/100));
 
     [SerializeField]
     private Transform PoolManager;
@@ -73,6 +82,12 @@ public class GameManager : MonoSingleton<GameManager>
         float randomX = Random.Range(10f, 30f);
         Vector3 pos = new Vector3(randomX, -1.48f,randomZ);
         return pos;
+    }
+
+    public int RandomCandy(int min,int max)
+    {
+        int Candy = Random.Range(min, max + 1);
+        return Candy;
     }
 
     public void RespawnPlayer()
