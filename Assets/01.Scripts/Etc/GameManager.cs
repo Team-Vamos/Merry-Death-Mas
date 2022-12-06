@@ -146,7 +146,7 @@ public class GameManager : MonoSingleton<GameManager>
 
     public void ResetSanta(GameObject santa)
     {
-        float randomX = Random.Range(10f, 30f);
+        float randomX = Random.Range(-30f, 30f);
 
         santa.transform.position = new Vector3(randomX, 25f, -100f);
         santa.SetActive(false);

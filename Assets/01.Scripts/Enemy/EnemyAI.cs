@@ -195,14 +195,7 @@ public class EnemyAI : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-
-        Debug.Log("current Health: " + health);
-        Debug.Log("current Dmg: " + damage);
-
         health -= damage;
-
-        Debug.Log("next Health: " + health);
-        Debug.Log("next Dmg: " + damage);
 
         StartCoroutine(Hit());
         if (health <= 0)
