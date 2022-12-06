@@ -25,9 +25,12 @@ public class SnowBall : MonoBehaviour
     }
 
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        enemy.TakeDamage(turret.attackDmg);
-        Destroy(gameObject);
+        if(other.CompareTag("Enemy"))
+        {
+            enemy.TakeDamage(turret.attackDmg);
+            Destroy(gameObject);
+        }
     }
 }

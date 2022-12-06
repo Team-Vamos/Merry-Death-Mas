@@ -10,9 +10,8 @@ public class TreeTurret : MonoBehaviour
 
     public float attackRange;
 
+    public ParticleSystem StarParticle;
 
-
-    public GameObject BulletPre;
     public float AttackDelay;
 
     
@@ -29,17 +28,12 @@ public class TreeTurret : MonoBehaviour
     }
     private void Update()
     {
-        LockOnTarget();
         if (fireCountDown <= 0f)
         {
-            Shoot();
+            TakeDamageStar();
             fireCountDown = AttackDelay;
         }
         fireCountDown -= Time.deltaTime;
-    }
-    void LockOnTarget()
-    {
-        firePoint.LookAt(new Vector3(target.position.x, transform.position.y - 10f, target.position.z));
     }
 
     void UpdateTarget()
@@ -68,10 +62,9 @@ public class TreeTurret : MonoBehaviour
         }
     }
 
-    void Shoot()
+    void TakeDamageStar()
     {
-        Rigidbody rb = Instantiate(BulletPre, firePoint.position, Quaternion.identity).GetComponent<Rigidbody>();
-        rb.AddForce(transform.forward * 32f, ForceMode.Impulse);
+        StarParticle.Play();
     }
 
     private void OnDrawGizmosSelected()

@@ -43,7 +43,7 @@ public class Turret : MonoBehaviour
     }
     void LockOnTarget()
     {
-        partToRotate.LookAt(new Vector3(target.position.x, transform.position.y-10f, target.position.z));
+        partToRotate.LookAt(new Vector3(target.position.x, transform.position.y-1f, target.position.z));
     }   
 
     void UpdateTarget()
