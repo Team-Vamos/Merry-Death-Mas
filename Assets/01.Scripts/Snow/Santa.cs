@@ -24,6 +24,7 @@ public class Santa : MonoBehaviour
         if (transform.position.z > 90)
         {
             GameManager.Instance.ResetSanta(gameObject);
+            StopAllCoroutines();
         }
 
         santaPos = new Vector3(transform.position.x, 0, transform.position.z);
@@ -36,16 +37,26 @@ public class Santa : MonoBehaviour
         spawn = false;
         int random = Random.Range(0, meshes.Length);
 
-        //if(GameManager.Instance.presents < 5)
-        //{
+        if (GameManager.Instance.presents < 5)
+        {
             GameObject currentPresent = Instantiate(present);
             currentPresent.transform.position = transform.position;
             currentPresent.GetComponent<MeshFilter>().mesh = meshes[random];
             currentPresent.AddComponent<BoxCollider>();
             currentPresent.AddComponent<BoxCollider>().isTrigger = true;
-        //}
-        //else
-        
+        }
+        else
+        {
+            Debug.Log("?");
+            GameObject present = GameManager.Instance.presentPoolManager.GetChild(0).gameObject;
+            present.transform.SetParent(null);
+            present.GetComponent<MeshFilter>().mesh = meshes[random];
+            Destroy(present.GetComponent<BoxCollider>());
+            Destroy(present.GetComponent<BoxCollider>());
+            present.AddComponent<BoxCollider>();
+            present.AddComponent<BoxCollider>().isTrigger = true; 
+            present.SetActive(true);
+        }
 
         float randomT = Random.Range(0.5f, 3f);
         yield return new WaitForSeconds(randomT);

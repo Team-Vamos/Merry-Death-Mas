@@ -118,7 +118,7 @@ public class EnemyAI : MonoBehaviour
         switch (enemyTargetType)
         {
             case EnemyTargetType.Player:
-                Target = GameObject.Find("Player").transform;
+                Target = GameObject.Find("Player")?.transform;
                 break;
             case EnemyTargetType.Tree:
                 Target = GameObject.Find("Tree").transform;

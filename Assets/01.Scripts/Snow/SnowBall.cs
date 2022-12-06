@@ -25,14 +25,14 @@ public class SnowBall : MonoBehaviour
     }
 
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Enemy") || other.CompareTag("Ground"))
-        {
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.CompareTag("Enemy") || other.CompareTag("Ground"))
+    //    {
             
-            Debug.Log("맞았다!"+GameManager.Instance.TurretDmg +"의 데미지로");
-            enemy.TakeDamage(GameManager.Instance.TurretDmg);
-            Destroy(gameObject);
-        }
-    }
+    //        Debug.Log("맞았다!"+GameManager.Instance.TurretDmg +"의 데미지로");
+    //        enemy.TakeDamage(GameManager.Instance.TurretDmg);
+    //        Destroy(gameObject);
+    //    }
+    //}
 }
