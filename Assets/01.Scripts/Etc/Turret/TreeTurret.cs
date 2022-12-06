@@ -30,7 +30,9 @@ public class TreeTurret : MonoBehaviour
     {
         if (fireCountDown <= 0f)
         {
-            TakeDamageStar();   
+
+            // ±¤¹üÈÖ °ø°Ý ±¸Çö 
+            Instantiate(StarParticle,transform.position,Quaternion.identity);
             fireCountDown = AttackDelay;
         }
         fireCountDown -= Time.deltaTime;
@@ -60,11 +62,6 @@ public class TreeTurret : MonoBehaviour
         {
             target = null;
         }
-    }
-
-    void TakeDamageStar()
-    {
-        StarParticle.Play();
     }
 
     private void OnDrawGizmosSelected()
