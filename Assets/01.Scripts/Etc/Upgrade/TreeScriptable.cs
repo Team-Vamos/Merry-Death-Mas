@@ -16,6 +16,7 @@ public class TreeUpgrade
     public Sprite ItemImage;
     public bool isMaxUp;
     public int MaxUpgrade;
+
     public UpgradeInfo[] UpgradeLevel;
 }
 

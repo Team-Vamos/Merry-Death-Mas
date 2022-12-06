@@ -26,7 +26,6 @@ public class GameManager : MonoSingleton<GameManager>
     public int playerHp = 10;
     public int playeAtk = 2;
 
-<<<<<<< Updated upstream
     public int snowSpawnRate = 8;
 
     [SerializeField]
@@ -37,9 +36,9 @@ public class GameManager : MonoSingleton<GameManager>
 
     [SerializeField]
     private GameObject RespawnPanel;
-=======
+
     public int candy = 10;
->>>>>>> Stashed changes
+
 
     public int getSnow
     {
@@ -83,6 +82,12 @@ public class GameManager : MonoSingleton<GameManager>
         float randomX = Random.Range(10f, 30f);
         Vector3 pos = new Vector3(randomX, -1.48f,randomZ);
         return pos;
+    }
+
+    public int RandomCandy(int min,int max)
+    {
+        int Candy = Random.Range(min, max + 1);
+        return Candy;
     }
 
     public void RespawnPlayer()

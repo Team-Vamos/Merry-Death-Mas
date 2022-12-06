@@ -29,6 +29,15 @@ public class UpgradeUI : MonoBehaviour
 
     private void Update()
     {
+        if (GameManager.Instance.candy <= UpgradeData.TreeUpgrade[currentIndex].UpgradeLevel[currentLevel].BuyCost)
+        {
+            BuyButton.interactable = false;
+        }
+        else
+        {
+            BuyButton.interactable = true;
+        }
+
         if (currentLevel == UpgradeData.TreeUpgrade[currentIndex].MaxUpgrade)
         {
             UpgradeCostText.text = "MAX".ToString();
@@ -71,6 +80,7 @@ public class UpgradeUI : MonoBehaviour
         ItemName.text = UpgradeData.TreeUpgrade[currentIndex].UpName;
         ItemLevel.text = "Level : " + currentLevel;
         UpgradeCostText.text = UpgradeData.TreeUpgrade[currentIndex].UpgradeLevel[currentLevel].BuyCost.ToString();
+
 
     }
 
