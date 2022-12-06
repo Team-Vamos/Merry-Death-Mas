@@ -55,7 +55,6 @@ public class UpgradeUI : MonoBehaviour
         {
             UpgradeCostText.text = "MAX".ToString();
         }
-        Debug.Log("CurIndx: "+currentIndex + "        " + "CurLv: "+currentLevel+"     "+"Value1: "+value1);
     }
 
     public void DecoEnable()
