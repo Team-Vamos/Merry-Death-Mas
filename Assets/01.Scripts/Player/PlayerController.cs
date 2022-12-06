@@ -125,7 +125,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if(!GameManager.Instance.IsOpenTree)
+        if(!GameManager.Instance.Enabled)
         {
             if (Input.GetKey(KeyCode.LeftShift) && moving)
             {

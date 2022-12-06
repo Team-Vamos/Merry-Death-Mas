@@ -63,8 +63,17 @@ public class GameManager : MonoSingleton<GameManager>
 
     [SerializeField]
     private Text candyTxt;
-    
-    public bool IsOpenTree = true;
+
+    [SerializeField]
+    private Text addCcandyTxt;
+
+    [SerializeField]
+    private Transform addCandyPool;
+
+    [SerializeField]
+    private Transform textPanel;
+
+    public bool Enabled = false;
 
 
     public int presents
@@ -152,4 +161,19 @@ public class GameManager : MonoSingleton<GameManager>
         present.transform.SetParent(presentPoolManager);
     }
 
+    public void AddCandyPool(int candyCnt)
+    {
+        Text text;
+        if (addCandyPool.childCount < 1)
+        {
+            text = Instantiate(addCandyPool).GetComponent<Text>();
+        }
+        else
+        {
+            text = addCandyPool.GetChild(0).GetComponent<Text>();
+            text.gameObject.SetActive(true);
+            text.transform.SetParent(textPanel);
+        }
+        text.text = $"+{candyCnt}";
+    }
 }

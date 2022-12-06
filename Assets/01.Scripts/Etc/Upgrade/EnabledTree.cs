@@ -13,7 +13,7 @@ public class EnabledTree : MonoBehaviour
     public float TreeCoolTime;
     private float Timer;
 
-    private bool Enabled = false;
+    private bool IsOpenTree = false;
     private bool playerInTree;
 
     public LayerMask PlayerLayer;
@@ -33,9 +33,9 @@ public class EnabledTree : MonoBehaviour
         if (Timer<=0f)
         {
 
-            GameManager.Instance.IsOpenTree = true;
+            IsOpenTree = true;
         }
-        else if (!GameManager.Instance.IsOpenTree)
+        else if (!IsOpenTree)
         {
 
             Timer -= Time.deltaTime;
@@ -48,21 +48,21 @@ public class EnabledTree : MonoBehaviour
         if(playerInTree)
         {
             GuideCanvas.enabled = true;
-            if(Input.GetKeyDown(KeyCode.E)&&Enabled == false&& GameManager.Instance.IsOpenTree)
+            if(Input.GetKeyDown(KeyCode.E)&& GameManager.Instance.Enabled == false&& IsOpenTree)
             {
                 Time.timeScale = 0f;
                 WaveCanvas.enabled = false;
                 TreeCanvas.enabled = true;
-                Enabled = true;
-                GameManager.Instance.IsOpenTree = false;
+                GameManager.Instance.Enabled = true;
+                IsOpenTree = false;
                 Timer = TreeCoolTime;
             }
-            else if(Input.GetKeyDown(KeyCode.E)&&Enabled == true)
+            else if(Input.GetKeyDown(KeyCode.E)&& GameManager.Instance.Enabled == true)
             {
                 Time.timeScale = 1f;
                 WaveCanvas.enabled = true;
                 TreeCanvas.enabled = false;
-                Enabled = false;
+                GameManager.Instance.Enabled = false;
             }
         }
         else
