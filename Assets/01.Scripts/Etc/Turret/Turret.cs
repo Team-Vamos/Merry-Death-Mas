@@ -8,8 +8,6 @@ public class Turret : MonoBehaviour
 
     public float attackRange;
 
-    public float attackDmg;
-
     public GameObject BulletPre;
     public float AttackDelay;
 
@@ -43,7 +41,7 @@ public class Turret : MonoBehaviour
     }
     void LockOnTarget()
     {
-        partToRotate.LookAt(new Vector3(target.position.x, transform.position.y-10f, target.position.z));
+        partToRotate.LookAt(new Vector3(target.position.x, transform.position.y, target.position.z));
     }   
 
     void UpdateTarget()
