@@ -513,6 +513,11 @@ PrefabInstance:
       objectReference: {fileID: 971379262}
     - target: {fileID: 5656344412112482303, guid: 9a96573b2a4768c4491ef21f487f686c,
         type: 3}
+      propertyPath: candyTxt
+      value: 
+      objectReference: {fileID: 1908068930}
+    - target: {fileID: 5656344412112482303, guid: 9a96573b2a4768c4491ef21f487f686c,
+        type: 3}
       propertyPath: RespawnTxt
       value: 
       objectReference: {fileID: 1300281145}
@@ -526,6 +531,11 @@ PrefabInstance:
       propertyPath: RespawnPanel
       value: 
       objectReference: {fileID: 1692662814}
+    - target: {fileID: 5656344412112482303, guid: 9a96573b2a4768c4491ef21f487f686c,
+        type: 3}
+      propertyPath: presentPoolManager
+      value: 
+      objectReference: {fileID: 1470913387}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9a96573b2a4768c4491ef21f487f686c, type: 3}
 --- !u!4 &393261428 stripped
@@ -2701,7 +2711,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackRange: 20.68
-  attackDmg: 10
   BulletPre: {fileID: 4904884725537179666, guid: 7d94951097c07eb4a857752ee06b9884,
     type: 3}
   AttackDelay: 2
@@ -4311,9 +4320,9 @@ GameObject:
   - component: {fileID: 2146733578}
   - component: {fileID: 2146733577}
   - component: {fileID: 2146733576}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Plane
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8

@@ -30,7 +30,7 @@ public class TreeTurret : MonoBehaviour
     {
         if (fireCountDown <= 0f)
         {
-            TakeDamageStar();
+            TakeDamageStar();   
             fireCountDown = AttackDelay;
         }
         fireCountDown -= Time.deltaTime;

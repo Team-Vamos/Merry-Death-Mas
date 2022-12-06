@@ -17,6 +17,10 @@ public class GameManager : MonoSingleton<GameManager>
 
     private float shovelDmg = 1f; //»ð µ¥¹ÌÁö
 
+    public float TurretDmg = 1f; //ÅÍ·¿ µ¥¹ÌÁö
+
+    public float StarDmg = 1f; //º° ÅÍÁú¶§ µ¥¹ÌÁö
+
     public float FreezeTime = 3f; //Àû ºù°á ½Ã°£
 
     public float snowPileTime = 10f; //´« 1´Ü°è ½×ÀÌ´Â ½Ã°£
