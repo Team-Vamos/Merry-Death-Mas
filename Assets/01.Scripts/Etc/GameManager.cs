@@ -15,7 +15,7 @@ public class GameManager : MonoSingleton<GameManager>
         get => shovelDmg;
     }//»ð µ¥¹ÌÁö
 
-    private float shovelDmg = 5; //»ð µ¥¹ÌÁö
+    private float shovelDmg = 1f; //»ð µ¥¹ÌÁö
 
     public float FreezeTime = 3f; //Àû ºù°á ½Ã°£
 
@@ -37,7 +37,12 @@ public class GameManager : MonoSingleton<GameManager>
     [SerializeField]
     private GameObject RespawnPanel;
 
-    public int candy = 10;
+    private int candy = 10;
+
+    public int getCandy
+    {
+        get => candy;
+    }
 
 
     public int getSnow
@@ -45,30 +50,34 @@ public class GameManager : MonoSingleton<GameManager>
         get => snows;
     }
 
-    private void Awake()
-    {
-        shovelDmg = 5;
-    }
+    public float multiplySnow = 1;
+    public float multiplyCandy = 1;
 
-    public int multiply = 1;
 
-    public void AddSnow(int amount) => snows += amount * multiply;
-
-    public void UseSnow() => --snows;
-
-    public void MultiplyShovelDmg(float amount) => shovelDmg += (shovelDmg * (amount/100));
 
     [SerializeField]
     private Transform PoolManager;
 
+    [SerializeField]
+    private Transform presentPoolManager;
+
+    [SerializeField]
+    private Text candyTxt;
+
+    public int presents
+    {
+        get => presentPoolManager.childCount;
+    }
+
     private void Start()
     {
         InvokeRepeating("SpawnSnow", 0f, snowSpawnRate);
+        candyTxt.text = $"Candy: {candy}";
     }
 
     private void SpawnSnow()
     {
-        if(PoolManager.childCount > 1)
+        if (PoolManager.childCount > 1)
         {
             PoolManager.GetChild(0).position = RandomPos();
             PoolManager.GetChild(0).gameObject.SetActive(true);
@@ -76,15 +85,28 @@ public class GameManager : MonoSingleton<GameManager>
         }
     }
 
+    public void AddSnow(int amount) => snows += (int)(amount * multiplySnow);
+    public void AddCandy(int amount)
+    {
+        Debug.Log((int)(amount * multiplyCandy));
+        Debug.Log((amount * multiplyCandy));
+        candy += (int)(amount * multiplyCandy);
+        candyTxt.text = $"Candy: {candy}";
+    }
+
+    public void UseSnow() => --snows;
+
+    public void MultiplyShovelDmg(float amount) => shovelDmg += (shovelDmg * (amount / 100));
+
     private Vector3 RandomPos()
     {
         float randomZ = Random.Range(10f, 30f);
         float randomX = Random.Range(10f, 30f);
-        Vector3 pos = new Vector3(randomX, -1.48f,randomZ);
+        Vector3 pos = new Vector3(randomX, -1.48f, randomZ);
         return pos;
     }
 
-    public int RandomCandy(int min,int max)
+    public int RandomCandy(int min, int max)
     {
         int Candy = Random.Range(min, max + 1);
         return Candy;
@@ -121,6 +143,12 @@ public class GameManager : MonoSingleton<GameManager>
 
         santa.transform.position = new Vector3(randomX, 25f, -100f);
         santa.SetActive(false);
+    }
+
+    public void PresentPool(GameObject present)
+    {
+        present.SetActive(false);
+        present.transform.SetParent(presentPoolManager);
     }
 
 }

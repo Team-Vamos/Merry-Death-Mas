@@ -35,10 +35,18 @@ public class Santa : MonoBehaviour
     {
         spawn = false;
         int random = Random.Range(0, meshes.Length);
-        GameObject currentPresent = Instantiate(present);
-        currentPresent.transform.position = transform.position;
-        currentPresent.GetComponent<MeshFilter>().mesh = meshes[random];
-        currentPresent.AddComponent<BoxCollider>();
+
+        //if(GameManager.Instance.presents < 5)
+        //{
+            GameObject currentPresent = Instantiate(present);
+            currentPresent.transform.position = transform.position;
+            currentPresent.GetComponent<MeshFilter>().mesh = meshes[random];
+            currentPresent.AddComponent<BoxCollider>();
+            currentPresent.AddComponent<BoxCollider>().isTrigger = true;
+        //}
+        //else
+        
+
         float randomT = Random.Range(0.5f, 3f);
         yield return new WaitForSeconds(randomT);
         spawn = true;

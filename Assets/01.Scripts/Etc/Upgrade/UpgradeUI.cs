@@ -18,18 +18,31 @@ public class UpgradeUI : MonoBehaviour
 
     public int currentIndex = 0;
     public int currentLevel = 0;
-    public GameObject[] Decoration;
 
+    public Transform Deco = null;
+    private List<GameObject> Decoration = new List<GameObject>();
 
+    private TreeUpgrade upgradeInfo { get => UpgradeData.TreeUpgrade[currentIndex]; }
     private void Start()
     {
         UpdateValues();
         UpdateLevelInfo();
     }
 
+    private void OnValidate()
+    {
+        if (Deco != null)
+        {
+            for (int i = 0; i < Deco.childCount; i++)
+            {
+                Decoration.Add(Deco.GetChild(i).gameObject);
+            }
+        }
+    }
+
     private void Update()
     {
-        if (GameManager.Instance.candy <= UpgradeData.TreeUpgrade[currentIndex].UpgradeLevel[currentLevel].BuyCost)
+        if (GameManager.Instance.getCandy <= upgradeInfo.UpgradeLevel[currentLevel].BuyCost)
         {
             BuyButton.interactable = false;
         }
@@ -38,7 +51,7 @@ public class UpgradeUI : MonoBehaviour
             BuyButton.interactable = true;
         }
 
-        if (currentLevel == UpgradeData.TreeUpgrade[currentIndex].MaxUpgrade)
+        if (currentLevel == upgradeInfo.MaxUpgrade)
         {
             UpgradeCostText.text = "MAX".ToString();
         }
@@ -52,7 +65,7 @@ public class UpgradeUI : MonoBehaviour
 
     public void NextLevel()
     {
-        if (currentLevel < UpgradeData.TreeUpgrade[currentIndex].MaxUpgrade)
+        if (currentLevel < upgradeInfo.MaxUpgrade)
         {
             currentLevel++;
             UpdateValues();
@@ -62,44 +75,32 @@ public class UpgradeUI : MonoBehaviour
 
     void UpdateValues()
     {
-        value1 = UpgradeData.TreeUpgrade[currentIndex].UpgradeLevel[currentLevel].value1;
-        value2 = UpgradeData.TreeUpgrade[currentIndex].UpgradeLevel[currentLevel].value2;
-        value3 = UpgradeData.TreeUpgrade[currentIndex].UpgradeLevel[currentLevel].value3;
-        if (currentLevel >= UpgradeData.TreeUpgrade[currentIndex].MaxUpgrade)
+        value1 = upgradeInfo.UpgradeLevel[currentLevel].value1;
+        value2 = upgradeInfo.UpgradeLevel[currentLevel].value2;
+        value3 = upgradeInfo.UpgradeLevel[currentLevel].value3;
+        if (currentLevel >= upgradeInfo.MaxUpgrade)
         {
 
             BuyButton.interactable = false;
             ItemLevel.text = "Level : " + currentLevel;
-            UpgradeData.TreeUpgrade[currentIndex].isMaxUp = true;
+            upgradeInfo.isMaxUp = true;
         }
     }
 
     void UpdateLevelInfo()
     {
-        UpgradeImage.sprite = UpgradeData.TreeUpgrade[currentIndex].ItemImage;
-        ItemName.text = UpgradeData.TreeUpgrade[currentIndex].UpName;
+        UpgradeImage.sprite = upgradeInfo.ItemImage;
+        ItemName.text = upgradeInfo.UpName;
         ItemLevel.text = "Level : " + currentLevel;
-        UpgradeCostText.text = UpgradeData.TreeUpgrade[currentIndex].UpgradeLevel[currentLevel].BuyCost.ToString();
-
-
+        UpgradeCostText.text = upgradeInfo.UpgradeLevel[currentLevel].BuyCost.ToString();
     }
 
     public void CandyCane()
     {
-        Debug.Log("Value 1 : " + value1);
-        if (currentLevel <= 0)
-        {
-            Debug.Log("아이템 구매");
-            GameManager.Instance.MultiplyShovelDmg(value1);
-            Debug.Log("삽 공격력 : "+GameManager.Instance.ShovelDmg);
-        }
-        else
-        {
-            GameManager.Instance.MultiplyShovelDmg(value1);
-            Debug.Log("캔디 강화");
-            Debug.Log("삽 공격력 : " + GameManager.Instance.ShovelDmg);
-        }
-
+        GameManager.Instance.MultiplyShovelDmg(value1);
+        Debug.Log(-upgradeInfo.UpgradeLevel[currentLevel].BuyCost);
+        if(GameManager.Instance.getCandy > upgradeInfo.UpgradeLevel[currentLevel].BuyCost)
+        GameManager.Instance.AddCandy(-upgradeInfo.UpgradeLevel[currentLevel].BuyCost);
     }
 
     public void Turr(int value1)
