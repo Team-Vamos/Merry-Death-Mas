@@ -71,7 +71,7 @@ MonoBehaviour:
       value1: 60
       value2: 0
       value3: 0
-  - UpName: "\uD138 \uC7A5\uD654"
+  - UpName: "\uD06C\uB9AC\uC2A4\uB9C8\uC2A4 \uBCFC"
     ItemImage: {fileID: 21300000, guid: 9eb807ea6396b6f45ace5f43febe4a2b, type: 3}
     isMaxUp: 0
     MaxUpgrade: 5
@@ -130,6 +130,35 @@ MonoBehaviour:
       value2: 0
       value3: 0
   - UpName: "\uC2A4\uB178\uC6B0\uB9E8"
+    ItemImage: {fileID: 21300000, guid: 9eb807ea6396b6f45ace5f43febe4a2b, type: 3}
+    isMaxUp: 0
+    MaxUpgrade: 5
+    UpgradeLevel:
+    - BuyCost: 6
+      value1: 10
+      value2: 0
+      value3: 0
+    - BuyCost: 12
+      value1: 20
+      value2: 0
+      value3: 0
+    - BuyCost: 18
+      value1: 30
+      value2: 0
+      value3: 0
+    - BuyCost: 24
+      value1: 40
+      value2: 0
+      value3: 0
+    - BuyCost: 30
+      value1: 50
+      value2: 0
+      value3: 0
+    - BuyCost: 30
+      value1: 60
+      value2: 0
+      value3: 0
+  - UpName: "\uD138 \uC7A5\uD654"
     ItemImage: {fileID: 21300000, guid: 9eb807ea6396b6f45ace5f43febe4a2b, type: 3}
     isMaxUp: 0
     MaxUpgrade: 5

@@ -10,16 +10,17 @@ public class TreeTurret : MonoBehaviour
 
     public float attackRange;
 
+
+
     public GameObject BulletPre;
     public float AttackDelay;
 
-    public Transform firePoint;
+    
 
-    public float turnSpeed;
+    public Transform firePoint;
 
     public string EnemyTag = "Enemy";
 
-    public float fireRate = 1f;
     private float fireCountDown = 0f;
 
     private void Start()
@@ -38,8 +39,7 @@ public class TreeTurret : MonoBehaviour
     }
     void LockOnTarget()
     {
-        transform.LookAt(target);
-
+        firePoint.LookAt(new Vector3(target.position.x, transform.position.y - 10f, target.position.z));
     }
 
     void UpdateTarget()

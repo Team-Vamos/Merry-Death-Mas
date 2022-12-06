@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class Turret : MonoBehaviour
 {
-    [SerializeField]
     private Transform target;
 
     public float attackRange;
+
+    public float attackDmg;
 
     public GameObject BulletPre;
     public float AttackDelay;
@@ -16,11 +17,10 @@ public class Turret : MonoBehaviour
 
     public float turnSpeed;
 
-    public string EnemyTag = "Enemy";
+    private string EnemyTag = "Enemy";
 
     public Transform partToRotate;
 
-    public float fireRate = 1f;
     private float fireCountDown = 0f;
 
     private void Start()
@@ -43,7 +43,7 @@ public class Turret : MonoBehaviour
     }
     void LockOnTarget()
     {
-        partToRotate.LookAt(new Vector3(target.position.x, transform.position.y, target.position.z));
+        partToRotate.LookAt(new Vector3(target.position.x, transform.position.y-10f, target.position.z));
     }   
 
     void UpdateTarget()
