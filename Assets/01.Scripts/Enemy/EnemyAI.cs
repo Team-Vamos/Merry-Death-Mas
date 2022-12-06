@@ -35,12 +35,11 @@ public class EnemyAI : MonoBehaviour
     public LayerMask whatIsGround, whatIsPlayer;
 
     private Transform BulletPosition;
-    
-    public float health;
 
+    private float health;
+
+    [SerializeField]
     private float MaxHealth;
-
-    
 
     private Vector3 walkPoint;
     bool walkPointSet;
@@ -196,7 +195,15 @@ public class EnemyAI : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
+
+        Debug.Log("current Health: " + health);
+        Debug.Log("current Dmg: " + damage);
+
         health -= damage;
+
+        Debug.Log("next Health: " + health);
+        Debug.Log("next Dmg: " + damage);
+
         StartCoroutine(Hit());
         if (health <= 0)
         {
@@ -215,6 +222,7 @@ public class EnemyAI : MonoBehaviour
 
     private void DestroyEnemy()
     {
+        //ÀÌÆåÆ® Ãß°¡
         Destroy(gameObject);
         GameManager.Instance.AddCandy(GameManager.Instance.RandomCandy(DropCandyMin, DropCandyMax));
     }

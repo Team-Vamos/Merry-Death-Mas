@@ -125,39 +125,24 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-
-        if (Input.GetKey(KeyCode.LeftShift) && moving)
+        if(!GameManager.Instance.IsOpenTree)
         {
+            if (Input.GetKey(KeyCode.LeftShift) && moving)
+            {
                 spd = runSpeed;
                 inputSpeed = Mathf.Lerp(inputSpeed, 1, Time.deltaTime);
-        }
-        else
-        {
-            spd = walkSpeed;
-            inputSpeed = (moving) ? 0.5f * Mathf.Clamp01(Mathf.Abs(m_Horizontal) + Mathf.Abs(m_Vertical)) : Mathf.Lerp(inputSpeed, 0, Time.deltaTime);
-        }
+            }
+            else
+            {
+                spd = walkSpeed;
+                inputSpeed = (moving) ? 0.5f * Mathf.Clamp01(Mathf.Abs(m_Horizontal) + Mathf.Abs(m_Vertical)) : Mathf.Lerp(inputSpeed, 0, Time.deltaTime);
+            }
 
-        if (Input.GetMouseButtonDown(0))
-        {
-            if (!isAtk) Atk();
+            if (Input.GetMouseButtonDown(0))
+            {
+                if (!isAtk) Atk();
+            }
         }
-
-        //if (transform.position.x > range)
-        //{
-        //    transform.position = new Vector3(range, transform.position.y, transform.position.z);
-        //}
-        //else if (transform.position.x < -range)
-        //{
-        //    transform.position = new Vector3(-range, transform.position.y, transform.position.z);
-        //}
-        //if (transform.position.z > range)
-        //{
-        //    transform.position = new Vector3(transform.position.x, transform.position.y, range);
-        //}
-        //else if (transform.position.z < -range)
-        //{
-        //    transform.position = new Vector3(transform.position.x, transform.position.y, -range);
-        //}
 
         float dist = Vector3.Distance(transform.position, Vector3.zero); // the distance from player current position to the circleCenter
 

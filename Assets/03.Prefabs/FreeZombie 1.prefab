@@ -384,7 +384,7 @@ MonoBehaviour:
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 256
-  health: 10
+  MaxHealth: 10
   healthBar: {fileID: 6933397293128364254}
   DropCandyMin: 2
   DropCandyMax: 10

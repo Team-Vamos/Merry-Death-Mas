@@ -63,6 +63,9 @@ public class GameManager : MonoSingleton<GameManager>
 
     [SerializeField]
     private Text candyTxt;
+    
+    public bool IsOpenTree = true;
+
 
     public int presents
     {
@@ -88,8 +91,6 @@ public class GameManager : MonoSingleton<GameManager>
     public void AddSnow(int amount) => snows += (int)(amount * multiplySnow);
     public void AddCandy(int amount)
     {
-        Debug.Log((int)(amount * multiplyCandy));
-        Debug.Log((amount * multiplyCandy));
         candy += (int)(amount * multiplyCandy);
         candyTxt.text = $"Candy: {candy}";
     }
