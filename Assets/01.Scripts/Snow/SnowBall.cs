@@ -6,8 +6,12 @@ public class SnowBall : MonoBehaviour
 {
     private Rigidbody m_rigidbody = null;
 
+    private Turret turret;
+
+    private EnemyAI enemy;
+
     [SerializeField]
-    private float explotion = 2.0f;
+    private float explotion;
 
     private void Awake()
     {
@@ -23,6 +27,7 @@ public class SnowBall : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        enemy.TakeDamage(turret.attackDmg);
         Destroy(gameObject);
     }
 }

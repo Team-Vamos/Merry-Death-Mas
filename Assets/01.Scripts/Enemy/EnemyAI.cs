@@ -216,7 +216,7 @@ public class EnemyAI : MonoBehaviour
     private void DestroyEnemy()
     {
         Destroy(gameObject);
-        GameManager.Instance.candy +=GameManager.Instance.RandomCandy(DropCandyMin, DropCandyMax);
+        GameManager.Instance.AddCandy(GameManager.Instance.RandomCandy(DropCandyMin, DropCandyMax));
     }
 
     private void OnDrawGizmosSelected()
