@@ -245,6 +245,11 @@ public class EnemyAI : MonoBehaviour
             TakeDamage(GameManager.Instance.SnowBallDmg);
             StartCoroutine(Freeze());
         }
+
+        if(other.CompareTag("SnowManBall"))
+        {
+            TakeDamage(GameManager.Instance.TurretDmg);
+        }
     }
 
     private IEnumerator Freeze()

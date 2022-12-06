@@ -29,9 +29,6 @@ public class SnowBall : MonoBehaviour
     {
         if (other.CompareTag("Enemy") || other.CompareTag("Ground"))
         {
-            
-            Debug.Log("맞았다!"+GameManager.Instance.TurretDmg +"의 데미지로");
-            enemy.TakeDamage(GameManager.Instance.TurretDmg);
             Destroy(gameObject);
         }
     }
