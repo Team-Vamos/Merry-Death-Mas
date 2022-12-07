@@ -53,6 +53,7 @@ public class UpgradeUI : MonoBehaviour
 
         if (currentLevel == upgradeInfo.MaxUpgrade)
         {
+            BuyButton.enabled = false;
             UpgradeCostText.text = "MAX".ToString();
         }
     }
@@ -101,14 +102,43 @@ public class UpgradeUI : MonoBehaviour
         if(GameManager.Instance.getCandy > upgradeInfo.UpgradeLevel[currentLevel].BuyCost)
         GameManager.Instance.AddCandy(-upgradeInfo.UpgradeLevel[currentLevel].BuyCost);
     }
-
-    public void Turr(int value1)
+    
+    public void Candle()
     {
 
     }
 
+
+    public void ChristmasBall()
+    {
+
+    }
+
+    public void SnowMan()
+    {
+        if(currentLevel<=0)
+        {
+            GameManager.Instance.SnowManObj.SetActive(true);
+        }
+        GameManager.Instance.TurretDmg = value1;
+        if (GameManager.Instance.getCandy > upgradeInfo.UpgradeLevel[currentLevel].BuyCost)
+            GameManager.Instance.AddCandy(-upgradeInfo.UpgradeLevel[currentLevel].BuyCost);
+    }
+
+    public void Gift()
+    {
+        //공격 속도 조정 업그레이드
+    }
+
     public void Star()
     {
+        if(currentLevel<=0)
+        {
+            GameManager.Instance.StarUpgrade.SetActive(true);
+        }
+        GameManager.Instance.StarDmg = value1;
+        if (GameManager.Instance.getCandy > upgradeInfo.UpgradeLevel[currentLevel].BuyCost)
+            GameManager.Instance.AddCandy(-upgradeInfo.UpgradeLevel[currentLevel].BuyCost);
 
     }
 }

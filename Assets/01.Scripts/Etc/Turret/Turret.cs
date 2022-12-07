@@ -73,7 +73,7 @@ public class Turret : MonoBehaviour
     void Shoot()
     {
         Rigidbody rb = Instantiate(BulletPre, firePoint.position, Quaternion.identity).GetComponent<Rigidbody>();
-        rb.AddForce(firePoint.forward * 32f, ForceMode.Impulse);
+        rb.AddForce(firePoint.forward * 10f, ForceMode.Impulse);
     }
 
     private void OnDrawGizmosSelected()

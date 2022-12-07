@@ -182,7 +182,7 @@ MonoBehaviour:
   IsBuy: 0
   currentIndex: 0
   currentLevel: 0
-  Decoration: []
+  Deco: {fileID: 0}
 --- !u!1 &1364521926327753759
 GameObject:
   m_ObjectHideFlags: 0
@@ -467,7 +467,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 615506509674014189}
         m_TargetAssemblyTypeName: UpgradeUI, Assembly-CSharp
-        m_MethodName: CandyCane
+        m_MethodName: NextLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -491,7 +491,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 615506509674014189}
         m_TargetAssemblyTypeName: UpgradeUI, Assembly-CSharp
-        m_MethodName: NextLevel
+        m_MethodName: CandyCane
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

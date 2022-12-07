@@ -243,6 +243,11 @@ public class EnemyAI : MonoBehaviour
         {
             TakeDamage(GameManager.Instance.TurretDmg);
         }
+
+        if (other.CompareTag("TreeAttack"))
+        {
+            TakeDamage(GameManager.Instance.TreeStarDmg);
+        }
     }
 
     private IEnumerator Freeze()
