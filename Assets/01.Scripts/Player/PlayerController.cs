@@ -37,7 +37,7 @@ public class PlayerController : MonoBehaviour
     private GameObject snowObj = null;
     private bool isEnemyClose = false;
 
-    private AtkMode atkMode = AtkMode.Shovel;
+    private AtkMode atkMode = AtkMode.Melee;
     private bool isAtk = false;
 
     [SerializeField]
@@ -126,21 +126,24 @@ public class PlayerController : MonoBehaviour
     {
         if (!GameManager.Instance.Enabled)
         {
-            if (Input.GetKey(KeyCode.LeftShift) && moving)
-            {
-                spd = runSpeed;
-                inputSpeed = Mathf.Lerp(inputSpeed, 1, Time.deltaTime);
-            }
-            else
-            {
-                spd = walkSpeed;
-                inputSpeed = (moving) ? 0.5f * Mathf.Clamp01(Mathf.Abs(m_Horizontal) + Mathf.Abs(m_Vertical)) : Mathf.Lerp(inputSpeed, 0, Time.deltaTime);
-            }
+            InputMove();
+            InputAtk();
+            ChangeTool();
+        }
+    }
 
-            if (Input.GetMouseButtonDown(0))
-            {
-                if (!isAtk) Atk();
-            }
+
+    private void InputMove()
+    {
+        if (Input.GetKey(KeyCode.LeftShift) && moving)
+        {
+            spd = runSpeed;
+            inputSpeed = Mathf.Lerp(inputSpeed, 1, Time.deltaTime);
+        }
+        else
+        {
+            spd = walkSpeed;
+            inputSpeed = (moving) ? 0.5f * Mathf.Clamp01(Mathf.Abs(m_Horizontal) + Mathf.Abs(m_Vertical)) : Mathf.Lerp(inputSpeed, 0, Time.deltaTime);
         }
 
         float dist = Vector3.Distance(transform.position, Vector3.zero); // the distance from player current position to the circleCenter
@@ -151,7 +154,18 @@ public class PlayerController : MonoBehaviour
             fromOrigintoObject *= range / dist;
             transform.position = Vector3.zero + fromOrigintoObject;
         }
+    }
 
+    private void InputAtk()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            if (!isAtk) Atk();
+        }
+    }
+
+    private void ChangeTool()
+    {
         if (!isAtk)
         {
             float wheelInput = Input.GetAxis("Mouse ScrollWheel");
@@ -179,18 +193,18 @@ public class PlayerController : MonoBehaviour
         switch (atkMode)
         {
             case AtkMode.Shovel:
-                m_Animator.SetTrigger(Const.Dig);
+                m_Animator.CrossFade(Const.Dig, 0.05f);
                 break;
 
             case AtkMode.Melee:
-
-                m_Animator.SetTrigger(Const.Melee);
+                m_Animator.SetFloat(Const.AtkSpeed, GameManager.Instance.playerAtkSpd);
+                m_Animator.CrossFade(Const.Melee, 0.05f);
                 break;
 
             case AtkMode.Gun:
                 if (GameManager.Instance.getSnow > 0)
                 {
-                    m_Animator.SetTrigger(Const.Shoot);
+                    m_Animator.CrossFade(Const.Shoot, 0.05f);
                     GameManager.Instance.UseSnow();
                 }
                 else
@@ -199,22 +213,6 @@ public class PlayerController : MonoBehaviour
                     stopMovement = false;
                     Debug.Log("눈덩이가 부족합니다!"); //UI 표시
                 }
-                break;
-        }
-    }
-
-    private void ChangeTool()
-    {
-        switch (atkMode)
-        {
-            case AtkMode.Shovel:
-            case AtkMode.Melee:
-                tools[1].SetActive(false);
-                tools[0].SetActive(true);
-                break;
-            case AtkMode.Gun:
-                tools[0].SetActive(false);
-                tools[1].SetActive(true);
                 break;
         }
     }
@@ -252,11 +250,20 @@ public class PlayerController : MonoBehaviour
         {
             isSnow = true;
             snowObj = collision.gameObject;
+
+            if (atkMode != AtkMode.Gun)
+            {
+                atkMode = AtkMode.Shovel;
+            }
         }
         else if (collision.gameObject.CompareTag("Enemy"))
         {
+            isSnow = false;
             isEnemyClose = true;
-            if (atkMode != AtkMode.Gun)
+        }
+        else
+        {
+            if (atkMode != AtkMode.Gun && atkMode != AtkMode.Melee)
             {
                 atkMode = AtkMode.Melee;
             }
@@ -273,12 +280,8 @@ public class PlayerController : MonoBehaviour
 
         else if (collision.gameObject.CompareTag("Enemy"))
         {
+            if(snowObj != null)isSnow = true;
             isEnemyClose = false;
-
-            if (atkMode != AtkMode.Gun)
-            {
-                atkMode = AtkMode.Shovel;
-            }
         }
     }
 

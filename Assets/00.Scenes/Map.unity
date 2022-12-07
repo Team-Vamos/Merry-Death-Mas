@@ -12658,6 +12658,11 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 5656344412112482303, guid: 9a96573b2a4768c4491ef21f487f686c,
         type: 3}
+      propertyPath: playerAtkSpd
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5656344412112482303, guid: 9a96573b2a4768c4491ef21f487f686c,
+        type: 3}
       propertyPath: snowPoolManager
       value: 
       objectReference: {fileID: 1223450366}

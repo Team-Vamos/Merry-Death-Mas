@@ -247,8 +247,8 @@ public class EnemyAI : MonoBehaviour
 
     private IEnumerator Freeze()
     {
-        agent.isStopped = true;
+        stop = true;
         yield return new WaitForSeconds(GameManager.Instance.FreezeTime);
-        agent.isStopped = false;
+        stop = false;
     }
 }

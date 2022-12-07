@@ -11,4 +11,5 @@ public static class Const
     public static string Dig = "Dig";
     public static string Shoot = "Shoot";
     public static string Melee = "Melee";
+    public static string AtkSpeed = "AtkSpeed";
 }
