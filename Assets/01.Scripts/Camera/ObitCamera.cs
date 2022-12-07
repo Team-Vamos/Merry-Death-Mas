@@ -2,18 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-/// <summary>
-/// 1. 카메라로부터 위치 오브셋 피봇 오프셋을 설정
-/// 
-/// 2. 충동 체크 : 이중 체크 (앞, 리버스)
-/// 캐릭터로 부터 카메라 사이
-/// 카메라로 부터 캐릭터 사이
-/// 
-/// 3. Recoil ( 반동 )
-/// 
-/// 4. FOV
-/// </summary>
-
 [RequireComponent(typeof(Camera))]
 public class ObitCamera : MonoBehaviour
 {
@@ -79,10 +67,6 @@ public class ObitCamera : MonoBehaviour
         lerpDefaultFOV = fovCamera.fieldOfView;
         angleHorizontal = charactorPlayer.eulerAngles.y;
 
-        //리셋 3종
-        //aim
-        //fov
-        //angle
         resetAimOffset();
         resetFOV();
         resetMaxVAngle();
@@ -154,45 +138,48 @@ public class ObitCamera : MonoBehaviour
         return ckViewingPos(ckPos, playerFoucusHeight) && ckViewingPosR(ckPos, playerFoucusHeight, offset);
     }
 
-    private void Update()
+    private void LateUpdate()
     {
-        angleHorizontal += Mathf.Clamp(Input.GetAxis("Mouse X"), -1f, 1f) * aimingMouseSpeedH;
-        angleVertical += Mathf.Clamp(Input.GetAxis("Mouse Y"), -1f, 1f) * aimingMouseSpeedV;
-
-        angleVertical = Mathf.Clamp(angleVertical, angleMinV, maxVerticalAngleTarget);
-
-        angleVertical = Mathf.LerpAngle(angleVertical, angleVertical + angleRecoil, 10 * Time.deltaTime);
-
-        Quaternion camRotationY = Quaternion.Euler(0f, angleHorizontal, 0f);
-        Quaternion aimRotation = Quaternion.Euler(-angleVertical, angleHorizontal, 0f);
-        transformCamera.rotation = aimRotation;
-
-        fovCamera.fieldOfView = Mathf.Lerp(fovCamera.fieldOfView, lerpTargetFOV, Time.deltaTime);
-        Vector3 posBaseTemp = charactorPlayer.position + camRotationY * targetPivotOffset;
-        Vector3 noCollisionOffset = targetCamOffset;
-
-        for (float offsetZ = targetCamOffset.z; offsetZ <= 0f; offsetZ += 0.5f)
+        if(!GameManager.Instance.Enabled)
         {
-            noCollisionOffset.z = offsetZ;
+            angleHorizontal += Mathf.Clamp(Input.GetAxis("Mouse X"), -1f, 1f) * aimingMouseSpeedH;
+            angleVertical += Mathf.Clamp(Input.GetAxis("Mouse Y"), -1f, 1f) * aimingMouseSpeedV;
 
-            if (ckDoubleViewingPos(posBaseTemp + aimRotation * noCollisionOffset, Mathf.Abs(offsetZ)) || offsetZ == 0f)
+            angleVertical = Mathf.Clamp(angleVertical, angleMinV, maxVerticalAngleTarget);
+
+            angleVertical = Mathf.LerpAngle(angleVertical, angleVertical + angleRecoil, 10 * Time.deltaTime);
+
+            Quaternion camRotationY = Quaternion.Euler(0f, angleHorizontal, 0f);
+            Quaternion aimRotation = Quaternion.Euler(-angleVertical, angleHorizontal, 0f);
+            transformCamera.rotation = aimRotation;
+
+            fovCamera.fieldOfView = Mathf.Lerp(fovCamera.fieldOfView, lerpTargetFOV, Time.deltaTime);
+            Vector3 posBaseTemp = charactorPlayer.position + camRotationY * targetPivotOffset;
+            Vector3 noCollisionOffset = targetCamOffset;
+
+            for (float offsetZ = targetCamOffset.z; offsetZ <= 0f; offsetZ += 0.5f)
             {
-                break;
+                noCollisionOffset.z = offsetZ;
+
+                if (ckDoubleViewingPos(posBaseTemp + aimRotation * noCollisionOffset, Mathf.Abs(offsetZ)) || offsetZ == 0f)
+                {
+                    break;
+                }
             }
-        }
 
-        lerpCamOffset = Vector3.Lerp(lerpCamOffset, noCollisionOffset, smooth * Time.deltaTime);
-        lerpPivotOffset = Vector3.Lerp(lerpPivotOffset, targetPivotOffset, smooth * Time.deltaTime);
+            lerpCamOffset = Vector3.Lerp(lerpCamOffset, noCollisionOffset, smooth * Time.deltaTime);
+            lerpPivotOffset = Vector3.Lerp(lerpPivotOffset, targetPivotOffset, smooth * Time.deltaTime);
 
-        transformCamera.position = charactorPlayer.position + camRotationY * lerpPivotOffset + aimRotation * lerpCamOffset;
+            transformCamera.position = charactorPlayer.position + camRotationY * lerpPivotOffset + aimRotation * lerpCamOffset;
 
-        if (angleRecoil > 0.0f)
-        {
-            angleRecoil -= angleBounceRecoil * Time.deltaTime;
-        }
-        else if (angleRecoil < 0.0f)
-        {
-            angleRecoil += angleBounceRecoil * Time.deltaTime;
+            if (angleRecoil > 0.0f)
+            {
+                angleRecoil -= angleBounceRecoil * Time.deltaTime;
+            }
+            else if (angleRecoil < 0.0f)
+            {
+                angleRecoil += angleBounceRecoil * Time.deltaTime;
+            }
         }
     }
 

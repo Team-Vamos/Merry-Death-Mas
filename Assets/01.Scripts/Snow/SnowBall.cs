@@ -6,10 +6,6 @@ public class SnowBall : MonoBehaviour
 {
     private Rigidbody m_rigidbody = null;
 
-    private Turret turret;
-
-    private EnemyAI enemy;
-
     [SerializeField]
     private float explotion;
 

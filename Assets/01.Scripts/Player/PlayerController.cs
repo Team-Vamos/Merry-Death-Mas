@@ -70,7 +70,7 @@ public class PlayerController : MonoBehaviour
         stopMovement = false;
         isAtk = false;
         isEnemyClose = false;
-        isSnow = false; 
+        isSnow = false;
         snowObj = null;
     }
 
@@ -79,7 +79,7 @@ public class PlayerController : MonoBehaviour
         m_Rigidbody = GetComponent<Rigidbody>();
         m_Animator = GetComponent<Animator>();
         Hp = GameManager.Instance.playerHp;
-        camTrans = Camera.main.transform; 
+        camTrans = Camera.main.transform;
         playerMaterial[0].color = Color.white;
         playerMaterial[1].color = Color.white;
         renderers = GetComponentsInChildren<Renderer>();
@@ -88,44 +88,43 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        //input 
-        m_Horizontal = Input.GetAxis(Const.Horizontal);
-        m_Vertical = Input.GetAxis(Const.Vetical);
+            //input 
+            m_Horizontal = Input.GetAxis(Const.Horizontal);
+            m_Vertical = Input.GetAxis(Const.Vetical);
 
-        // move vector 
-        if (camTrans != null)
-        {
-            camForward = Vector3.Scale(camTrans.forward, new Vector3(1, 0, 1).normalized);
-            m_MoveVector = m_Vertical * camForward + m_Horizontal * camTrans.right;
-            m_MoveVector.Normalize();
-        }
-        //animation    
+            // move vector 
+            if (camTrans != null)
+            {
+                camForward = Vector3.Scale(camTrans.forward, new Vector3(1, 0, 1).normalized);
+                m_MoveVector = m_Vertical * camForward + m_Horizontal * camTrans.right;
+                m_MoveVector.Normalize();
+            }
+            //animation    
 
 
-        bool has_H_Input = !Mathf.Approximately(m_Horizontal, 0);
-        bool has_V_Input = !Mathf.Approximately(m_Vertical, 0);
+            bool has_H_Input = !Mathf.Approximately(m_Horizontal, 0);
+            bool has_V_Input = !Mathf.Approximately(m_Vertical, 0);
 
-        if (!stopMovement) moving = has_H_Input || has_V_Input;
-        else moving = false;
+            if (!stopMovement) moving = has_H_Input || has_V_Input;
+            else moving = false;
 
-        m_Animator.SetBool(Const.Moving, moving);
-        m_Animator.SetFloat(Const.Speed, inputSpeed);
+            m_Animator.SetBool(Const.Moving, moving);
+            m_Animator.SetFloat(Const.Speed, inputSpeed);
 
-        //move and rotate
-        if (moving)
-        {
-            Vector3 desiredForward = Vector3.RotateTowards(transform.forward, m_MoveVector, turnSpeed * Time.deltaTime, 0f);
-            m_Rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(desiredForward), turnSpeed);
-            m_Rigidbody.MoveRotation(m_Rotation);
-            m_Rigidbody.MovePosition(m_Rigidbody.position + inputSpeed * m_MoveVector * spd * Time.deltaTime);
+            //move and rotate
+            if (moving)
+            {
+                Vector3 desiredForward = Vector3.RotateTowards(transform.forward, m_MoveVector, turnSpeed * Time.deltaTime, 0f);
+                m_Rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(desiredForward), turnSpeed);
+                m_Rigidbody.MoveRotation(m_Rotation);
+                m_Rigidbody.MovePosition(m_Rigidbody.position + inputSpeed * m_MoveVector * spd * Time.deltaTime);
 
-        }
-
+            }
     }
 
     private void Update()
     {
-        if(!GameManager.Instance.Enabled)
+        if (!GameManager.Instance.Enabled)
         {
             if (Input.GetKey(KeyCode.LeftShift) && moving)
             {
@@ -230,7 +229,7 @@ public class PlayerController : MonoBehaviour
 
         if (isSnow && snowObj != null)
         {
-            GameManager.Instance.DeSpawnSnow(snowObj);
+            snowObj.GetComponent<PoolingObj>().whenDestroy();
             GameManager.Instance.AddSnow(Mathf.RoundToInt(snowObj.GetComponent<MeshRenderer>().material.GetFloat("_Height")));
             snowObj = null;
             isSnow = false;

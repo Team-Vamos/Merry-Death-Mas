@@ -62,14 +62,16 @@ public class GameManager : MonoSingleton<GameManager>
     public float multiplySnow = 1;
     public float multiplyCandy = 1;
 
+    public int santaSpawnRate = 4;
 
+    [Header("====== Pools ======")]
+    public Transform snowPoolManager;
 
-    [SerializeField]
-    private Transform PoolManager;
+    public Transform presentPoolManager;
 
-    [SerializeField]
-    private Transform presentPoolManager;
+    public Transform addCandyPool;
 
+    [Header("====== UIs ======")]
     [SerializeField]
     private Text candyTxt;
 
@@ -77,13 +79,9 @@ public class GameManager : MonoSingleton<GameManager>
     private Text addCcandyTxt;
 
     [SerializeField]
-    private Transform addCandyPool;
-
-    [SerializeField]
     private Transform textPanel;
-
+    
     public bool Enabled = false;
-
 
     public int presents
     {
@@ -98,17 +96,18 @@ public class GameManager : MonoSingleton<GameManager>
 
     private void SpawnSnow()
     {
-        if (PoolManager.childCount > 1)
+        if (snowPoolManager.childCount > 1)
         {
-            PoolManager.GetChild(0).position = RandomPos();
-            PoolManager.GetChild(0).gameObject.SetActive(true);
-            PoolManager.GetChild(0).SetParent(null);
+            snowPoolManager.GetChild(0).position = RandomPos();
+            snowPoolManager.GetChild(0).gameObject.SetActive(true);
+            snowPoolManager.GetChild(0).SetParent(null);
         }
     }
 
     public void AddSnow(int amount) => snows += (int)(amount * multiplySnow);
     public void AddCandy(int amount)
     {
+        AddCandyPool(amount);
         candy += (int)(amount * multiplyCandy);
         candyTxt.text = $"Candy: {candy}";
     }
@@ -136,12 +135,6 @@ public class GameManager : MonoSingleton<GameManager>
         StartCoroutine(Respawn());
     }
 
-    public void DeSpawnSnow(GameObject Snow)
-    {
-        Snow.SetActive(false);
-        Snow.transform.SetParent(PoolManager);
-    }
-
     private IEnumerator Respawn()
     {
         RespawnPanel.SetActive(true);
@@ -158,31 +151,37 @@ public class GameManager : MonoSingleton<GameManager>
 
     public void ResetSanta(GameObject santa)
     {
-        float randomX = Random.Range(10f, 30f);
+        float randomX = Random.Range(-30f, 30f);
 
         santa.transform.position = new Vector3(randomX, 25f, -100f);
         santa.SetActive(false);
+        StartCoroutine(spawnSanta(randomX, santa));
     }
 
-    public void PresentPool(GameObject present)
+    IEnumerator spawnSanta(float randomTime, GameObject santa)
     {
-        present.SetActive(false);
-        present.transform.SetParent(presentPoolManager);
+        yield return new WaitForSeconds((randomTime/3) * santaSpawnRate);
+        santa.SetActive(true);
     }
 
     public void AddCandyPool(int candyCnt)
     {
         Text text;
+        string sign = "";
+        sign = candyCnt > 0 ? "+" : "";
+        Debug.Log(addCandyPool.childCount);
         if (addCandyPool.childCount < 1)
         {
-            text = Instantiate(addCandyPool).GetComponent<Text>();
+            text = Instantiate(addCcandyTxt).GetComponent<Text>();
+            text.transform.SetParent(textPanel);
+            text.text = $"{sign}{candyCnt}";
         }
         else
         {
             text = addCandyPool.GetChild(0).GetComponent<Text>();
             text.gameObject.SetActive(true);
             text.transform.SetParent(textPanel);
+            text.text = $"{sign}{candyCnt}";
         }
-        text.text = $"+{candyCnt}";
     }
 }

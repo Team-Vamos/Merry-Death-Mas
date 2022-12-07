@@ -118,7 +118,7 @@ public class EnemyAI : MonoBehaviour
         switch (enemyTargetType)
         {
             case EnemyTargetType.Player:
-                Target = GameObject.Find("Player").transform;
+                Target = GameObject.Find("Player")?.transform;
                 break;
             case EnemyTargetType.Tree:
                 Target = GameObject.Find("Tree").transform;
@@ -195,14 +195,7 @@ public class EnemyAI : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-
-        Debug.Log("current Health: " + health);
-        Debug.Log("current Dmg: " + damage);
-
         health -= damage;
-
-        Debug.Log("next Health: " + health);
-        Debug.Log("next Dmg: " + damage);
 
         StartCoroutine(Hit());
         if (health <= 0)
