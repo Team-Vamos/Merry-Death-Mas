@@ -8,6 +8,12 @@ public class GameManager : MonoSingleton<GameManager>
     [SerializeField]
     private GameObject SnowPile;
 
+    [SerializeField]
+    private GameObject StarUpgrade;
+
+    [SerializeField]
+    private GameObject SnowManObj;
+
     [Header("====== Player Info ======")]
     [SerializeField]
     private GameObject player;
