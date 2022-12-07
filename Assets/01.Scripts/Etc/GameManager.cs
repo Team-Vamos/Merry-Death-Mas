@@ -22,16 +22,15 @@ public class GameManager : MonoSingleton<GameManager>
     public float multiplyCandy = 1; // 얻는 사탕 개수 배율
     public int snowSpawnRate = 8; //눈 소환 주기
     public float snowPileTime = 10f; //눈 1단계 쌓이는 시간
-    public float TreeStarDmg = 1f; //나무 별 데미지
 
+    public float TreeStarDmg = 1f; //나무 별 데미지
     public float StarDmg = 1f; //별 터질때 데미지
+    public float TurretDmg = 1f; //터렛 데미지
 
     public int respawnTime = 3;    //부활 시간
     public int playerHp = 10;   //플레이어 체력
     public int playeAtk = 2;    //플레이어 공격력
     public float playerAtkSpd = 1f; //(60 프레임 * playerAtkSpd)에 한번 휘두름
-    public float TurretDmg = 1f; //터렛 데미지
-    public float StarDmg = 1f; //별 터질때 데미지
     public float FreezeTime = 3f; //적 빙결 시간
     public int SnowBallDmg = 10; //눈덩이 데미지
 
