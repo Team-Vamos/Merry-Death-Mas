@@ -10,6 +10,9 @@ public class GameManager : MonoSingleton<GameManager>
 
     public int SnowBallDmg = 10; //눈덩이 데미지
 
+    public GameObject StarUpgrade;
+    public GameObject SnowManObj;
+
     public float ShovelDmg
     {
         get => shovelDmg;
@@ -18,6 +21,8 @@ public class GameManager : MonoSingleton<GameManager>
     private float shovelDmg = 1f; //삽 데미지
 
     public float TurretDmg = 1f; //터렛 데미지
+
+    public float TreeStarDmg = 1f; //나무 별 데미지
 
     public float StarDmg = 1f; //별 터질때 데미지
 
@@ -41,7 +46,7 @@ public class GameManager : MonoSingleton<GameManager>
     [SerializeField]
     private GameObject RespawnPanel;
 
-    private int candy = 10;
+    private int candy = 300;
 
     public int getCandy
     {

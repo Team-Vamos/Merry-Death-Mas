@@ -23,23 +23,23 @@ MonoBehaviour:
       value2: 10
       value3: 190
     - BuyCost: 12
-      value1: 20
+      value1: 15
       value2: 0
       value3: 0
     - BuyCost: 18
-      value1: 30
+      value1: 20
       value2: 0
       value3: 0
     - BuyCost: 24
-      value1: 40
+      value1: 25
       value2: 0
       value3: 0
     - BuyCost: 30
-      value1: 50
+      value1: 30
       value2: 0
       value3: 0
-    - BuyCost: 30
-      value1: 60
+    - BuyCost: 36
+      value1: 35
       value2: 0
       value3: 0
   - UpName: "\uC120\uBB3C\uC0C1\uC790"
@@ -73,7 +73,7 @@ MonoBehaviour:
       value3: 0
   - UpName: "\uD06C\uB9AC\uC2A4\uB9C8\uC2A4 \uBCFC"
     ItemImage: {fileID: 21300000, guid: 9eb807ea6396b6f45ace5f43febe4a2b, type: 3}
-    isMaxUp: 0
+    isMaxUp: 1
     MaxUpgrade: 5
     UpgradeLevel:
     - BuyCost: 6
@@ -100,38 +100,30 @@ MonoBehaviour:
       value1: 60
       value2: 0
       value3: 0
-  - UpName: "LED \uC7A5\uC2DD"
-    ItemImage: {fileID: 21300000, guid: 9eb807ea6396b6f45ace5f43febe4a2b, type: 3}
-    isMaxUp: 0
-    MaxUpgrade: 5
+  - UpName: "\uBCC4 \uC7A5\uC2DD"
+    ItemImage: {fileID: 21300000, guid: c36b6b5726a483844bae4cd602edb580, type: 3}
+    isMaxUp: 1
+    MaxUpgrade: 3
     UpgradeLevel:
-    - BuyCost: 6
+    - BuyCost: 20
+      value1: 2
+      value2: 0
+      value3: 0
+    - BuyCost: 25
+      value1: 4
+      value2: 0
+      value3: 0
+    - BuyCost: 30
+      value1: 7
+      value2: 0
+      value3: 0
+    - BuyCost: 35
       value1: 10
-      value2: 0
-      value3: 0
-    - BuyCost: 12
-      value1: 20
-      value2: 0
-      value3: 0
-    - BuyCost: 18
-      value1: 30
-      value2: 0
-      value3: 0
-    - BuyCost: 24
-      value1: 40
-      value2: 0
-      value3: 0
-    - BuyCost: 30
-      value1: 50
-      value2: 0
-      value3: 0
-    - BuyCost: 30
-      value1: 60
       value2: 0
       value3: 0
   - UpName: "\uC2A4\uB178\uC6B0\uB9E8"
-    ItemImage: {fileID: 21300000, guid: 9eb807ea6396b6f45ace5f43febe4a2b, type: 3}
-    isMaxUp: 0
+    ItemImage: {fileID: 21300000, guid: cc72a55971b8df54ab38309674433ed2, type: 3}
+    isMaxUp: 1
     MaxUpgrade: 5
     UpgradeLevel:
     - BuyCost: 6

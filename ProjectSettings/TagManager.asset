@@ -12,6 +12,7 @@ TagManager:
   - EnemyAtk
   - Ground
   - SnowManBall
+  - TreeAttack
   layers:
   - Default
   - TransparentFX

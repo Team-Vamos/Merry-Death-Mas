@@ -4,18 +4,12 @@ using UnityEngine;
 
 public class TreeTurret : MonoBehaviour
 {
-    [SerializeField]
-    private Transform target;
-
-
-    public float attackRange;
-
     public ParticleSystem StarParticle;
 
     public float AttackDelay;
 
+    private CapsuleCollider TreeAttackRange;
     
-
     public Transform firePoint;
 
     public string EnemyTag = "Enemy";
@@ -24,51 +18,25 @@ public class TreeTurret : MonoBehaviour
 
     private void Start()
     {
-        InvokeRepeating("UpdateTarget", 0f, 0.5f);
+        TreeAttackRange = GetComponent<CapsuleCollider>();
     }
     private void Update()
     {
         if (fireCountDown <= 0f)
         {
-
-            // ±¤¹üÈÖ °ø°Ý ±¸Çö 
+            TreeAttackRange.enabled = true;
             Instantiate(StarParticle,transform.position,Quaternion.identity);
             fireCountDown = AttackDelay;
+            StartCoroutine(EnabledTrigger());
         }
+
         fireCountDown -= Time.deltaTime;
     }
 
-    void UpdateTarget()
+    IEnumerator EnabledTrigger()
     {
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag(EnemyTag);
-        float shortestDis = Mathf.Infinity;
-        GameObject nearesetEnemy = null;
-
-        foreach (GameObject enemy in enemies)
-        {
-            float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
-            if (distanceToEnemy < shortestDis)
-            {
-                shortestDis = distanceToEnemy;
-                nearesetEnemy = enemy;
-            }
-        }
-        if (nearesetEnemy != null && shortestDis <= attackRange)
-        {
-            target = nearesetEnemy.transform;
-            Debug.Log("FindTarget");
-        }
-        else
-        {
-            target = null;
-        }
+        yield return new WaitForSeconds(1f);
+        TreeAttackRange.enabled = false;
     }
 
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, attackRange);
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, attackRange);
-    }
 }
