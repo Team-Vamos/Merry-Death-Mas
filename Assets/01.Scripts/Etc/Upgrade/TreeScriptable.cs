@@ -17,6 +17,9 @@ public class TreeUpgrade
     public bool isMaxUp;
     public int MaxUpgrade;
 
+    [TextArea]
+    public string itemDesc;
+
     public UpgradeInfo[] UpgradeLevel;
 }
 

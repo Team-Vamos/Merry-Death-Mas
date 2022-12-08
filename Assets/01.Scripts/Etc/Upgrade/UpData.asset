@@ -17,6 +17,7 @@ MonoBehaviour:
     ItemImage: {fileID: 21300000, guid: 421f93245dc346c43bab510dffe7db11, type: 3}
     isMaxUp: 1
     MaxUpgrade: 5
+    itemDesc: "\uD50C\uB808\uC774\uC5B4\uC758 \uACF5\uACA9\uB825\uC774 \uC99D\uAC00\uD569\uB2C8\uB2E4."
     UpgradeLevel:
     - BuyCost: 6
       value1: 10
@@ -46,6 +47,7 @@ MonoBehaviour:
     ItemImage: {fileID: 21300000, guid: 8e5aaaac56414c5428f25ca21fa8727b, type: 3}
     isMaxUp: 1
     MaxUpgrade: 5
+    itemDesc: 
     UpgradeLevel:
     - BuyCost: 6
       value1: 10
@@ -75,6 +77,7 @@ MonoBehaviour:
     ItemImage: {fileID: 21300000, guid: b4382b5016e80f34cbab6ca2d3a68a66, type: 3}
     isMaxUp: 1
     MaxUpgrade: 5
+    itemDesc: 
     UpgradeLevel:
     - BuyCost: 6
       value1: 10
@@ -104,6 +107,7 @@ MonoBehaviour:
     ItemImage: {fileID: 21300000, guid: 9eb807ea6396b6f45ace5f43febe4a2b, type: 3}
     isMaxUp: 1
     MaxUpgrade: 5
+    itemDesc: 
     UpgradeLevel:
     - BuyCost: 6
       value1: 8
@@ -133,6 +137,7 @@ MonoBehaviour:
     ItemImage: {fileID: 21300000, guid: c36b6b5726a483844bae4cd602edb580, type: 3}
     isMaxUp: 1
     MaxUpgrade: 3
+    itemDesc: 
     UpgradeLevel:
     - BuyCost: 20
       value1: 2
@@ -154,6 +159,7 @@ MonoBehaviour:
     ItemImage: {fileID: 21300000, guid: cc72a55971b8df54ab38309674433ed2, type: 3}
     isMaxUp: 1
     MaxUpgrade: 4
+    itemDesc: 
     UpgradeLevel:
     - BuyCost: 6
       value1: 10
