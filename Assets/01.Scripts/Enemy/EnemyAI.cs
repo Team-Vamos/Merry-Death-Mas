@@ -162,7 +162,6 @@ public class EnemyAI : MonoBehaviour
     private void ChasePlayer()
     {
         agent.SetDestination(Target.position);
-        Vector3.RotateTowards(transform.position, Target.position, 1f, 5f);
         anim.SetBool("ToTarget", true);
 
     }
