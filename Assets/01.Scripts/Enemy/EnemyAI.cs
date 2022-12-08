@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.UI;   
+using UnityEngine.UI;
+using UnityEngine.VFX;
 
 public enum EnemyTargetType
 {
@@ -66,6 +67,8 @@ public class EnemyAI : MonoBehaviour
     [SerializeField]
     Renderer _renderer;
 
+    [SerializeField]
+    VisualEffect visualEffect;
 
     private void Start()
     {
@@ -83,7 +86,7 @@ public class EnemyAI : MonoBehaviour
     {
         if(health>=MaxHealth)
         {
-            healthBar.gameObject.SetActive(false);
+            healthBar.gameObject?.SetActive(false);
         }
         else
         {
@@ -159,6 +162,7 @@ public class EnemyAI : MonoBehaviour
     private void ChasePlayer()
     {
         agent.SetDestination(Target.position);
+        Vector3.RotateTowards(transform.position, Target.position, 1f, 5f);
         anim.SetBool("ToTarget", true);
 
     }
@@ -179,13 +183,18 @@ public class EnemyAI : MonoBehaviour
                     break;
                 case EnemyAtkType.shortRange:
                     isAtk = true;
-                    anim.SetTrigger("Attack");
+                    anim.CrossFade("Attack", 0.05f);
                     break;
             }
 
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
         }
+    }
+
+    public void EffectOn()
+    {
+        visualEffect.Play();
     }
 
     private void ResetAttack()
@@ -200,17 +209,16 @@ public class EnemyAI : MonoBehaviour
         StartCoroutine(Hit());
         if (health <= 0)
         {
+            anim.CrossFade("Death", 0.05f);
             Invoke(nameof(DestroyEnemy), 0.5f);
         }
     }
 
     private IEnumerator Hit()
     {
-        _renderer.materials[0].color = Color.red;
-        _renderer.materials[1].color = Color.red;
+        _renderer.material.color = Color.red;
         yield return new WaitForSeconds(0.1f);
-        _renderer.materials[0].color = Color.white;
-        _renderer.materials[1].color = Color.white;
+        _renderer.material.color = Color.white;
     }
 
     private void DestroyEnemy()

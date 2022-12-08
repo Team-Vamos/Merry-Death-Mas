@@ -64646,6 +64646,14 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 2
+    functionName: afterDig
+    data: 
+    objectReferenceParameter: {fileID: 11500000, guid: e923af2996153434c9c3d00932f0bd12,
+      type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 2
     functionName: ableMove
     data: 
     objectReferenceParameter: {fileID: 11500000, guid: e923af2996153434c9c3d00932f0bd12,
