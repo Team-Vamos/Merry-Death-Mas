@@ -10,6 +10,7 @@ public class SnowPile : PoolingObj
     public override Transform poolManager => GameManager.Instance.snowPoolManager;
 
     public override int poolChilds => poolManager.childCount;
+    private bool isEnable = true;
 
     private void Awake()
     {
@@ -22,17 +23,20 @@ public class SnowPile : PoolingObj
     {
         snowStack = 0f;
         meshRenderer.material.SetFloat("_Height", snowStack);
-        StartCoroutine(SnowStack());
+        if(isEnable)StartCoroutine(SnowStack());
     }
 
     private IEnumerator SnowStack()
     {
+        isEnable = false;
         while (snowStack < 5f)
         {
-            meshRenderer.material.SetFloat("_Height", snowStack);
             snowStack += 1f;
+            Debug.Log(snowStack);
+            meshRenderer.material.SetFloat("_Height", snowStack);
             yield return new WaitForSeconds(GameManager.Instance.snowPileTime);
         }
+        isEnable = true;
     }
 
     public override void whenDestroy()

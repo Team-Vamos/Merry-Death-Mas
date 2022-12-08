@@ -129,7 +129,7 @@ Material:
     - _Glossiness: 0
     - _GlossyReflections: 0
     - _GradiantPower: 2
-    - _Height: 5
+    - _Height: 1
     - _Hight: 9.03
     - _Metallic: 0
     - _NoiseRotationSpd: 10

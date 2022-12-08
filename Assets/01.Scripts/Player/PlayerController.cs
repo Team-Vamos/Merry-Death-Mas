@@ -220,18 +220,17 @@ public class PlayerController : MonoBehaviour
     /// <summary>
     /// After Dig
     /// </summary>
+    public void afterDig()
+    {
+        snowObj.GetComponent<PoolingObj>().whenDestroy();
+        GameManager.Instance.AddSnow(Mathf.RoundToInt(snowObj.GetComponent<MeshRenderer>().material.GetFloat("_Height")));
+        snowObj = null;
+        isSnow = false;
+    }
     public void ableMove()
     {
         isAtk = false;
         stopMovement = false;
-
-        if (isSnow && snowObj != null)
-        {
-            snowObj.GetComponent<PoolingObj>().whenDestroy();
-            GameManager.Instance.AddSnow(Mathf.RoundToInt(snowObj.GetComponent<MeshRenderer>().material.GetFloat("_Height")));
-            snowObj = null;
-            isSnow = false;
-        }
     }
 
     public void BladeOn()
@@ -244,16 +243,7 @@ public class PlayerController : MonoBehaviour
         shovelCollider.enabled = false;
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("Enemy"))
-        {
-            isSnow = false;
-            isEnemyClose = true;
-        }
-    }
-
-    private void OnTriggerStay(Collider collision)
+    private void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject.CompareTag("Snow"))
         {
@@ -265,9 +255,11 @@ public class PlayerController : MonoBehaviour
                 atkMode = AtkMode.Shovel;
             }
         }
-        else
+        else if(collision.gameObject.CompareTag("Enemy"))
         {
-            if (atkMode != AtkMode.Gun && atkMode != AtkMode.Melee)
+            isSnow = false;
+            isEnemyClose = true;
+            if (atkMode != AtkMode.Gun)
             {
                 atkMode = AtkMode.Melee;
             }
@@ -280,11 +272,19 @@ public class PlayerController : MonoBehaviour
         {
             isSnow = false;
             snowObj = null;
+            if (atkMode != AtkMode.Gun)
+            {
+                atkMode = AtkMode.Melee;
+            }
         }
 
         else if (collision.gameObject.CompareTag("Enemy"))
         {
-            if(snowObj != null)isSnow = true;
+            if (snowObj != null)
+            {
+                isSnow = true;
+                if (atkMode != AtkMode.Gun) atkMode = AtkMode.Shovel;
+            }
             isEnemyClose = false;
         }
     }
