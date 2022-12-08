@@ -246,7 +246,7 @@ public class EnemyAI : MonoBehaviour
 
         if (other.CompareTag("TreeAttack"))
         {
-            TakeDamage(GameManager.Instance.TreeStarDmg);
+            TakeDamage(GameManager.Instance.StarDmg);
         }
     }
 
