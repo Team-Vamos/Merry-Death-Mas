@@ -8,17 +8,15 @@ public class GameManager : MonoSingleton<GameManager>
     [SerializeField]
     private GameObject SnowPile;
 
-    [SerializeField]
-    private GameObject StarUpgrade;
+    public GameObject StarUpgrade;
 
-    [SerializeField]
-    private GameObject SnowManObj;
+    public GameObject SnowManObj;
 
     [Header("====== Player Info ======")]
     [SerializeField]
     private GameObject player;
 
-    private int candy = 10;
+    private int candy = 10; //플레이어가 지닌 사탕 수
     private int snows = 0; //플레이어가 지닌 눈 수
     private float shovelDmg = 1f; //삽 데미지
 
@@ -90,7 +88,7 @@ public class GameManager : MonoSingleton<GameManager>
     private void Start()
     {
         StartCoroutine(CreateSnow());
-        candyTxt.text = $"Candy: {candy}";
+        AddCandy(0);
     }
 
     IEnumerator CreateSnow()
@@ -115,7 +113,7 @@ public class GameManager : MonoSingleton<GameManager>
     public void AddSnow(int amount) => snows += (int)(amount * multiplySnow);
     public void AddCandy(int amount)
     {
-        AddCandyPool(amount);
+        if(amount > 0)AddCandyPool(amount);
         candy += (int)(amount * multiplyCandy);
         candyTxt.text = $"Candy: {candy}";
     }

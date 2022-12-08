@@ -204,7 +204,7 @@ public class PlayerController : MonoBehaviour
             case AtkMode.Gun:
                 if (GameManager.Instance.getSnow > 0)
                 {
-                    m_Animator.CrossFade(Const.Shoot, 0.05f);
+                    m_Animator.CrossFade(Const.Shoot, 0.5f);
                     GameManager.Instance.UseSnow();
                 }
                 else
@@ -244,6 +244,15 @@ public class PlayerController : MonoBehaviour
         shovelCollider.enabled = false;
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            isSnow = false;
+            isEnemyClose = true;
+        }
+    }
+
     private void OnTriggerStay(Collider collision)
     {
         if (collision.gameObject.CompareTag("Snow"))
@@ -255,11 +264,6 @@ public class PlayerController : MonoBehaviour
             {
                 atkMode = AtkMode.Shovel;
             }
-        }
-        else if (collision.gameObject.CompareTag("Enemy"))
-        {
-            isSnow = false;
-            isEnemyClose = true;
         }
         else
         {
@@ -310,6 +314,7 @@ public class PlayerController : MonoBehaviour
             //ui 표시 Respawn 대기 시간
             transform.position = respawnPos.position;
             Hp = GameManager.Instance.playerHp;
+            BladeOff();
             GameManager.Instance.RespawnPlayer();
             gameObject.SetActive(false);
         }
