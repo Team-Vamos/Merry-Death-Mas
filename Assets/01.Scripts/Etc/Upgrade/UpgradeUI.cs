@@ -9,13 +9,19 @@ public class UpgradeUI : MonoBehaviour
     public TreeScriptable UpgradeData;
     public Image UpgradeImage;
 
+    [Header("====능력====")]
+    private TreeTurret treeTurret;
+    
+
+
 
     public Text ItemLevel, ItemName, UpgradeCostText;
     public Button BuyButton;
     [SerializeField]
     private bool IsBuy;
 
-    private int value1, value2, value3;
+    private int value1;
+    private float value2, value3;
 
     public int currentIndex = 0;
     public int currentLevel = 0;
@@ -29,6 +35,7 @@ public class UpgradeUI : MonoBehaviour
         infoPanel = GetComponent<UpgradeInfoPanel>();
         UpdateValues();
         UpdateLevelInfo();
+        UpdateStatInfo();
     }
 
     private void OnValidate()
@@ -100,41 +107,147 @@ public class UpgradeUI : MonoBehaviour
 
     }
 
-    public void CandyCane()
+    public void CandyCane() //됏다
     {
         GameManager.Instance.MultiplyShovelDmg(value1);
         Debug.Log(-upgradeInfo.UpgradeLevel[currentLevel].BuyCost);
         if(GameManager.Instance.getCandy > upgradeInfo.UpgradeLevel[currentLevel].BuyCost)
         GameManager.Instance.AddCandy(-upgradeInfo.UpgradeLevel[currentLevel].BuyCost);
 
-        infoPanel.text_ItemStat.text = $"다음 공격력 = {upgradeInfo.UpgradeLevel[currentLevel + 1].value1}%";
+        if (currentLevel + 1 == upgradeInfo.MaxUpgrade)
+        {
+            infoPanel.text_ItemStat.text = $"공격력 +{value1}%";
+        }
+        else
+        {
+            infoPanel.text_ItemStat.text = $"공격력 +{value1}% -> {upgradeInfo.UpgradeLevel[currentLevel + 1].value1}%";
+        }
     }
     
-    public void Candle()
+    void UpdateStatInfo()
     {
+        switch(currentIndex)
+        {
+            case 0: //사탕 - 공격력
+                infoPanel.text_ItemStat.text = $"공격력 +{value1}%";
+                break;
+            case 1: //선물 - 공격속도
+                infoPanel.text_ItemStat.text = $"공격속도 +{value1}%";
+                break;
+            case 2: //크리스마스 볼 - 공격력, 회전 속도, 볼 갯수
+                infoPanel.text_ItemStat.text = $"공격력 +{value1}\n회전 속도 + { upgradeInfo.UpgradeLevel[currentLevel].value2}%\n볼 개수 + { upgradeInfo.UpgradeLevel[currentLevel].value3}";
+                break;
+            case 3: //양초 - 눈덩이 데미지
+                infoPanel.text_ItemStat.text = $"공격력 +{value1}%\n";
+                break;
+            case 4: //따뜻한 마음- 체력
+                infoPanel.text_ItemStat.text = $"체력 +{value1}%";
+                break;
+            case 5: //별 - 범위 공격
+                infoPanel.text_ItemStat.text = $"트리가 범위 공격\n 공격력 +{value1}\n공격 주기 +{upgradeInfo.UpgradeLevel[currentLevel].value2}";
+                break;
+            case 6: //스노우 맨 - 포탑 설치
+                infoPanel.text_ItemStat.text = $"눈사람 추가\n 공격력 +{value1}";
+                break;
+        }
+    }
+
+    public void Candle() //됏다
+    {
+        GameManager.Instance.SnowBallDmg *= (100 + value1) / 100;
+
+        if (currentLevel + 1 == upgradeInfo.MaxUpgrade)
+        {
+            infoPanel.text_ItemStat.text = $"공격력 +{value1}%";
+        }
+        else
+        {
+            infoPanel.text_ItemStat.text = $"공격력 +{value1}% -> {upgradeInfo.UpgradeLevel[currentLevel + 1].value1}%\n";
+        }
+        
 
     }
 
+    public void HotHeart() //됏다
+    {
+        GameManager.Instance.playerHp += value1;
+
+        if(currentLevel+1==upgradeInfo.MaxUpgrade)
+        {
+            infoPanel.text_ItemStat.text = $"체력 +{value1}%";
+        }
+        else
+        {
+            infoPanel.text_ItemStat.text = $"체력 +{value1}% -> {upgradeInfo.UpgradeLevel[currentLevel + 1].value1}%\n";
+        }
+
+    }
 
     public void ChristmasBall()
     {
+        if(currentLevel<=0)
+        {
+            GameManager.Instance.BallSize = 3;
+        }
+        GameManager.Instance.BallDmg = value1;
+        GameManager.Instance.BallSize = (int)value3;
+        if (currentLevel + 1 == upgradeInfo.MaxUpgrade)
+        {
+            infoPanel.text_ItemStat.text =
+                $"공격력 +{value1}\n" +
+                $"회전 속도 + {value2}%\n" +
+                $"볼 개수 + {value3}%";
+        }
+        else
+        {
+            infoPanel.text_ItemStat.text =
+                $"공격력 +{value1} -> {upgradeInfo.UpgradeLevel[currentLevel + 1].value1}\n" +
+                $"회전 속도 + {value2}% -> {upgradeInfo.UpgradeLevel[currentLevel + 1].value2}%\n" +
+                $"볼 개수 + {value3} -> {upgradeInfo.UpgradeLevel[currentLevel + 1].value3}";
+        }
+
 
     }
 
-    public void SnowMan()
+    public void SnowMan() //됏다
     {
         if(currentLevel<=0)
         {
             GameManager.Instance.SnowManObj.SetActive(true);
         }
-        GameManager.Instance.TurretDmg = value1;
         if (GameManager.Instance.getCandy > upgradeInfo.UpgradeLevel[currentLevel].BuyCost)
             GameManager.Instance.AddCandy(-upgradeInfo.UpgradeLevel[currentLevel].BuyCost);
+
+        GameManager.Instance.TurretDmg += value1;
+        GameManager.Instance.TurrentDelay = value2;
+
+        if (currentLevel + 1 == upgradeInfo.MaxUpgrade)
+        {
+            infoPanel.text_ItemStat.text = $"공격력 +{value1}\n발사주기 {value2}";
+        }
+        else
+        {
+            infoPanel.text_ItemStat.text =
+                $"공격력 +{value1} -> 공격력 +{upgradeInfo.UpgradeLevel[currentLevel + 1].value1}\n" +
+                $"발사주기 {value2} -> 발사주기 {upgradeInfo.UpgradeLevel[currentLevel + 1].value2}";
+        }
+
     }
 
-    public void Gift()
+    public void Gift() //됏ㄷ다
     {
         //공격 속도 조정 업그레이드
+        GameManager.Instance.playerAtkSpd *= (100 - value1) / 100;
+
+
+        if (currentLevel + 1 == upgradeInfo.MaxUpgrade)
+        {
+            infoPanel.text_ItemStat.text = $"공격속도 +{value1}%";
+        }
+        else
+        {
+            infoPanel.text_ItemStat.text = $"공격속도 +{value1}% -> {upgradeInfo.UpgradeLevel[currentLevel + 1].value1}%";
+        }
     }
 
     public void Star()
@@ -143,9 +256,17 @@ public class UpgradeUI : MonoBehaviour
         {
             GameManager.Instance.StarUpgrade.SetActive(true);
         }
+        GameManager.Instance.StartDelay = value2;
         GameManager.Instance.StarDmg = value1;
         if (GameManager.Instance.getCandy > upgradeInfo.UpgradeLevel[currentLevel].BuyCost)
             GameManager.Instance.AddCandy(-upgradeInfo.UpgradeLevel[currentLevel].BuyCost);
-
+        if (currentLevel + 1 == upgradeInfo.MaxUpgrade)
+        {
+            infoPanel.text_ItemStat.text = $"트리가 범위 공격\n 공격력 +{value1}\n공격 주기 {upgradeInfo.UpgradeLevel[currentLevel].value2}";
+        }
+        else
+        {
+            infoPanel.text_ItemStat.text = $"공격력 +{value1} -> {upgradeInfo.UpgradeLevel[currentLevel + 1].value1}\n공격 주기 {upgradeInfo.UpgradeLevel[currentLevel].value2} -> {upgradeInfo.UpgradeLevel[currentLevel+1].value2}";
+        }
     }
 }

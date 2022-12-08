@@ -9,7 +9,7 @@ public class Turret : MonoBehaviour
     public float attackRange;
 
     public GameObject BulletPre;
-    public float AttackDelay;
+    public float AttackDelay { get => GameManager.Instance.TurrentDelay; }
 
     public Transform firePoint;
 

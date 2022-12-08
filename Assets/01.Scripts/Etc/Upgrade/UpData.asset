@@ -50,23 +50,23 @@ MonoBehaviour:
     itemDesc: 
     UpgradeLevel:
     - BuyCost: 6
-      value1: 10
+      value1: 8
       value2: 0
       value3: 0
     - BuyCost: 12
-      value1: 20
+      value1: 14
       value2: 0
       value3: 0
     - BuyCost: 18
-      value1: 30
+      value1: 20
       value2: 0
       value3: 0
     - BuyCost: 24
-      value1: 40
+      value1: 26
       value2: 0
       value3: 0
     - BuyCost: 30
-      value1: 50
+      value1: 32
       value2: 0
       value3: 0
     - BuyCost: 30
@@ -76,33 +76,29 @@ MonoBehaviour:
   - UpName: "\uD06C\uB9AC\uC2A4\uB9C8\uC2A4 \uBCFC"
     ItemImage: {fileID: 21300000, guid: b4382b5016e80f34cbab6ca2d3a68a66, type: 3}
     isMaxUp: 1
-    MaxUpgrade: 5
+    MaxUpgrade: 4
     itemDesc: 
     UpgradeLevel:
     - BuyCost: 6
-      value1: 10
-      value2: 0
-      value3: 0
+      value1: 8
+      value2: 10
+      value3: 3
     - BuyCost: 12
-      value1: 20
-      value2: 0
-      value3: 0
+      value1: 14
+      value2: 10
+      value3: 4
     - BuyCost: 18
-      value1: 30
-      value2: 0
-      value3: 0
+      value1: 20
+      value2: 10
+      value3: 5
     - BuyCost: 24
-      value1: 40
-      value2: 0
-      value3: 0
-    - BuyCost: 30
+      value1: 26
+      value2: 10
+      value3: 6
+    - BuyCost: 24
       value1: 50
-      value2: 0
-      value3: 0
-    - BuyCost: 30
-      value1: 60
-      value2: 0
-      value3: 0
+      value2: 10
+      value3: 6
   - UpName: "\uC591\uCD08"
     ItemImage: {fileID: 21300000, guid: 9eb807ea6396b6f45ace5f43febe4a2b, type: 3}
     isMaxUp: 1
@@ -133,6 +129,36 @@ MonoBehaviour:
       value1: 40
       value2: 0
       value3: 0
+  - UpName: "\uB530\uB73B\uD55C \uB9C8\uC74C"
+    ItemImage: {fileID: 21300000, guid: abd62b5122119f446aa1e6dca08bf489, type: 3}
+    isMaxUp: 1
+    MaxUpgrade: 5
+    itemDesc: 
+    UpgradeLevel:
+    - BuyCost: 6
+      value1: 10
+      value2: 0
+      value3: 0
+    - BuyCost: 12
+      value1: 20
+      value2: 0
+      value3: 0
+    - BuyCost: 18
+      value1: 30
+      value2: 0
+      value3: 0
+    - BuyCost: 24
+      value1: 40
+      value2: 0
+      value3: 0
+    - BuyCost: 30
+      value1: 50
+      value2: 0
+      value3: 0
+    - BuyCost: 30
+      value1: 50
+      value2: 0
+      value3: 0
   - UpName: "\uBCC4 \uC7A5\uC2DD"
     ItemImage: {fileID: 21300000, guid: c36b6b5726a483844bae4cd602edb580, type: 3}
     isMaxUp: 1
@@ -141,11 +167,11 @@ MonoBehaviour:
     UpgradeLevel:
     - BuyCost: 20
       value1: 2
-      value2: 0
+      value2: 1
       value3: 0
     - BuyCost: 25
       value1: 4
-      value2: 0
+      value2: 5
       value3: 0
     - BuyCost: 30
       value1: 7

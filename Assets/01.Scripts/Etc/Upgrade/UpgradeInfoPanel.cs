@@ -35,30 +35,31 @@ public class UpgradeInfoPanel : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        var ray = Input.mousePosition;
-        RaycastHit hit;
-        Physics.Raycast(ray,transform.forward*100f,out hit);
+        //var ray = Input.mousePosition;
+        //RaycastHit hit;
+        //Physics.Raycast(ray,transform.forward*100f,out hit);
 
         
 
-        if(hit.collider!=null && hit.collider == InfoCollider&&!IsMouseOver)
-        {
-            IsMouseOver = true;
-            OnMouseEnter();
-        }
-        else if(hit.collider !=InfoCollider && IsMouseOver)
-        {
-            IsMouseOver = false;
-            OnMouseExit();
-        }
+        //if(hit.collider!=null && hit.collider == InfoCollider&&!IsMouseOver)
+        //{
+        //    IsMouseOver = true;
+        //    OnMouseEnter();
+        //}
+        //else if(hit.collider !=InfoCollider && IsMouseOver)
+        //{
+        //    IsMouseOver = false;
+        //    OnMouseExit();
+        //}
     }
 
-    private void OnMouseEnter()
+
+    public void OnMouseEnter()
     {
         upgradeInfoPanel.SetActive(true);
     }
 
-    private void OnMouseExit()
+    public void OnMouseExit()
     {
         upgradeInfoPanel.SetActive(false);
     }

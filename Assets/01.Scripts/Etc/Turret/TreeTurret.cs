@@ -5,8 +5,8 @@ using UnityEngine;
 public class TreeTurret : MonoBehaviour
 {
     public ParticleSystem StarParticle;
-
-    public float AttackDelay;
+    public UpgradeUI upgradeUI;
+    public float AttackDelay { get => GameManager.Instance.StartDelay; }
 
     private CapsuleCollider TreeAttackRange;
     
