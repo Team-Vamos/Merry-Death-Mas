@@ -27,14 +27,25 @@ public class GameManager : MonoSingleton<GameManager>
     public int snowSpawnRate = 8; //눈 소환 주기
     public float snowPileTime = 60f; //눈 1단계 쌓이는 시간
 
-    public float StarDmg = 1f; //별 터질때 데미지 @@@@@@
-    public float TurretDmg = 1f; //터렛 데미지 @@@@@@
-
     public int respawnTime = 3;    //부활 시간
     public int playerHp = 10;   //플레이어 체력 @@@@@@
     public float playerAtkSpd = 1f; //(60 프레임 * playerAtkSpd)에 한번 휘두름 @@@@@@
     public float FreezeTime = 3f; //적 빙결 시간
     public int SnowBallDmg = 10; //눈덩이 데미지 @@@@@@
+
+    [Header("====== Upgarde Info ======")]
+    public float StarDmg = 1f; //별 터질때 데미지 @@@@@@
+    public float StartDelay = 1f;
+
+    public float TurretDmg = 1f; //터렛 데미지 @@@@@@
+    public float TurrentDelay = 1f;
+
+    public int BallSize = 3;
+    public float BallSpd = 50f;
+    public float BallDmg = 3f;
+    public float BallAtkDelay = 0.5f;
+
+
 
     #region ====== Getters ======
     public int getCandy

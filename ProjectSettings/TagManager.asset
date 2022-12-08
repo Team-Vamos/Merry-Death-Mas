@@ -13,6 +13,7 @@ TagManager:
   - Ground
   - SnowManBall
   - TreeAttack
+  - MasBall
   layers:
   - Default
   - TransparentFX

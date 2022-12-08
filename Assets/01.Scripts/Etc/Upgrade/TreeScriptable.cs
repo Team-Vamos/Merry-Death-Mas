@@ -28,6 +28,6 @@ public class UpgradeInfo
 {
     public int BuyCost;
     public int value1;
-    public int value2;
-    public int value3;
+    public float value2;
+    public float value3;
 }

@@ -46,14 +46,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SnowPile: {fileID: 9046541827430869310, guid: c4c1d9573b907824e8fe28351aeda8f8,
     type: 3}
-  SnowBallDmg: 10
-  FreezeTime: 2
-  snowPileTime: 2
-  playerHp: 10
-  playeAtk: 2
-  snowSpawnRate: 8
+  StarUpgrade: {fileID: 0}
+  SnowManObj: {fileID: 0}
   player: {fileID: 0}
+  santaSpawnRate: 4
+  multiplySnow: 1
+  multiplyCandy: 1
+  snowSpawnRate: 8
+  snowPileTime: 2
+  respawnTime: 3
+  playerHp: 10
+  playerAtkSpd: 1
+  FreezeTime: 2
+  SnowBallDmg: 10
+  StarDmg: 1
+  StartDelay: 1
+  TurretDmg: 1
+  TurrentDelay: 1
+  BallSize: 3
+  BallSpd: 100
+  BallDmg: 3
+  BallAtkDelay: 1
+  snowPoolManager: {fileID: 0}
+  presentPoolManager: {fileID: 0}
+  addCandyPool: {fileID: 0}
+  candyTxt: {fileID: 0}
+  addCcandyTxt: {fileID: 0}
+  textPanel: {fileID: 0}
   RespawnTxt: {fileID: 0}
   RespawnPanel: {fileID: 0}
-  multiply: 1
-  PoolManager: {fileID: 0}
+  Enabled: 0

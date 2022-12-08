@@ -61,6 +61,10 @@ public class EnemyAI : MonoBehaviour
     private bool playerInSightRange;
     public bool playerInAttackRange;
 
+    private bool isballDmg;
+    private float BallDmgCounting = 0f;
+    private float BallDmgDelay;
+
     public bool isAtk = false;
     private bool stop = false;
 
@@ -74,6 +78,7 @@ public class EnemyAI : MonoBehaviour
     {
         health = MaxHealth;
         FindTarget();
+        BallDmgDelay = GameManager.Instance.BallAtkDelay;
     }
 
     private void Awake()
@@ -84,6 +89,16 @@ public class EnemyAI : MonoBehaviour
 
     private void Update()
     {
+        if(isballDmg == true)
+        {
+            if (BallDmgDelay <= 0f)
+            {
+                isballDmg = false;
+                BallDmgDelay = GameManager.Instance.BallAtkDelay;
+            }
+            BallDmgDelay -= Time.deltaTime;
+        }
+
         if(health>=MaxHealth)
         {
             healthBar.gameObject?.SetActive(false);
@@ -255,6 +270,11 @@ public class EnemyAI : MonoBehaviour
         if (other.CompareTag("TreeAttack"))
         {
             TakeDamage(GameManager.Instance.StarDmg);
+        }
+        if(other.CompareTag("MasBall")&&isballDmg == false)
+        {
+            TakeDamage(GameManager.Instance.BallDmg);
+            isballDmg = true;
         }
     }
 
