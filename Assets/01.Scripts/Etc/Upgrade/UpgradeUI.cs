@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class UpgradeUI : MonoBehaviour
 {
+    private UpgradeInfoPanel infoPanel;
     public TreeScriptable UpgradeData;
     public Image UpgradeImage;
 
@@ -25,6 +26,7 @@ public class UpgradeUI : MonoBehaviour
     private TreeUpgrade upgradeInfo { get => UpgradeData.TreeUpgrade[currentIndex]; }
     private void Start()
     {
+        infoPanel = GetComponent<UpgradeInfoPanel>();
         UpdateValues();
         UpdateLevelInfo();
     }
@@ -93,6 +95,9 @@ public class UpgradeUI : MonoBehaviour
         ItemName.text = upgradeInfo.UpName;
         ItemLevel.text = "Level : " + currentLevel;
         UpgradeCostText.text = upgradeInfo.UpgradeLevel[currentLevel].BuyCost.ToString();
+        infoPanel.text_ItemName.text = upgradeInfo.UpName;
+        infoPanel.text_ItemDesc.text = upgradeInfo.itemDesc;
+
     }
 
     public void CandyCane()
@@ -101,6 +106,8 @@ public class UpgradeUI : MonoBehaviour
         Debug.Log(-upgradeInfo.UpgradeLevel[currentLevel].BuyCost);
         if(GameManager.Instance.getCandy > upgradeInfo.UpgradeLevel[currentLevel].BuyCost)
         GameManager.Instance.AddCandy(-upgradeInfo.UpgradeLevel[currentLevel].BuyCost);
+
+        infoPanel.text_ItemStat.text = $"다음 공격력 = {upgradeInfo.UpgradeLevel[currentLevel + 1].value1}%";
     }
     
     public void Candle()

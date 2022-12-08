@@ -8,16 +8,15 @@ public class GameManager : MonoSingleton<GameManager>
     [SerializeField]
     private GameObject SnowPile;
 
-    [SerializeField]
-    private GameObject StarUpgrade;
+    public GameObject StarUpgrade;
 
-    [SerializeField]
-    private GameObject SnowManObj;
+    public GameObject SnowManObj;
 
     [Header("====== Player Info ======")]
     [SerializeField]
     private GameObject player;
 
+    [SerializeField]
     private int candy = 10;
     private int snows = 0; //플레이어가 지닌 눈 수
     private float shovelDmg = 1f; //삽 데미지
