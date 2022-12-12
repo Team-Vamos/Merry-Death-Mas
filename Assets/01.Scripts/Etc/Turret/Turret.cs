@@ -6,7 +6,7 @@ public class Turret : MonoBehaviour
 {
     private Transform target;
 
-    public float attackRange;
+    public float attackRange { get => GameManager.Instance.TurretRange; }
 
     public GameObject BulletPre;
     public float AttackDelay { get => GameManager.Instance.TurrentDelay; }

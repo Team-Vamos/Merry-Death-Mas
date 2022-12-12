@@ -27,7 +27,7 @@ public class TreeUpgrade
 public class UpgradeInfo
 {
     public int BuyCost;
-    public int value1;
+    public float value1;
     public float value2;
     public float value3;
 }

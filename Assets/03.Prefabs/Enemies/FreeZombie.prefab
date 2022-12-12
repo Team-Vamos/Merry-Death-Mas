@@ -384,7 +384,7 @@ MonoBehaviour:
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 1024
-  MaxHealth: 3
+  MaxHealth: 10
   healthBar: {fileID: 7595762275162252054}
   DropCandyMin: 10
   DropCandyMax: 30
@@ -394,6 +394,7 @@ MonoBehaviour:
   playerInAttackRange: 0
   isAtk: 0
   _renderer: {fileID: 137932612473565672}
+  visualEffect: {fileID: 0}
 --- !u!195 &8590095019579540015
 NavMeshAgent:
   m_ObjectHideFlags: 0

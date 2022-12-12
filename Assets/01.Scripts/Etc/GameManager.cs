@@ -18,7 +18,7 @@ public class GameManager : MonoSingleton<GameManager>
 
     private int candy = 1231; //플레이어가 지닌 사탕 수
     private int snows = 0; //플레이어가 지닌 눈 수
-    private float shovelDmg = 1f; //삽 데미지 @@@@@@
+    private float shovelDmg = 4f; //삽 데미지 @@@@@@
 
     public int santaSpawnRate = 4; //산타 스폰 주기
 
@@ -39,6 +39,7 @@ public class GameManager : MonoSingleton<GameManager>
 
     public float TurretDmg = 1f; //터렛 데미지 @@@@@@
     public float TurrentDelay = 1f;
+    public float TurretRange = 1f;
 
     public int BallSize = 3;
     public float BallSpd = 50f;
@@ -129,7 +130,7 @@ public class GameManager : MonoSingleton<GameManager>
 
     public void UseSnow() => --snows;
 
-    public void MultiplyShovelDmg(float amount) => shovelDmg += (shovelDmg * (amount / 100));
+    public void MultiplyShovelDmg(float amount) => shovelDmg = amount;
 
     private Vector3 RandomPos()
     {
