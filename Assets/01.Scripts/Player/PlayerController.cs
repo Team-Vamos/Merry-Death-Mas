@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.VFX;
 
 enum AtkMode
 {
@@ -61,6 +62,9 @@ public class PlayerController : MonoBehaviour
     private Material[] playerMaterial;
 
     private Renderer[] renderers;
+
+    [SerializeField]
+    private VisualEffect atkFx;
 
     [SerializeField]
     private float range;
@@ -236,6 +240,7 @@ public class PlayerController : MonoBehaviour
     public void BladeOn()
     {
         shovelCollider.enabled = true;
+        atkFx.Play();
     }
 
     public void BladeOff()
