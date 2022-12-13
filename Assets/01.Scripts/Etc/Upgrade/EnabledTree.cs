@@ -57,18 +57,24 @@ public class EnabledTree : MonoBehaviour
                 IsOpenTree = false;
                 Timer = TreeCoolTime;
             }
-            else if(Input.GetKeyDown(KeyCode.E)&& GameManager.Instance.Enabled == true)
+            else if((Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Escape))&& GameManager.Instance.Enabled == true)
             {
-                Time.timeScale = 1f;
-                WaveCanvas.enabled = true;
-                TreeCanvas.enabled = false;
-                GameManager.Instance.Enabled = false;
+                ExitUI();
             }
         }
         else
         {
             GuideCanvas.enabled = false;
         }
+    }
+
+    public void ExitUI()
+    {
+        Time.timeScale = 1f;
+        GameManager.Instance.Hert.SetActive(false);
+        WaveCanvas.enabled = true;
+        TreeCanvas.enabled = false;
+        GameManager.Instance.Enabled = false;
     }
 
     private void OnDrawGizmos()

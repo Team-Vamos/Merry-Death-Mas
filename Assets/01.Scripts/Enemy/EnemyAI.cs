@@ -72,6 +72,9 @@ public class EnemyAI : MonoBehaviour
     Renderer _renderer;
 
     [SerializeField]
+    private Collider atkCollider;
+
+    [SerializeField]
     VisualEffect visualEffect;
 
     private void Start()
@@ -208,6 +211,12 @@ public class EnemyAI : MonoBehaviour
     public void EffectOn()
     {
         visualEffect.Play();
+        atkCollider.enabled = true;
+    }
+
+    public void EffectOff()
+    {
+        atkCollider.enabled = false;
     }
 
     private void ResetAttack()

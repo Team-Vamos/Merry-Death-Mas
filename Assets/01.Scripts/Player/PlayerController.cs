@@ -215,7 +215,7 @@ public class PlayerController : MonoBehaviour
                 {
                     isAtk = false;
                     stopMovement = false;
-                    Debug.Log("눈덩이가 부족합니다!"); //UI 표시
+                    GameManager.Instance.OutOfSnow();
                 }
                 break;
         }
@@ -226,7 +226,7 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     public void afterDig()
     {
-        snowObj.GetComponent<PoolingObj>().whenDestroy();
+        snowObj.GetComponent<SnowPile>().whenDestroy();
         GameManager.Instance.AddSnow(Mathf.RoundToInt(snowObj.GetComponent<MeshRenderer>().material.GetFloat("_Height")));
         snowObj = null;
         isSnow = false;
@@ -302,6 +302,7 @@ public class PlayerController : MonoBehaviour
     public void GetDmg()
     {
         Hp--;
+        GameManager.Instance.Hert.SetActive(true);
         StartCoroutine(Blink());
     }
 
@@ -312,7 +313,7 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         playerMaterial[0].color = Color.white;
         playerMaterial[1].color = Color.white;
-
+        GameManager.Instance.Hert.SetActive(false);
 
         if (Hp < 0)
         {

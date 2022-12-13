@@ -10,6 +10,18 @@ public class TextFade : MonoBehaviour
     public delegate void Func();
     Func _func = null;
 
+    public bool DoFade = false;
+    public bool isItZero = false;
+    public float time;
+
+    private void OnEnable()
+    {
+        if(DoFade)
+        {
+            StartFade(text.gameObject, isItZero, time, () => text.gameObject.SetActive(false));
+        }
+    }
+
     public void StartFade(GameObject gameObject, bool isZero, float times, Func func = null)
     {
         _func = func;

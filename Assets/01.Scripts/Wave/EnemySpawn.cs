@@ -27,6 +27,7 @@ public class EnemySpawn : MonoBehaviour
     public bool night;
 
     public Text timeText;
+    public Text waveText;
     private float time;
 
 
@@ -45,6 +46,7 @@ public class EnemySpawn : MonoBehaviour
                 time = NightTime;
                 night = true;
                 WaveCnt++;
+                waveText.text = WaveCnt.ToString();
             }
             else if(night==true) //π„¿Ã ≥°≥¥¥Ÿ
             {

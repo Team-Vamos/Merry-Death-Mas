@@ -93,6 +93,8 @@ public class GameManager : MonoSingleton<GameManager>
     [SerializeField]
     private GameObject RespawnPanel;
 
+    public GameObject Hert;
+
     public bool Enabled = false;
 
     public int presents
@@ -133,7 +135,7 @@ public class GameManager : MonoSingleton<GameManager>
     {
         if(amount > 0)AddCandyPool(amount);
         candy += (int)(amount * multiplyCandy);
-        candyTxt.text = $"Candy: {candy}";
+        candyTxt.text = $"{candy}";
     }
 
     public void UseSnow() => --snows;
