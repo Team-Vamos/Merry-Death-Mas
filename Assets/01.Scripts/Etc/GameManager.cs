@@ -28,7 +28,9 @@ public class GameManager : MonoSingleton<GameManager>
     public float snowPileTime = 60f; //눈 1단계 쌓이는 시간
 
     public int respawnTime = 3;    //부활 시간
-    public int playerHp = 10;   //플레이어 체력 @@@@@@
+    public int playerHp;   //플레이어 체력 @@@@@@
+    public int playerMaxHp = 10;
+    public float playerAutoHealingCoolTime = 10f;
     public float playerAtkSpd = 1f; //(60 프레임 * playerAtkSpd)에 한번 휘두름 @@@@@@
     public float FreezeTime = 3f; //적 빙결 시간
     public int SnowBallDmg = 10; //눈덩이 데미지 @@@@@@
@@ -102,6 +104,7 @@ public class GameManager : MonoSingleton<GameManager>
 
     private void Start()
     {
+        playerHp = playerMaxHp;
         TreeHp = TreeMaxHp;
         StartCoroutine(CreateSnow());
         AddCandy(0);
@@ -158,6 +161,8 @@ public class GameManager : MonoSingleton<GameManager>
     {
         StartCoroutine(Respawn());
     }
+
+
 
     private IEnumerator Respawn()
     {

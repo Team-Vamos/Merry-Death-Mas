@@ -48,7 +48,6 @@ public class EnemySpawn : MonoBehaviour
             }
             else if(night==true) //π„¿Ã ≥°≥¥¥Ÿ
             {
-                GetComponentInParent<TreeHp>().AutoHealing();
                 time = AfternoonTime;
                 night = false;
             }

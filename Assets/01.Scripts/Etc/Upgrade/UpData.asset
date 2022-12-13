@@ -138,27 +138,27 @@ MonoBehaviour:
     itemDesc: "\uD50C\uB808\uC774\uC5B4\uC758 \uCCB4\uB825\uC774 \uC99D\uAC00\uD569\uB2C8\uB2E4."
     UpgradeLevel:
     - BuyCost: 6
-      value1: 10
+      value1: 1
       value2: 0
       value3: 0
     - BuyCost: 12
-      value1: 20
+      value1: 1
       value2: 0
       value3: 0
     - BuyCost: 18
-      value1: 30
+      value1: 1
       value2: 0
       value3: 0
     - BuyCost: 24
-      value1: 40
+      value1: 1
       value2: 0
       value3: 0
     - BuyCost: 30
-      value1: 50
+      value1: 1
       value2: 0
       value3: 0
     - BuyCost: 36
-      value1: 50
+      value1: 1
       value2: 0
       value3: 0
   - UpName: "\uBCC4 \uC7A5\uC2DD"

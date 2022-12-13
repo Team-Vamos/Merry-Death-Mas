@@ -173,7 +173,8 @@ public class UpgradeUI : MonoBehaviour
 
     public void HotHeart() //‰Ñ´Ù
     {
-        GameManager.Instance.playerHp = (int)(GameManager.Instance.playerHp + (value1 / 100));
+        GameManager.Instance.playerMaxHp += (int)value1;
+        GameManager.Instance.playerHp++;
         Debug.Log(-upgradeInfo.UpgradeLevel[currentLevel].BuyCost);
         if (GameManager.Instance.getCandy > upgradeInfo.UpgradeLevel[currentLevel].BuyCost)
             GameManager.Instance.AddCandy(-upgradeInfo.UpgradeLevel[currentLevel].BuyCost);
