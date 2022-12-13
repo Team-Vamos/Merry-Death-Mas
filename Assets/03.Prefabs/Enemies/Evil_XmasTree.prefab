@@ -648,6 +648,16 @@ PrefabInstance:
       propertyPath: m_ResetSeedOnPlay
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1010469353794949301, guid: 60d310309985b9d4e9917e6e851e63c9,
+        type: 3}
+      propertyPath: m_InitialEventName
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1010469353794949301, guid: 60d310309985b9d4e9917e6e851e63c9,
+        type: 3}
+      propertyPath: m_InitialEventNameOverriden
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3662496979572467538, guid: 60d310309985b9d4e9917e6e851e63c9,
         type: 3}
       propertyPath: m_RootOrder
