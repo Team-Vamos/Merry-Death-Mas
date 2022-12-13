@@ -40,14 +40,15 @@ public class EnemySpawn : MonoBehaviour
         }
         else
         {
-            if(night==false)
+            if(night==false) // π„¿Ã Ω√¿€µ»¥Ÿ.
             {
                 time = NightTime;
                 night = true;
                 WaveCnt++;
             }
-            else if(night==true)
+            else if(night==true) //π„¿Ã ≥°≥¥¥Ÿ
             {
+                GetComponentInParent<TreeHp>().AutoHealing();
                 time = AfternoonTime;
                 night = false;
             }

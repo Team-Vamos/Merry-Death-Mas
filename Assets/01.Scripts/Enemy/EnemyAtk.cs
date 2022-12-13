@@ -14,5 +14,13 @@ public class EnemyAtk : MonoBehaviour
                 GetComponentInParent<EnemyAI>().isAtk = false;
             }
         }
+        if(other.gameObject.CompareTag("Tree"))
+        {
+            if(GetComponentInParent<EnemyAI>().isAtk)
+            {
+                other.GetComponent<TreeHp>().getDmg();
+                GetComponentInParent<EnemyAI>().isAtk = false;
+            }
+        }
     }
 }

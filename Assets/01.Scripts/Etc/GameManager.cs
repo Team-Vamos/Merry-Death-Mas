@@ -46,6 +46,11 @@ public class GameManager : MonoSingleton<GameManager>
     public float BallDmg = 3f;
     public float BallAtkDelay = 0.5f;
 
+    [Header("====== Tree Info ======")]
+    public float TreeMaxHp = 10f;
+    public float TreeHp;
+    public float TreeHeal = 10f;
+
 
 
     #region ====== Getters ======
@@ -97,6 +102,7 @@ public class GameManager : MonoSingleton<GameManager>
 
     private void Start()
     {
+        TreeHp = TreeMaxHp;
         StartCoroutine(CreateSnow());
         AddCandy(0);
     }
@@ -120,6 +126,8 @@ public class GameManager : MonoSingleton<GameManager>
         }
     }
 
+
+    public void GetTreeDmg(int amount) => TreeHp -= amount;
     public void AddSnow(int amount) => snows += (int)(amount * multiplySnow);
     public void AddCandy(int amount)
     {
