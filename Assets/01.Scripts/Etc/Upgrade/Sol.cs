@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Sol : MonoBehaviour
 {
-    public GameObject[] YS;
+    public Transform YSP;
+    private GameObject[] YS;
     public int objSize { get => GameManager.Instance.BallSize; }
     public float circleR;
     public float deg;
@@ -30,6 +31,13 @@ public class Sol : MonoBehaviour
         }
     }
 
+    private void OnValidate()
+    {
+        for (int i = 0; i < YSP.childCount; i++)
+        {
+            YS[i] = YSP.GetChild(i).gameObject;
+        }
+    }
 
     public void AddObj()
     {
