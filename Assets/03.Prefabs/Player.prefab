@@ -3671,6 +3671,7 @@ GameObject:
   - component: {fileID: 7572589668936707869}
   - component: {fileID: 4609173609590437223}
   - component: {fileID: 7970675710320782563}
+  - component: {fileID: 869981073626009977}
   - component: {fileID: 7970675710320782565}
   - component: {fileID: 7970675710320782564}
   - component: {fileID: 7970675710320782566}
@@ -3738,6 +3739,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
+--- !u!114 &869981073626009977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7087802156299040167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8dcbfe24ea82d04b9441cd4e4774073, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FullHeart: {fileID: 0}
+  EmptyHeart: {fileID: 0}
+  HeartObj: {fileID: 0}
 --- !u!136 &7970675710320782565
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -3780,6 +3796,7 @@ MonoBehaviour:
   playerMaterial:
   - {fileID: 2100000, guid: 829fb7808d20da440bacbca6b482c9b9, type: 2}
   - {fileID: 2100000, guid: c6bbbd67abf4251499c06584497fa75d, type: 2}
+  atkFx: {fileID: 0}
   range: 40
 --- !u!114 &7970675710320782566
 MonoBehaviour:

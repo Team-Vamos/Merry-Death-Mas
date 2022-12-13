@@ -14,7 +14,7 @@ public class TreeHp : MonoBehaviour
     {
         TreeMaterial.color = Color.white;
     }
-
+ 
     void Health()
     {
         HpBar.value = GameManager.Instance.TreeHp / GameManager.Instance.TreeMaxHp;
