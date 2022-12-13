@@ -184,7 +184,6 @@ public class EnemyAI : MonoBehaviour
     private void AttackPlayer()
     { 
         agent.SetDestination(transform.position);
-        transform.LookAt(Target);
         anim.SetBool("ToTarget", false);
 
         if (!alreadyAttacked)
