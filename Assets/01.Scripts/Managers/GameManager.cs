@@ -177,7 +177,7 @@ public class GameManager : MonoSingleton<GameManager>
             yield return new WaitForSeconds(1f);
         }
         RespawnPanel.SetActive(false);
-        //∫Œ»∞ ¿Ã∆—∆Æ?
+        playerHp = playerMaxHp;
         player.SetActive(true);
     }
 

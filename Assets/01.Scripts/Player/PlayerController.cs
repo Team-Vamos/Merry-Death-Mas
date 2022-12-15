@@ -214,7 +214,7 @@ public class PlayerController : MonoBehaviour
                 {
                     isAtk = false;
                     stopMovement = false;
-                    //GameManager.Instance.OutOfSnow();
+                    GameManager.Instance.OutOfSnow();
                 }
                 break;
         }
