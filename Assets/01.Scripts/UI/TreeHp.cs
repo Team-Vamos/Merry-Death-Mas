@@ -26,6 +26,7 @@ public class TreeHp : MonoBehaviour
     {
         GameManager.Instance.TreeHp--;
         hpText.SetHpText((int)GameManager.Instance.TreeHp, (int)GameManager.Instance.TreeMaxHp);
+        GameManager.Instance.DangerOn(GameManager.Instance.TreeHp < (GameManager.Instance.TreeMaxHp / 10) * 3);
         Health();
         StartCoroutine(Blink());
     }
@@ -33,6 +34,8 @@ public class TreeHp : MonoBehaviour
     public void AutoHealing()
     {
         GameManager.Instance.TreeHp += GameManager.Instance.TreeHeal;
+        hpText.SetHpText((int)GameManager.Instance.TreeHp, (int)GameManager.Instance.TreeMaxHp);
+        GameManager.Instance.DangerOn(GameManager.Instance.TreeHp < (GameManager.Instance.TreeMaxHp / 10) * 3);
     }
 
     IEnumerator Blink()
