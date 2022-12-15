@@ -53,8 +53,6 @@ public class GameManager : MonoSingleton<GameManager>
     public float TreeHp;
     public float TreeHeal = 10f;
 
-
-
     #region ====== Getters ======
     public int getCandy
     {
@@ -98,6 +96,9 @@ public class GameManager : MonoSingleton<GameManager>
     public GameObject Hert;
 
     public bool Enabled = false;
+
+    [SerializeField]
+    private GameObject outOfSnow;
 
     public int presents
     {
@@ -164,8 +165,6 @@ public class GameManager : MonoSingleton<GameManager>
         StartCoroutine(Respawn());
     }
 
-
-
     private IEnumerator Respawn()
     {
         RespawnPanel.SetActive(true);
@@ -213,5 +212,10 @@ public class GameManager : MonoSingleton<GameManager>
             text.transform.SetParent(textPanel);
             text.text = $"{sign}{candyCnt}";
         }
+    }
+
+    public void OutOfSnow()
+    {
+        outOfSnow.SetActive(true);
     }
 }
