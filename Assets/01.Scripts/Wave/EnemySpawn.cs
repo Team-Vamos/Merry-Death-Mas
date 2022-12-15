@@ -108,7 +108,7 @@ public class EnemySpawn : MonoBehaviour
         {
             a -= Wave[WaveCnt].SpawnMonsterPersent[i];
             
-            if(a<=0)
+            if(a<=0 && night == false)
             {
                 Instantiate(Wave[WaveCnt].spawnMonsters[i], Return_RandomPosition(), Quaternion.identity);
                 break;

@@ -4,14 +4,16 @@ using UnityEngine;
 using UnityEngine.UI;
 public class TreeHp : MonoBehaviour
 {
-    public Text HpText;
     public Slider HpBar;
     [SerializeField]
     private Material TreeMaterial;
+    [SerializeField]
+    private HpText hpText;
 
 
     private void Start()
     {
+        hpText.SetHpText((int)GameManager.Instance.TreeHp, (int)GameManager.Instance.TreeMaxHp);
         TreeMaterial.color = Color.white;
     }
  
@@ -23,7 +25,7 @@ public class TreeHp : MonoBehaviour
     public void getDmg()
     {
         GameManager.Instance.TreeHp--;
-        HpText.text = $"{GameManager.Instance.TreeHp}";
+        hpText.SetHpText((int)GameManager.Instance.TreeHp, (int)GameManager.Instance.TreeMaxHp);
         Health();
         StartCoroutine(Blink());
     }

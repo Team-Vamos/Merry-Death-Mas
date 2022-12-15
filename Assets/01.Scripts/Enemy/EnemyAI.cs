@@ -77,6 +77,9 @@ public class EnemyAI : MonoBehaviour
     [SerializeField]
     VisualEffect visualEffect;
 
+    [SerializeField]
+    private HpText hpTxt;
+
     private void Start()
     {
         health = MaxHealth;
@@ -228,6 +231,7 @@ public class EnemyAI : MonoBehaviour
     {
         health -= damage;
 
+        hpTxt.SetHpText((int)health, (int)MaxHealth);
         StartCoroutine(Hit());
         if (health <= 0)
         {
