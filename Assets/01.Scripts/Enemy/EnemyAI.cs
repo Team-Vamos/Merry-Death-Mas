@@ -231,7 +231,6 @@ public class EnemyAI : MonoBehaviour
     {
         health -= damage;
 
-        hpTxt.SetHpText((int)health, (int)MaxHealth);
         StartCoroutine(Hit());
         if (health <= 0)
         {
@@ -244,6 +243,7 @@ public class EnemyAI : MonoBehaviour
     {
         _renderer.material.color = Color.red;
         yield return new WaitForSeconds(0.1f);
+        hpTxt.SetHpText((int)health, (int)MaxHealth);
         _renderer.material.color = Color.white;
     }
 
