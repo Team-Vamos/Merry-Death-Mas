@@ -286,7 +286,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4388466562003506438}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 1.2
   m_Height: 4
@@ -355,14 +355,14 @@ MonoBehaviour:
     m_Bits: 128
   whatIsPlayer:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 1280
   MaxHealth: 3
   healthBar: {fileID: 6410590284038771031}
   DropCandyMin: 10
   DropCandyMax: 30
   timeBetweenAttacks: 3
   projectile: {fileID: 0}
-  attackRange: 0.7
+  attackRange: 2.63
   playerInAttackRange: 0
   isAtk: 0
   _renderer: {fileID: 2751566284865561402}

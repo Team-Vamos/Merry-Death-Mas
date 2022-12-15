@@ -12,6 +12,7 @@ public class TreeHp : MonoBehaviour
 
     private void Start()
     {
+        HpText.text = $"{GameManager.Instance.TreeMaxHp}";
         TreeMaterial.color = Color.white;
     }
  

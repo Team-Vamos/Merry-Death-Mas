@@ -394,6 +394,7 @@ MonoBehaviour:
   playerInAttackRange: 0
   isAtk: 0
   _renderer: {fileID: 137932612473565672}
+  atkCollider: {fileID: 0}
   visualEffect: {fileID: 0}
 --- !u!195 &8590095019579540015
 NavMeshAgent:
@@ -425,7 +426,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1391888216552696}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.3
   m_Height: 1
