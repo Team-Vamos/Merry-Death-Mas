@@ -386,8 +386,8 @@ MonoBehaviour:
     m_Bits: 1280
   MaxHealth: 50
   healthBar: {fileID: 6933397293128364254}
-  DropCandyMin: 2
-  DropCandyMax: 10
+  DropCandyMin: 1
+  DropCandyMax: 4
   timeBetweenAttacks: 3
   projectile: {fileID: 0}
   attackRange: 3
