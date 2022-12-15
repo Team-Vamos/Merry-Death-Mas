@@ -28,6 +28,7 @@ public class EnemySpawn : MonoBehaviour
 
     public Text timeText;
     public Text waveText;
+    public Text NowTimeText;
     private float time;
 
 
@@ -41,17 +42,17 @@ public class EnemySpawn : MonoBehaviour
         }
         else
         {
-            if(night==false) // π„¿Ã Ω√¿€µ»¥Ÿ.
+            if(night==true) // π„¿Ã Ω√¿€µ»¥Ÿ.
+            {
+                time = AfternoonTime;
+                night = false;
+            }
+            else if(night==false) //π„¿Ã ≥°≥¥¥Ÿ
             {
                 time = NightTime;
                 night = true;
                 WaveCnt++;
                 waveText.text = WaveCnt.ToString();
-            }
-            else if(night==true) //π„¿Ã ≥°≥¥¥Ÿ
-            {
-                time = AfternoonTime;
-                night = false;
             }
         }
         timeText.text = Mathf.Ceil (time).ToString();
@@ -77,8 +78,8 @@ public class EnemySpawn : MonoBehaviour
     // º“»Ø«“ Object
     private void Start()
     {
-        night = true;
-        time = NightTime;
+        night = false;
+        time = AfternoonTime;
         StartCoroutine(RandomRespawn_Coroutine());
     }
 
@@ -108,7 +109,7 @@ public class EnemySpawn : MonoBehaviour
         {
             a -= Wave[WaveCnt].SpawnMonsterPersent[i];
             
-            if(a<=0)
+            if(a<=0 && night == true)
             {
                 Instantiate(Wave[WaveCnt].spawnMonsters[i], Return_RandomPosition(), Quaternion.identity);
                 break;

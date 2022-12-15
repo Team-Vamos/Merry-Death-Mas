@@ -356,13 +356,13 @@ MonoBehaviour:
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 1280
-  MaxHealth: 3
+  MaxHealth: 50
   healthBar: {fileID: 6410590284038771031}
   DropCandyMin: 10
   DropCandyMax: 30
   timeBetweenAttacks: 3
   projectile: {fileID: 0}
-  attackRange: 2.63
+  attackRange: 2
   playerInAttackRange: 0
   isAtk: 0
   _renderer: {fileID: 2751566284865561402}

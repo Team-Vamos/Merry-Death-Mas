@@ -53,7 +53,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private Transform shootPos;
 
-    private int Hp = 10;
+    private int Hp { get => GameManager.Instance.playerHp; }
 
     [SerializeField]
     private Transform respawnPos;
@@ -82,7 +82,6 @@ public class PlayerController : MonoBehaviour
     {
         m_Rigidbody = GetComponent<Rigidbody>();
         m_Animator = GetComponent<Animator>();
-        Hp = GameManager.Instance.playerHp;
         camTrans = Camera.main.transform;
         playerMaterial[0].color = Color.white;
         playerMaterial[1].color = Color.white;
@@ -301,7 +300,7 @@ public class PlayerController : MonoBehaviour
 
     public void GetDmg()
     {
-        Hp--;
+        GameManager.Instance.playerHp--;
         GameManager.Instance.Hert.SetActive(true);
         StartCoroutine(Blink());
     }
@@ -319,7 +318,6 @@ public class PlayerController : MonoBehaviour
         {
             //ui 표시 Respawn 대기 시간
             transform.position = respawnPos.position;
-            Hp = GameManager.Instance.playerHp;
             BladeOff();
             GameManager.Instance.RespawnPlayer();
             gameObject.SetActive(false);
