@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class LookAtTree : MonoBehaviour
 {
-    private Transform tree;
+    private EnemyAI target;
 
     private void Awake()
     {
-        tree = FindObjectOfType<EnabledTree>().transform;  
+        target = GetComponentInParent<EnemyAI>();  
     }
 
     void Update()
     {
-        transform.LookAt(tree);       
+        transform.LookAt(target.Target);       
     }
 }

@@ -100,6 +100,9 @@ public class GameManager : MonoSingleton<GameManager>
     [SerializeField]
     private GameObject outOfSnow;
 
+    [SerializeField]
+    private GameObject Danger;
+
     public int presents
     {
         get => presentPoolManager.childCount;
@@ -217,5 +220,10 @@ public class GameManager : MonoSingleton<GameManager>
     public void OutOfSnow()
     {
         outOfSnow.SetActive(true);
+    }
+
+    public void DangerOn(bool on)
+    {
+        Danger.SetActive(on);
     }
 }

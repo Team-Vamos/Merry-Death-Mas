@@ -4,15 +4,16 @@ using UnityEngine;
 using UnityEngine.UI;
 public class TreeHp : MonoBehaviour
 {
-    public Text HpText;
     public Slider HpBar;
     [SerializeField]
     private Material TreeMaterial;
+    [SerializeField]
+    private HpText hpText;
 
 
     private void Start()
     {
-        HpText.text = $"{GameManager.Instance.TreeMaxHp}";
+        hpText.SetHpText((int)GameManager.Instance.TreeHp, (int)GameManager.Instance.TreeMaxHp);
         TreeMaterial.color = Color.white;
     }
  
@@ -24,7 +25,8 @@ public class TreeHp : MonoBehaviour
     public void getDmg()
     {
         GameManager.Instance.TreeHp--;
-        HpText.text = $"{GameManager.Instance.TreeHp}";
+        hpText.SetHpText((int)GameManager.Instance.TreeHp, (int)GameManager.Instance.TreeMaxHp);
+        GameManager.Instance.DangerOn(GameManager.Instance.TreeHp < (GameManager.Instance.TreeMaxHp / 10) * 3);
         Health();
         StartCoroutine(Blink());
     }
@@ -32,6 +34,8 @@ public class TreeHp : MonoBehaviour
     public void AutoHealing()
     {
         GameManager.Instance.TreeHp += GameManager.Instance.TreeHeal;
+        hpText.SetHpText((int)GameManager.Instance.TreeHp, (int)GameManager.Instance.TreeMaxHp);
+        GameManager.Instance.DangerOn(GameManager.Instance.TreeHp < (GameManager.Instance.TreeMaxHp / 10) * 3);
     }
 
     IEnumerator Blink()
