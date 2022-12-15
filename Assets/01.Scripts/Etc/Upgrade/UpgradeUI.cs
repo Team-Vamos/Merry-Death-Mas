@@ -141,7 +141,7 @@ public class UpgradeUI : MonoBehaviour
                 infoPanel.text_ItemStat.text = $"공격력 + {value1}%\n";
                 break;
             case 4: //따뜻한 마음- 체력
-                infoPanel.text_ItemStat.text = $"체력 + {value1}%";
+                infoPanel.text_ItemStat.text = $"체력 + {value1}";
                 break;
             case 5: //별 - 범위 공격
                 infoPanel.text_ItemStat.text = $"트리가 범위 공격\n 공격력 + {value1}\n 공격 주기 {value2}초 마다";

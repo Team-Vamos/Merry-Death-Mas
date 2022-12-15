@@ -6144,39 +6144,42 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Tree: {fileID: 1756388532}
   radius: 57
-  NightTime: 5
+  NightTime: 30
   AfternoonTime: 10
   night: 0
   timeText: {fileID: 398591750}
   waveText: {fileID: 399087273}
   NowTimeText: {fileID: 0}
   Wave:
+  - spawnMonsters: []
+    SpawnMonsterPersent: 
+    SpawnMonsterBetweenTime: 0
   - spawnMonsters:
     - {fileID: 1391888216552696, guid: 0c74bed2ad49fad4d94fca86441ad49f, type: 3}
     SpawnMonsterPersent: 01000000
-    SpawnMonsterBetweenTime: 1
+    SpawnMonsterBetweenTime: 3
   - spawnMonsters:
     - {fileID: 1391888216552696, guid: 0c74bed2ad49fad4d94fca86441ad49f, type: 3}
     - {fileID: 1391888216552696, guid: dac94dfcb3cbf0547a31a5fb3c9f2280, type: 3}
     SpawnMonsterPersent: 0300000001000000
-    SpawnMonsterBetweenTime: 1
+    SpawnMonsterBetweenTime: 3
   - spawnMonsters:
     - {fileID: 1391888216552696, guid: 0c74bed2ad49fad4d94fca86441ad49f, type: 3}
     - {fileID: 1391888216552696, guid: dac94dfcb3cbf0547a31a5fb3c9f2280, type: 3}
     SpawnMonsterPersent: 0200000002000000
-    SpawnMonsterBetweenTime: 1
+    SpawnMonsterBetweenTime: 3
   - spawnMonsters:
     - {fileID: 1391888216552696, guid: 0c74bed2ad49fad4d94fca86441ad49f, type: 3}
     - {fileID: 1391888216552696, guid: dac94dfcb3cbf0547a31a5fb3c9f2280, type: 3}
     - {fileID: 4388466562003506438, guid: e4f0cd3839fea574899076dbc672e669, type: 3}
     SpawnMonsterPersent: 020000000200000001000000
-    SpawnMonsterBetweenTime: 1
+    SpawnMonsterBetweenTime: 2
   - spawnMonsters:
     - {fileID: 1391888216552696, guid: 0c74bed2ad49fad4d94fca86441ad49f, type: 3}
     - {fileID: 1391888216552696, guid: 0c74bed2ad49fad4d94fca86441ad49f, type: 3}
     - {fileID: 1391888216552696, guid: 0c74bed2ad49fad4d94fca86441ad49f, type: 3}
     SpawnMonsterPersent: 000000000000000000000000
-    SpawnMonsterBetweenTime: 1
+    SpawnMonsterBetweenTime: 2
 --- !u!4 &1860320894
 Transform:
   m_ObjectHideFlags: 0

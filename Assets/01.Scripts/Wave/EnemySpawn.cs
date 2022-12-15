@@ -42,12 +42,12 @@ public class EnemySpawn : MonoBehaviour
         }
         else
         {
-            if(night==true) // 밤이 시작된다.
+            if(night==true) // 아침 시작
             {
                 time = AfternoonTime;
                 night = false;
             }
-            else if(night==false) //밤이 끝낫다
+            else if(night==false) //밤이 시작
             {
                 time = NightTime;
                 night = true;
@@ -78,6 +78,7 @@ public class EnemySpawn : MonoBehaviour
     // 소환할 Object
     private void Start()
     {
+        waveText.text = WaveCnt.ToString();
         night = false;
         time = AfternoonTime;
         StartCoroutine(RandomRespawn_Coroutine());
