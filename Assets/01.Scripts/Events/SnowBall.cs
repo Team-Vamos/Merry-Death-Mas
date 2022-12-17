@@ -24,7 +24,7 @@ public class SnowBall : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Enemy")||other.CompareTag("Ground"))
+        if (!other.CompareTag("Enemy"))
         {
             Destroy(gameObject);
         }

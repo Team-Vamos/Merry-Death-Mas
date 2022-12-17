@@ -316,7 +316,6 @@ public class PlayerController : MonoBehaviour
 
         if (Hp < 0)
         {
-            //ui 표시 Respawn 대기 시간
             transform.position = respawnPos.position;
             BladeOff();
             GameManager.Instance.RespawnPlayer();

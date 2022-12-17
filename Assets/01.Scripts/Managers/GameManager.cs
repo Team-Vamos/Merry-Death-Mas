@@ -16,7 +16,7 @@ public class GameManager : MonoSingleton<GameManager>
     [SerializeField]
     private GameObject player;
 
-    private int candy = 1231; //플레이어가 지닌 사탕 수
+    private int candy = 100; //플레이어가 지닌 사탕 수
     private int snows = 0; //플레이어가 지닌 눈 수
     private float shovelDmg = 4f; //삽 데미지 @@@@@@
 
@@ -93,6 +93,9 @@ public class GameManager : MonoSingleton<GameManager>
     [SerializeField]
     private GameObject RespawnPanel;
 
+    [SerializeField]
+    private Text SnowCnt;
+
     public GameObject Hert;
 
     public bool Enabled = false;
@@ -114,6 +117,7 @@ public class GameManager : MonoSingleton<GameManager>
         TreeHp = TreeMaxHp;
         StartCoroutine(CreateSnow());
         AddCandy(0);
+        AddSnow(0);
     }
 
     IEnumerator CreateSnow()
@@ -137,15 +141,25 @@ public class GameManager : MonoSingleton<GameManager>
 
 
     public void GetTreeDmg(int amount) => TreeHp -= amount;
-    public void AddSnow(int amount) => snows += (int)(amount * multiplySnow);
+
+    public void AddSnow(int amount)
+    {
+        snows += (int)(amount * multiplySnow);
+        SnowCnt.text = snows.ToString();
+    }
+
     public void AddCandy(int amount)
     {
-        if(amount > 0)AddCandyPool(amount);
+        if (amount > 0) AddCandyPool(amount);
         candy += (int)(amount * multiplyCandy);
         candyTxt.text = $"{candy}";
     }
 
-    public void UseSnow() => --snows;
+    public void UseSnow()
+    {
+        --snows;
+        SnowCnt.text = snows.ToString();
+    }
 
     public void MultiplyShovelDmg(float amount) => shovelDmg = amount;
 
@@ -173,7 +187,7 @@ public class GameManager : MonoSingleton<GameManager>
         RespawnPanel.SetActive(true);
         for (int i = respawnTime; i > 0; i--)
         {
-            RespawnTxt.text = $"성탄절의 힘으로\n 부활합니다.\n{i}";
+            RespawnTxt.text = $"{i}";
             yield return new WaitForSeconds(1f);
         }
         RespawnPanel.SetActive(false);
@@ -206,6 +220,7 @@ public class GameManager : MonoSingleton<GameManager>
         {
             text = Instantiate(addCcandyTxt).GetComponent<Text>();
             text.transform.SetParent(textPanel);
+            text.transform.localScale = Vector3.one;
             text.text = $"{sign}{candyCnt}";
         }
         else
@@ -213,6 +228,7 @@ public class GameManager : MonoSingleton<GameManager>
             text = addCandyPool.GetChild(0).GetComponent<Text>();
             text.gameObject.SetActive(true);
             text.transform.SetParent(textPanel);
+            text.transform.localScale = Vector3.one;
             text.text = $"{sign}{candyCnt}";
         }
     }
