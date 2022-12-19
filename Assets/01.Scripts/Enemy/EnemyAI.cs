@@ -181,7 +181,7 @@ public class EnemyAI : MonoBehaviour
     }
 
     private void ChasePlayer()
-    {
+    {   
         agent.SetDestination(Target.position);
         anim.SetBool("ToTarget", true);
 
