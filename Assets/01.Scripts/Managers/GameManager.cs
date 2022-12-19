@@ -106,6 +106,18 @@ public class GameManager : MonoSingleton<GameManager>
     [SerializeField]
     private GameObject Danger;
 
+    [Header("Sounds")]
+    [SerializeField]
+    private AudioClip Vanish;
+
+    public AudioClip vanishSound
+    {
+        get => Vanish;
+    }
+
+    [SerializeField]
+    private AudioClip[] hitSounds;
+
     public int presents
     {
         get => presentPoolManager.childCount;
@@ -241,5 +253,11 @@ public class GameManager : MonoSingleton<GameManager>
     public void DangerOn(bool on)
     {
         Danger.SetActive(on);
+    }
+
+    public AudioClip randomHitSound()
+    {
+        int randomInt = Random.Range(0, 1);
+        return hitSounds[randomInt];
     }
 }
