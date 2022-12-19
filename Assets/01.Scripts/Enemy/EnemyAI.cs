@@ -18,6 +18,7 @@ public enum EnemyAtkType
     shortRange,
 }
 
+[RequireComponent(typeof(AudioSource))]
 public class EnemyAI : MonoBehaviour
 {
     private Animator anim;
@@ -82,9 +83,13 @@ public class EnemyAI : MonoBehaviour
 
     private Color OriginColor;
 
+    [SerializeField]
+    private AudioSource audio;
+
     private void Start()
     {
         health = MaxHealth;
+        audio = GetComponent<AudioSource>();
         FindTarget();
         BallDmgDelay = GameManager.Instance.BallAtkDelay;
         OriginColor = _renderer.material.color;
@@ -245,6 +250,8 @@ public class EnemyAI : MonoBehaviour
     private IEnumerator Hit()
     {
         _renderer.material.color = Color.red;
+        audio.clip = GameManager.Instance.randomHitSound();
+        audio.Play();
         yield return new WaitForSeconds(0.1f);
         hpTxt.SetHpText((int)health, (int)MaxHealth);
         _renderer.material.color = OriginColor;

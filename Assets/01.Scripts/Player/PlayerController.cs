@@ -72,7 +72,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private AudioClip[] footSteps;
 
+    [SerializeField]
+    private AudioClip[] swings;
+
     private AudioSource audio;
+
+    [SerializeField]
+    private AudioClip snowDig;
+
 
     private void OnEnable()
     {
@@ -217,9 +224,15 @@ public class PlayerController : MonoBehaviour
         {
             case AtkMode.Shovel:
                 if(snowObj != null)m_Animator.CrossFade(Const.Dig, 0.05f);
+                audio.clip = snowDig;
+                audio.Play();
                 break;
                 
             case AtkMode.Melee:
+                int swing = 0;
+                audio.pitch = 1;
+                audio.clip = swings[swing++%2];
+                audio.Play();
                 m_Animator.SetFloat(Const.AtkSpeed, GameManager.Instance.playerAtkSpd);
                 m_Animator.CrossFade(Const.Melee, 0.05f);
                 break;
