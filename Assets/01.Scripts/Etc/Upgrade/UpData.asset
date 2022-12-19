@@ -146,15 +146,15 @@ MonoBehaviour:
       value2: 0
       value3: 0
     - BuyCost: 26
-      value1: 1
+      value1: 2
       value2: 0
       value3: 0
     - BuyCost: 34
-      value1: 1
+      value1: 2
       value2: 0
       value3: 0
     - BuyCost: 42
-      value1: 1
+      value1: 4
       value2: 0
       value3: 0
     - BuyCost: 42
