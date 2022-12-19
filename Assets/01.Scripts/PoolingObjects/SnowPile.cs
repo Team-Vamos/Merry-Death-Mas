@@ -32,7 +32,6 @@ public class SnowPile : PoolingObj
         while (snowStack < 5f)
         {
             snowStack += 1f;
-            Debug.Log(snowStack);
             meshRenderer.material.SetFloat("_Height", snowStack);
             yield return new WaitForSeconds(GameManager.Instance.snowPileTime);
         }

@@ -48,7 +48,7 @@ public class PlayerController : MonoBehaviour
     private Collider shovelCollider;
 
     [SerializeField]
-    private GameObject snowBall;
+    private SnowBall snowBall;
 
     [SerializeField]
     private Transform shootPos;
@@ -69,6 +69,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float range;
 
+    [SerializeField]
+    private AudioClip[] footSteps;
+
+    private AudioSource audio;
+
     private void OnEnable()
     {
         stopMovement = false;
@@ -80,6 +85,7 @@ public class PlayerController : MonoBehaviour
 
     void Awake()
     {
+        audio = GetComponent<AudioSource>();
         m_Rigidbody = GetComponent<Rigidbody>();
         m_Animator = GetComponent<Animator>();
         camTrans = Camera.main.transform;
@@ -133,8 +139,21 @@ public class PlayerController : MonoBehaviour
             InputAtk();
             ChangeTool();
         }
+
+        if (moving) PlayFootstep();
     }
 
+    private void PlayFootstep()
+    {
+        int randomStep = Random.Range(0, 3);
+
+        if (!audio.isPlaying)
+        {
+            audio.pitch = inputSpeed + 0.5f;
+            audio.clip = footSteps[randomStep];
+            audio.Play();
+        }
+    }
 
     private void InputMove()
     {
@@ -198,7 +217,7 @@ public class PlayerController : MonoBehaviour
             case AtkMode.Shovel:
                 m_Animator.CrossFade(Const.Dig, 0.05f);
                 break;
-
+                
             case AtkMode.Melee:
                 m_Animator.SetFloat(Const.AtkSpeed, GameManager.Instance.playerAtkSpd);
                 m_Animator.CrossFade(Const.Melee, 0.05f);
@@ -295,7 +314,8 @@ public class PlayerController : MonoBehaviour
 
     public void Shoot()
     {
-        Instantiate(snowBall, shootPos);
+        GameObject SnowBall = snowBall.gameObject;
+        Instantiate(SnowBall, shootPos);
     }
 
     public void GetDmg()
