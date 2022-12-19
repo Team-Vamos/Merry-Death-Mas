@@ -195,7 +195,7 @@ public class PlayerController : MonoBehaviour
 
             if (wheelInput > 0)
             {
-                atkMode = isEnemyClose ? AtkMode.Melee : AtkMode.Shovel;
+                atkMode = (snowObj == null) ? AtkMode.Melee : AtkMode.Shovel;
                 tools[1].SetActive(false);
                 tools[0].SetActive(true);
             }
@@ -307,7 +307,7 @@ public class PlayerController : MonoBehaviour
             if (snowObj != null)
             {
                 isSnow = true;
-                if (atkMode != AtkMode.Gun) atkMode = AtkMode.Shovel;
+                if (atkMode != AtkMode.Gun) atkMode = AtkMode.Melee;
             }
             isEnemyClose = false;
         }

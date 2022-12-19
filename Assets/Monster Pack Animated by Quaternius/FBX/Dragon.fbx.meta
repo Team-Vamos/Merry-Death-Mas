@@ -18,7 +18,32 @@ ModelImporter:
   - first:
       74: -3693655769034393273
     second: DragonArmature|Dragon_Hit
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Belly
+    second: {fileID: 2100000, guid: ec3f494d5aa60ca439daf477fc64f9d5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Claws
+    second: {fileID: 2100000, guid: 287fd85b59edae8499a428583c8fbb20, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Eyes
+    second: {fileID: 2100000, guid: ca1eba2e9b018384d99d9c790fa60eb1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Main
+    second: {fileID: 2100000, guid: 4e2a079b66a59d44aae583d79a1d5649, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wings
+    second: {fileID: 2100000, guid: 83f964d0566494444ab4c50ec6a91529, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

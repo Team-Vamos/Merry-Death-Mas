@@ -80,11 +80,14 @@ public class EnemyAI : MonoBehaviour
     [SerializeField]
     private HpText hpTxt;
 
+    private Color OriginColor;
+
     private void Start()
     {
         health = MaxHealth;
         FindTarget();
         BallDmgDelay = GameManager.Instance.BallAtkDelay;
+        OriginColor = _renderer.material.color;
     }
 
     private void Awake()
@@ -244,7 +247,7 @@ public class EnemyAI : MonoBehaviour
         _renderer.material.color = Color.red;
         yield return new WaitForSeconds(0.1f);
         hpTxt.SetHpText((int)health, (int)MaxHealth);
-        _renderer.material.color = Color.white;
+        _renderer.material.color = OriginColor;
     }
 
     private void DestroyEnemy()

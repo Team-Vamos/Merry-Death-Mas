@@ -1,37 +1,24 @@
 fileFormatVersion: 2
-guid: 36b5e0710e4ed714181cf31c15c7c4a0
+guid: c0c6eb083390dee45a5f48f24747f524
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable:
   - first:
-      74: 5623561685360547041
-    second: Armature|Rat_Attack
+      74: -2369485670025405481
+    second: SkeletonArmature|Skeleton_Attack
   - first:
-      74: -5745788049621450776
-    second: Armature|Rat_Death
+      74: -3541391417983299662
+    second: SkeletonArmature|Skeleton_Death
   - first:
-      74: 4916845569733215604
-    second: Armature|Rat_Idle
+      74: 1881067910185220424
+    second: SkeletonArmature|Skeleton_Idle
   - first:
-      74: 8480544982520319549
-    second: Armature|Rat_Jump
+      74: 8534037678179333468
+    second: SkeletonArmature|Skeleton_Running
   - first:
-      74: -2340638274616033304
-    second: Armature|Rat_Run
-  - first:
-      74: 2258545883732491300
-    second: Armature|Rat_Walk
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Grey
-    second: {fileID: 2100000, guid: a57ec37340ad6bb4c84f2a0ff52c8eba, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Pink
-    second: {fileID: 2100000, guid: 70726b7fbe27d91439d289e8b42b2706, type: 2}
+      74: -1372735270039135212
+    second: SkeletonArmature|Skeleton_Spawn
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -61,11 +48,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Armature|Rat_Attack
-      takeName: Armature|Rat_Attack
+      name: SkeletonArmature|Skeleton_Attack
+      takeName: SkeletonArmature|Skeleton_Attack
       internalID: 0
       firstFrame: 0
-      lastFrame: 16
+      lastFrame: 28
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -90,11 +77,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Armature|Rat_Death
-      takeName: Armature|Rat_Death
+      name: SkeletonArmature|Skeleton_Death
+      takeName: SkeletonArmature|Skeleton_Death
       internalID: 0
       firstFrame: 0
-      lastFrame: 26
+      lastFrame: 11
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -119,11 +106,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Armature|Rat_Idle
-      takeName: Armature|Rat_Idle
+      name: SkeletonArmature|Skeleton_Idle
+      takeName: SkeletonArmature|Skeleton_Idle
       internalID: 0
       firstFrame: 0
-      lastFrame: 57
+      lastFrame: 80
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -148,40 +135,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Armature|Rat_Jump
-      takeName: Armature|Rat_Jump
+      name: SkeletonArmature|Skeleton_Running
+      takeName: SkeletonArmature|Skeleton_Running
       internalID: 0
       firstFrame: 0
-      lastFrame: 20
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-      name: Armature|Rat_Run
-      takeName: Armature|Rat_Run
-      internalID: 0
-      firstFrame: 0
-      lastFrame: 12
+      lastFrame: 30
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -206,11 +164,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Armature|Rat_Walk
-      takeName: Armature|Rat_Walk
+      name: SkeletonArmature|Skeleton_Spawn
+      takeName: SkeletonArmature|Skeleton_Spawn
       internalID: 0
       firstFrame: 0
-      lastFrame: 32
+      lastFrame: 87
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

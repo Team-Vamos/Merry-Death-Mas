@@ -1,37 +1,21 @@
 fileFormatVersion: 2
-guid: 36b5e0710e4ed714181cf31c15c7c4a0
+guid: 5c45b79c6439915408982704a05a1fc0
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable:
   - first:
-      74: 5623561685360547041
-    second: Armature|Rat_Attack
+      74: 5424966009276265124
+    second: Armature|Slime_Attack
   - first:
-      74: -5745788049621450776
-    second: Armature|Rat_Death
+      74: 4531912406860793044
+    second: Armature|Slime_Death
   - first:
-      74: 4916845569733215604
-    second: Armature|Rat_Idle
+      74: 4749002936024538594
+    second: Armature|Slime_Idle
   - first:
-      74: 8480544982520319549
-    second: Armature|Rat_Jump
-  - first:
-      74: -2340638274616033304
-    second: Armature|Rat_Run
-  - first:
-      74: 2258545883732491300
-    second: Armature|Rat_Walk
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Grey
-    second: {fileID: 2100000, guid: a57ec37340ad6bb4c84f2a0ff52c8eba, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Pink
-    second: {fileID: 2100000, guid: 70726b7fbe27d91439d289e8b42b2706, type: 2}
+      74: 6793611496562888960
+    second: Armature|Slime_Walk
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -61,11 +45,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Armature|Rat_Attack
-      takeName: Armature|Rat_Attack
+      name: Armature|Slime_Attack
+      takeName: Armature|Slime_Attack
       internalID: 0
       firstFrame: 0
-      lastFrame: 16
+      lastFrame: 15
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -90,11 +74,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Armature|Rat_Death
-      takeName: Armature|Rat_Death
+      name: Armature|Slime_Death
+      takeName: Armature|Slime_Death
       internalID: 0
       firstFrame: 0
-      lastFrame: 26
+      lastFrame: 10
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -119,11 +103,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Armature|Rat_Idle
-      takeName: Armature|Rat_Idle
+      name: Armature|Slime_Idle
+      takeName: Armature|Slime_Idle
       internalID: 0
       firstFrame: 0
-      lastFrame: 57
+      lastFrame: 60
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -148,8 +132,8 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Armature|Rat_Jump
-      takeName: Armature|Rat_Jump
+      name: Armature|Slime_Walk
+      takeName: Armature|Slime_Walk
       internalID: 0
       firstFrame: 0
       lastFrame: 20
@@ -159,65 +143,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-      name: Armature|Rat_Run
-      takeName: Armature|Rat_Run
-      internalID: 0
-      firstFrame: 0
-      lastFrame: 12
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
       loopTime: 1
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-      name: Armature|Rat_Walk
-      takeName: Armature|Rat_Walk
-      internalID: 0
-      firstFrame: 0
-      lastFrame: 32
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
