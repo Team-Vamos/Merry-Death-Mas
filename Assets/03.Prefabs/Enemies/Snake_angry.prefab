@@ -1295,9 +1295,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 448676574984238984}
+  - component: {fileID: 6498933051072183807}
+  - component: {fileID: 9141142254680629402}
   m_Layer: 0
   m_Name: Mouth
-  m_TagString: Untagged
+  m_TagString: EnemyAtk
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1319,3 +1321,28 @@ Transform:
   m_Father: {fileID: 3617157320114876450}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6498933051072183807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8735681241017368380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e395c1d54b544d2489bcfa88cc58eff5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &9141142254680629402
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8735681241017368380}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.01, y: 0.01, z: 0.01}
+  m_Center: {x: 0, y: 0.007, z: 0}
