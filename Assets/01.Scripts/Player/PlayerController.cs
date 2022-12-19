@@ -92,6 +92,7 @@ public class PlayerController : MonoBehaviour
         playerMaterial[0].color = Color.white;
         playerMaterial[1].color = Color.white;
         renderers = GetComponentsInChildren<Renderer>();
+        atkMode = AtkMode.Melee;
     }
 
 
@@ -215,7 +216,7 @@ public class PlayerController : MonoBehaviour
         switch (atkMode)
         {
             case AtkMode.Shovel:
-                m_Animator.CrossFade(Const.Dig, 0.05f);
+                if(snowObj != null)m_Animator.CrossFade(Const.Dig, 0.05f);
                 break;
                 
             case AtkMode.Melee:
