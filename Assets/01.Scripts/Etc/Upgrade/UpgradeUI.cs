@@ -154,7 +154,7 @@ public class UpgradeUI : MonoBehaviour
 
     public void Candle() //‰Ñ´Ù
     {
-        GameManager.Instance.SnowBallDmg = (int)(GameManager.Instance.SnowBallDmg + (value1 / 100));
+        GameManager.Instance.SnowBallDmg += (int)value1;
         Debug.Log(-upgradeInfo.UpgradeLevel[currentLevel].BuyCost);
         if (GameManager.Instance.getCandy > upgradeInfo.UpgradeLevel[currentLevel].BuyCost)
             GameManager.Instance.AddCandy(-upgradeInfo.UpgradeLevel[currentLevel].BuyCost);

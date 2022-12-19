@@ -44,31 +44,31 @@ public class Turret : MonoBehaviour
         partToRotate.LookAt(new Vector3(target.position.x, transform.position.y, target.position.z));
     }   
 
-    void UpdateTarget()
-    {
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag(EnemyTag);
-        float shortestDis = Mathf.Infinity;
-        GameObject nearesetEnemy = null;
+    //void UpdateTarget()
+    //{
+    //    GameObject[] enemies = GameObject.FindGameObjectsWithTag(EnemyTag);
+    //    float shortestDis = Mathf.Infinity;
+    //    GameObject nearesetEnemy = null;
 
-        foreach (GameObject enemy in enemies)
-        {
-            float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
-            if (distanceToEnemy < shortestDis)
-            {
-                shortestDis = distanceToEnemy;
-                nearesetEnemy = enemy;
-            }
-        }
-        if (nearesetEnemy != null && shortestDis <= attackRange)
-        {
-            target = nearesetEnemy.transform;
-            Debug.Log("FindTarget");
-        }
-        else
-        {
-            target = null;
-        }
-    }
+    //    foreach (GameObject enemy in enemies)
+    //    {
+    //        float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
+    //        if (distanceToEnemy < shortestDis)
+    //        {
+    //            shortestDis = distanceToEnemy;
+    //            nearesetEnemy = enemy;
+    //        }
+    //    }
+    //    if (nearesetEnemy != null && shortestDis <= attackRange)
+    //    {
+    //        target = nearesetEnemy.transform;
+    //        Debug.Log("FindTarget");
+    //    }
+    //    else
+    //    {
+    //        target = null;
+    //    }
+    //}
 
     void Shoot()
     {
