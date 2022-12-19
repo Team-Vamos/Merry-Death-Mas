@@ -202,7 +202,7 @@ public class EnemyAI : MonoBehaviour
                     break;
                 case EnemyAtkType.shortRange:
                     isAtk = true;
-                    anim.CrossFade("Attack", 0.05f);
+                    anim.SetTrigger("Attack");
                     break;
             }
 
