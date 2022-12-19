@@ -1,37 +1,24 @@
 fileFormatVersion: 2
-guid: 36b5e0710e4ed714181cf31c15c7c4a0
+guid: 339d886de6b6fe747bc5e361c42784b4
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable:
   - first:
-      74: 5623561685360547041
-    second: Armature|Rat_Attack
+      74: -8721722018038115971
+    second: DragonArmature|Dragon_Attack
   - first:
-      74: -5745788049621450776
-    second: Armature|Rat_Death
+      74: 6841991216987856006
+    second: DragonArmature|Dragon_Attack2
   - first:
-      74: 4916845569733215604
-    second: Armature|Rat_Idle
+      74: 1396291781994451658
+    second: DragonArmature|Dragon_Death
   - first:
-      74: 8480544982520319549
-    second: Armature|Rat_Jump
+      74: 6715004902463417496
+    second: DragonArmature|Dragon_Flying
   - first:
-      74: -2340638274616033304
-    second: Armature|Rat_Run
-  - first:
-      74: 2258545883732491300
-    second: Armature|Rat_Walk
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Grey
-    second: {fileID: 2100000, guid: a57ec37340ad6bb4c84f2a0ff52c8eba, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Pink
-    second: {fileID: 2100000, guid: 70726b7fbe27d91439d289e8b42b2706, type: 2}
+      74: -3693655769034393273
+    second: DragonArmature|Dragon_Hit
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -61,11 +48,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Armature|Rat_Attack
-      takeName: Armature|Rat_Attack
+      name: DragonArmature|Dragon_Attack
+      takeName: DragonArmature|Dragon_Attack
       internalID: 0
       firstFrame: 0
-      lastFrame: 16
+      lastFrame: 21
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -90,11 +77,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Armature|Rat_Death
-      takeName: Armature|Rat_Death
+      name: DragonArmature|Dragon_Attack2
+      takeName: DragonArmature|Dragon_Attack2
       internalID: 0
       firstFrame: 0
-      lastFrame: 26
+      lastFrame: 40
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -119,11 +106,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Armature|Rat_Idle
-      takeName: Armature|Rat_Idle
+      name: DragonArmature|Dragon_Death
+      takeName: DragonArmature|Dragon_Death
       internalID: 0
       firstFrame: 0
-      lastFrame: 57
+      lastFrame: 29
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -148,40 +135,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Armature|Rat_Jump
-      takeName: Armature|Rat_Jump
+      name: DragonArmature|Dragon_Flying
+      takeName: DragonArmature|Dragon_Flying
       internalID: 0
       firstFrame: 0
-      lastFrame: 20
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-      name: Armature|Rat_Run
-      takeName: Armature|Rat_Run
-      internalID: 0
-      firstFrame: 0
-      lastFrame: 12
+      lastFrame: 40
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -206,11 +164,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Armature|Rat_Walk
-      takeName: Armature|Rat_Walk
+      name: DragonArmature|Dragon_Hit
+      takeName: DragonArmature|Dragon_Hit
       internalID: 0
       firstFrame: 0
-      lastFrame: 32
+      lastFrame: 40
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -299,7 +257,7 @@ ModelImporter:
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 0
+  avatarSetup: 1
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   remapMaterialsIfMaterialImportModeIsNone: 0
   additionalBone: 0

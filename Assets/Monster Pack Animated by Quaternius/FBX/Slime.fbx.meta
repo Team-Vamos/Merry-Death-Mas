@@ -15,7 +15,17 @@ ModelImporter:
   - first:
       74: 6793611496562888960
     second: Armature|Slime_Walk
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Body
+    second: {fileID: 2100000, guid: a27ee019e2a5bda4e930f7d429aa16e2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Eyes
+    second: {fileID: 2100000, guid: ca1eba2e9b018384d99d9c790fa60eb1, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
