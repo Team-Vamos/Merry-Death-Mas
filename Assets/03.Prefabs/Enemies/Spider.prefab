@@ -371,7 +371,7 @@ Animator:
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 6baa68e37e507354b8f1d0efc0472813, type: 3}
   m_Controller: {fileID: 9100000, guid: 51ee6a22698cd874d919caf40e9da89d, type: 2}
-  m_CullingMode: 0
+  m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
@@ -448,9 +448,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 1.3
-  m_Height: 1
+  m_Height: 5.9072733
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 1.6536369, z: 0}
 --- !u!54 &1337873925610952588
 Rigidbody:
   m_ObjectHideFlags: 0
