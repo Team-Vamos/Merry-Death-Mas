@@ -15,7 +15,17 @@ ModelImporter:
   - first:
       74: -8237176021887642799
     second: SnakeArmature|Snake_Walk
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DarkGreen
+    second: {fileID: 2100000, guid: be354db75f3c83a4b8459936cbb70f7a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: LightGreen
+    second: {fileID: 2100000, guid: b7ea172792b31734495e5c87841affd9, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
