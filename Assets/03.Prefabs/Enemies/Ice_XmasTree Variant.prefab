@@ -675,7 +675,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.2
-  m_Speed: 3
+  m_Speed: 2
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -709,10 +709,10 @@ MonoBehaviour:
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 1024
-  MaxHealth: 18
+  MaxHealth: 60
   healthBar: {fileID: 18091785568709686}
-  DropCandyMin: 10
-  DropCandyMax: 30
+  DropCandyMin: 1
+  DropCandyMax: 3
   timeBetweenAttacks: 4
   projectile: {fileID: 0}
   attackRange: 0.9
