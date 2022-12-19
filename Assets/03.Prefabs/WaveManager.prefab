@@ -74,8 +74,8 @@ MonoBehaviour:
     SpawnMonsterBetweenTime: 3
   - spawnMonsters:
     - {fileID: 3032004057452538274, guid: c6a3f63485e2d3346968f1963fb23e2a, type: 3}
-    - {fileID: 7228361593295824999, guid: 0730316ce6996214a8f5e6ed908d9518, type: 3}
-    SpawnMonsterPersent: 0100000002000000
+    - {fileID: 1388016098041709933, guid: 6250c9db548258a47a6d9d0d3589e55b, type: 3}
+    SpawnMonsterPersent: 0100000003000000
     SpawnMonsterBetweenTime: 3
   - spawnMonsters:
     - {fileID: 3032004057452538274, guid: c6a3f63485e2d3346968f1963fb23e2a, type: 3}
