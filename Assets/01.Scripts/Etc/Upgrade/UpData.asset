@@ -19,27 +19,27 @@ MonoBehaviour:
     MaxUpgrade: 5
     itemDesc: "\uD50C\uB808\uC774\uC5B4\uC758 \uACF5\uACA9\uB825\uC774 \uC99D\uAC00\uD569\uB2C8\uB2E4."
     UpgradeLevel:
-    - BuyCost: 6
-      value1: 12
+    - BuyCost: 10
+      value1: 10
       value2: 10
       value3: 190
-    - BuyCost: 12
-      value1: 14
-      value2: 0
-      value3: 0
-    - BuyCost: 18
-      value1: 18
-      value2: 0
-      value3: 0
-    - BuyCost: 24
-      value1: 24
+    - BuyCost: 20
+      value1: 20
       value2: 0
       value3: 0
     - BuyCost: 30
-      value1: 30
+      value1: 35
       value2: 0
       value3: 0
-    - BuyCost: 36
+    - BuyCost: 40
+      value1: 50
+      value2: 0
+      value3: 0
+    - BuyCost: 60
+      value1: 80
+      value2: 0
+      value3: 0
+    - BuyCost: 50
       value1: 38
       value2: 0
       value3: 0
@@ -49,27 +49,27 @@ MonoBehaviour:
     MaxUpgrade: 5
     itemDesc: "\uD50C\uB808\uC774\uC5B4\uC758 \uACF5\uACA9\uC18D\uB3C4\uAC00 \uC99D\uAC00\uD569\uB2C8\uB2E4."
     UpgradeLevel:
-    - BuyCost: 6
+    - BuyCost: 8
       value1: 1.1
       value2: 0
       value3: 0
-    - BuyCost: 12
-      value1: 1.15
-      value2: 0
-      value3: 0
-    - BuyCost: 18
-      value1: 1.25
+    - BuyCost: 16
+      value1: 1.2
       value2: 0
       value3: 0
     - BuyCost: 24
-      value1: 1.4
+      value1: 1.35
       value2: 0
       value3: 0
-    - BuyCost: 30
+    - BuyCost: 32
       value1: 1.6
       value2: 0
       value3: 0
-    - BuyCost: 30
+    - BuyCost: 40
+      value1: 1.8
+      value2: 0
+      value3: 0
+    - BuyCost: 40
       value1: 1.85
       value2: 0
       value3: 0
@@ -81,23 +81,23 @@ MonoBehaviour:
       \uC8FC\uBCC0\uC744 \uB3D5\uB2C8\uB2E4. \uD06C\uB9AC\uC2A4\uB9C8\uC2A4 \uBCFC\uC5D0
       \uB2FF\uC740 \uC801\uC5D0\uAC8C \uD53C\uD574\uB97C \uC785\uD799\uB2C8\uB2E4."
     UpgradeLevel:
-    - BuyCost: 18
-      value1: 8
+    - BuyCost: 20
+      value1: 5
       value2: 0.5
       value3: 3
-    - BuyCost: 22
-      value1: 14
+    - BuyCost: 30
+      value1: 11
       value2: 0.4
       value3: 4
-    - BuyCost: 26
-      value1: 20
+    - BuyCost: 40
+      value1: 17
       value2: 0.3
       value3: 5
-    - BuyCost: 30
-      value1: 26
+    - BuyCost: 50
+      value1: 23
       value2: 0.2
       value3: 6
-    - BuyCost: 36
+    - BuyCost: 50
       value1: 50
       value2: 0.1
       value3: 6
@@ -107,27 +107,27 @@ MonoBehaviour:
     MaxUpgrade: 5
     itemDesc: "\uB208\uB369\uC774\uC758 \uACF5\uACA9\uB825\uC774 \uC99D\uAC00\uD569\uB2C8\uB2E4."
     UpgradeLevel:
-    - BuyCost: 6
-      value1: 8
+    - BuyCost: 8
+      value1: 10
       value2: 0
       value3: 0
-    - BuyCost: 12
-      value1: 14
-      value2: 0
-      value3: 0
-    - BuyCost: 18
-      value1: 20
+    - BuyCost: 16
+      value1: 30
       value2: 0
       value3: 0
     - BuyCost: 24
-      value1: 26
+      value1: 50
       value2: 0
       value3: 0
-    - BuyCost: 30
-      value1: 32
+    - BuyCost: 35
+      value1: 75
       value2: 0
       value3: 0
-    - BuyCost: 36
+    - BuyCost: 45
+      value1: 100
+      value2: 0
+      value3: 0
+    - BuyCost: 45
       value1: 40
       value2: 0
       value3: 0
@@ -137,11 +137,7 @@ MonoBehaviour:
     MaxUpgrade: 5
     itemDesc: "\uD50C\uB808\uC774\uC5B4\uC758 \uCCB4\uB825\uC774 \uC99D\uAC00\uD569\uB2C8\uB2E4."
     UpgradeLevel:
-    - BuyCost: 6
-      value1: 1
-      value2: 0
-      value3: 0
-    - BuyCost: 12
+    - BuyCost: 10
       value1: 1
       value2: 0
       value3: 0
@@ -149,15 +145,19 @@ MonoBehaviour:
       value1: 1
       value2: 0
       value3: 0
-    - BuyCost: 24
+    - BuyCost: 26
       value1: 1
       value2: 0
       value3: 0
-    - BuyCost: 30
+    - BuyCost: 34
       value1: 1
       value2: 0
       value3: 0
-    - BuyCost: 36
+    - BuyCost: 42
+      value1: 1
+      value2: 0
+      value3: 0
+    - BuyCost: 42
       value1: 1
       value2: 0
       value3: 0
@@ -169,18 +169,18 @@ MonoBehaviour:
       \uAD11\uBC94\uC704 \uACF5\uACA9\uC744 \uD569\uB2C8\uB2E4."
     UpgradeLevel:
     - BuyCost: 50
-      value1: 5
+      value1: 10
       value2: 4
       value3: 0
-    - BuyCost: 100
-      value1: 10
+    - BuyCost: 80
+      value1: 35
       value2: 3.5
       value3: 0
-    - BuyCost: 150
-      value1: 15
+    - BuyCost: 120
+      value1: 50
       value2: 3
       value3: 0
-    - BuyCost: 35
+    - BuyCost: 0
       value1: 5
       value2: 4
       value3: 0
@@ -191,25 +191,25 @@ MonoBehaviour:
     itemDesc: "\uC790\uB3D9\uC73C\uB85C \uC801\uC744 \uACF5\uACA9\uD558\uB294 \uB208\uC0AC\uB78C\uC744
       \uC18C\uD658\uD569\uB2C8\uB2E4."
     UpgradeLevel:
-    - BuyCost: 6
+    - BuyCost: 25
       value1: 10
       value2: 2
       value3: 30
-    - BuyCost: 12
-      value1: 20
-      value2: 1.6
-      value3: 35
-    - BuyCost: 18
-      value1: 30
-      value2: 1.2
-      value3: 40
-    - BuyCost: 24
-      value1: 40
-      value2: 0.8
-      value3: 45
     - BuyCost: 30
-      value1: 50
-      value2: 0.6
+      value1: 12
+      value2: 1.8
+      value3: 35
+    - BuyCost: 35
+      value1: 15
+      value2: 1.5
+      value3: 40
+    - BuyCost: 40
+      value1: 20
+      value2: 1.2
+      value3: 45
+    - BuyCost: 50
+      value1: 30
+      value2: 1
       value3: 50
     - BuyCost: 30
       value1: 60

@@ -335,7 +335,7 @@ GameObject:
   - component: {fileID: 7362676761475112448}
   - component: {fileID: 1337873925610952588}
   m_Layer: 9
-  m_Name: Spider
+  m_Name: BigSpider
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -350,8 +350,8 @@ Transform:
   m_GameObject: {fileID: 1388016098041709933}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -14.999725, y: 0, z: 20.687744}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 7254245096833587322}
   - {fileID: 5619612214496052612}
@@ -402,11 +402,11 @@ MonoBehaviour:
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 256
-  MaxHealth: 20
+  MaxHealth: 800
   healthBar: {fileID: 2560319829228828183}
-  DropCandyMin: 1
-  DropCandyMax: 1
-  timeBetweenAttacks: 3
+  DropCandyMin: 50
+  DropCandyMax: 50
+  timeBetweenAttacks: 7
   projectile: {fileID: 0}
   attackRange: 0.8
   playerInAttackRange: 0
@@ -425,7 +425,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 1.31
-  m_Speed: 4
+  m_Speed: 1.65
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
