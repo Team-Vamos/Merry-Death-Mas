@@ -164,6 +164,16 @@ public class GameManager : MonoSingleton<GameManager>
         get => presentPoolManager.childCount;
     }
 
+    [Header("BGM_Manager")]
+    [SerializeField]
+    private Transform record;
+
+    [SerializeField]
+    private RawImage recordImage;
+
+    [SerializeField]
+    private Image elbumImage;
+
     private void Start()
     {
         playerHp = playerMaxHp;
@@ -337,6 +347,7 @@ public class GameManager : MonoSingleton<GameManager>
     {
         escPanel.SetActive(true);
         settingPanel.SetActive(false);
+        BGM_Manager.Instance.Init(record, recordImage, elbumImage);
         Enabled = true;
         Time.timeScale = 0;
     }
