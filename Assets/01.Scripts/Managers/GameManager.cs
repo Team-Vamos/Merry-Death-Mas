@@ -82,6 +82,12 @@ public class GameManager : MonoSingleton<GameManager>
     private Text candyTxt;
 
     [SerializeField]
+    private Image NightImage;
+
+    [SerializeField]
+    private Image AfterNoonImage;
+
+    [SerializeField]
     private Text addCcandyTxt;
 
     [SerializeField]
@@ -165,6 +171,20 @@ public class GameManager : MonoSingleton<GameManager>
         if (amount > 0) AddCandyPool(amount);
         candy += (int)(amount * multiplyCandy);
         candyTxt.text = $"{candy}";
+    }
+
+    public void ChangeImage(bool night)
+    {
+        if(night==true)
+        {
+            AfterNoonImage.enabled = true;
+            NightImage.enabled = false;
+        }
+        else if(night == false)
+        {
+            AfterNoonImage.enabled = false;
+            NightImage.enabled = true;
+        }
     }
 
     public void UseSnow()

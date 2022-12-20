@@ -11,6 +11,8 @@ public class SpawnMonsters
     public int SpawnMonsterBetweenTime;
 }
 
+
+
 public class EnemySpawn : MonoBehaviour
 {
     public Transform Tree;
@@ -29,15 +31,8 @@ public class EnemySpawn : MonoBehaviour
     public Text NowTimeText;
     private float time;
 
-    private AudioSource audio;
-
 
     public SpawnMonsters[] Wave;
-
-    private void Awake()
-    {
-        audio = GetComponent<AudioSource>();
-    }
 
     private void Update()
     {
@@ -49,13 +44,13 @@ public class EnemySpawn : MonoBehaviour
         {
             if(night==true) // 아침 시작
             {
-                audio.Play();
+                GameManager.Instance.ChangeImage(night);
                 time = AfternoonTime;
                 night = false;
             }
             else if(night==false) //밤이 시작
             {
-                audio.Play();
+                GameManager.Instance.ChangeImage(night);
                 time = NightTime;
                 night = true;
                 WaveCnt++;
