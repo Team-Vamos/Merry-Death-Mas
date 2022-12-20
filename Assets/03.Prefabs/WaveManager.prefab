@@ -95,6 +95,14 @@ MonoBehaviour:
     SpawnMonsterPersent: 01000000
     SpawnMonsterBetweenTime: 2
   - spawnMonsters:
+    - {fileID: 1360804441596290086, guid: a87a4039fd85bb84a9690a6fdde3f02d, type: 3}
+    SpawnMonsterPersent: 05000000
+    SpawnMonsterBetweenTime: 2
+  - spawnMonsters:
+    - {fileID: 6946491898153502322, guid: 45e272787b4ad0544b66caa647840e73, type: 3}
+    SpawnMonsterPersent: 01000000
+    SpawnMonsterBetweenTime: 15
+  - spawnMonsters:
     - {fileID: 7228361593295824999, guid: 3e3323dd4c112004b81879f53bb1e095, type: 3}
     - {fileID: 6946491898153502322, guid: 45e272787b4ad0544b66caa647840e73, type: 3}
     SpawnMonsterPersent: 0900000001000000
@@ -107,9 +115,43 @@ MonoBehaviour:
     - {fileID: 6946491898153502322, guid: 45e272787b4ad0544b66caa647840e73, type: 3}
     - {fileID: 1388016098041709933, guid: 457f6faf932de8749894144031e97006, type: 3}
     - {fileID: 7228361593295824999, guid: 3e3323dd4c112004b81879f53bb1e095, type: 3}
-    SpawnMonsterPersent: 010000000500000005000000
+    SpawnMonsterPersent: 020000000500000005000000
     SpawnMonsterBetweenTime: 2
   - spawnMonsters:
     - {fileID: 1388016098041709933, guid: 6250c9db548258a47a6d9d0d3589e55b, type: 3}
+    SpawnMonsterPersent: 01000000
+    SpawnMonsterBetweenTime: 2
+  - spawnMonsters:
+    - {fileID: 1360804441596290086, guid: a87a4039fd85bb84a9690a6fdde3f02d, type: 3}
+    - {fileID: 1388016098041709933, guid: 6250c9db548258a47a6d9d0d3589e55b, type: 3}
+    SpawnMonsterPersent: 0100000001000000
+    SpawnMonsterBetweenTime: 2
+  - spawnMonsters:
+    - {fileID: 1360804441596290086, guid: a87a4039fd85bb84a9690a6fdde3f02d, type: 3}
+    - {fileID: 1388016098041709933, guid: 6250c9db548258a47a6d9d0d3589e55b, type: 3}
+    - {fileID: 1388016098041709933, guid: 457f6faf932de8749894144031e97006, type: 3}
+    SpawnMonsterPersent: 020000000100000005000000
+    SpawnMonsterBetweenTime: 2
+  - spawnMonsters:
+    - {fileID: 1388016098041709933, guid: 6250c9db548258a47a6d9d0d3589e55b, type: 3}
+    SpawnMonsterPersent: 05000000
+    SpawnMonsterBetweenTime: 15
+  - spawnMonsters:
+    - {fileID: 1388016098041709933, guid: 457f6faf932de8749894144031e97006, type: 3}
+    SpawnMonsterPersent: 05000000
+    SpawnMonsterBetweenTime: 1
+  - spawnMonsters:
+    - {fileID: 1360804441596290086, guid: a87a4039fd85bb84a9690a6fdde3f02d, type: 3}
+    - {fileID: 6946491898153502322, guid: 45e272787b4ad0544b66caa647840e73, type: 3}
+    - {fileID: 1388016098041709933, guid: 6250c9db548258a47a6d9d0d3589e55b, type: 3}
+    SpawnMonsterPersent: 050000000100000001000000
+    SpawnMonsterBetweenTime: 2
+  - spawnMonsters:
+    - {fileID: 6946491898153502322, guid: 45e272787b4ad0544b66caa647840e73, type: 3}
+    - {fileID: 1388016098041709933, guid: 6250c9db548258a47a6d9d0d3589e55b, type: 3}
+    SpawnMonsterPersent: 0100000001000000
+    SpawnMonsterBetweenTime: 5
+  - spawnMonsters:
+    - {fileID: 6305461531447171016, guid: 37b92e37cdbe69c448452695596828de, type: 3}
     SpawnMonsterPersent: 01000000
     SpawnMonsterBetweenTime: 30

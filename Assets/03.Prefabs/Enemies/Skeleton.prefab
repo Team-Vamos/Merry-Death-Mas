@@ -324,7 +324,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1280
   BulletPosition: {fileID: 0}
-  MaxHealth: 50
+  MaxHealth: 300
   healthBar: {fileID: 2709211988302761032}
   DropCandyMin: 10
   DropCandyMax: 10
