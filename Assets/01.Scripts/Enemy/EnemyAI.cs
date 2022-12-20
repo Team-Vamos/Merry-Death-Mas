@@ -90,6 +90,7 @@ public class EnemyAI : MonoBehaviour
     {
         health = MaxHealth;
         audio = GetComponent<AudioSource>();
+        audio.outputAudioMixerGroup = GameManager.Instance.Mixer;
         FindTarget();
         BallDmgDelay = GameManager.Instance.BallAtkDelay;
         OriginColor = _renderer.material.color;

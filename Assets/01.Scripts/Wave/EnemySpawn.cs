@@ -29,9 +29,15 @@ public class EnemySpawn : MonoBehaviour
     public Text timeText;
     public Text waveText;
     private float time;
-
+    
+    private AudioSource audio;
 
     public SpawnMonsters[] Wave;
+
+    private void Awake()
+    {
+        audio = GetComponent<AudioSource>();
+    }
 
     private void Update()
     {
@@ -49,6 +55,7 @@ public class EnemySpawn : MonoBehaviour
             }
             else if(night==false) //π„¿Ã Ω√¿€
             {
+                audio.Play();
                 GameManager.Instance.ChangeImage(night);
                 time = NightTime;
                 night = true;

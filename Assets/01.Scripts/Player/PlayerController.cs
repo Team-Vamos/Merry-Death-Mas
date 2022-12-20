@@ -146,9 +146,8 @@ public class PlayerController : MonoBehaviour
             InputMove();
             InputAtk();
             ChangeTool();
+            if (moving) PlayFootstep();
         }
-
-        if (moving) PlayFootstep();
     }
 
     private void PlayFootstep()

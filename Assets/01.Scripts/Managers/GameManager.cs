@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.UI;
 
 public class GameManager : MonoSingleton<GameManager>
@@ -77,6 +78,15 @@ public class GameManager : MonoSingleton<GameManager>
 
     public Transform addCandyPool;
 
+    [SerializeField]
+    private Image BGBtn;
+
+    [SerializeField]
+    private Image EnvBtn;
+
+    [SerializeField]
+    private Sprite[] onOffSprite;
+
     [Header("====== UIs ======")]
     [SerializeField]
     private Text candyTxt;
@@ -112,9 +122,34 @@ public class GameManager : MonoSingleton<GameManager>
     [SerializeField]
     private GameObject Danger;
 
+    [SerializeField]
+    private GameObject settingPanel;
+    
+    [SerializeField]
+    private GameObject escPanel;
+
+    [SerializeField]
+    private Slider BGSlider;
+
+    [SerializeReference]
+    private Slider EnvSlider;
+
     [Header("Sounds")]
     [SerializeField]
     private AudioClip Vanish;
+
+    private AudioListener listener;
+
+    [SerializeField]
+    private AudioMixer mixer;
+
+    public AudioMixerGroup Mixer;
+
+    [SerializeField]
+    private AudioMixerGroup BGmixer;
+
+    bool BGMuted = false;
+    bool ENVMuted = false;
 
     public AudioClip vanishSound
     {
@@ -133,9 +168,25 @@ public class GameManager : MonoSingleton<GameManager>
     {
         playerHp = playerMaxHp;
         TreeHp = TreeMaxHp;
+        listener = GetComponent<AudioListener>();
         StartCoroutine(CreateSnow());
         AddCandy(0);
         AddSnow(0);
+    }
+
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            if(Enabled == false)
+            {
+                OnESC();
+            }
+            else
+            {
+                Resume();
+            }
+        }
     }
 
     IEnumerator CreateSnow()
@@ -211,6 +262,7 @@ public class GameManager : MonoSingleton<GameManager>
 
     public void RespawnPlayer()
     {
+        listener.enabled = true;
         StartCoroutine(Respawn());
     }
 
@@ -224,6 +276,7 @@ public class GameManager : MonoSingleton<GameManager>
         }
         RespawnPanel.SetActive(false);
         playerHp = playerMaxHp;
+        listener.enabled = false;
         player.SetActive(true);
     }
 
@@ -247,7 +300,6 @@ public class GameManager : MonoSingleton<GameManager>
         Text text;
         string sign = "";
         sign = candyCnt > 0 ? "+" : "";
-        Debug.Log(addCandyPool.childCount);
         if (addCandyPool.childCount < 1)
         {
             text = Instantiate(addCcandyTxt).GetComponent<Text>();
@@ -279,5 +331,77 @@ public class GameManager : MonoSingleton<GameManager>
     {
         int randomInt = Random.Range(0, 1);
         return hitSounds[randomInt];
+    }
+
+    private void OnESC()
+    {
+        escPanel.SetActive(true);
+        settingPanel.SetActive(false);
+        Enabled = true;
+        Time.timeScale = 0;
+    }
+
+    public void Resume()
+    {
+        escPanel.SetActive(false);
+        settingPanel.SetActive(false);
+        Enabled = false;
+        Time.timeScale = 1;
+    }
+
+    public void Setting(bool on)
+    {
+        settingPanel.SetActive(on);
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
+    }
+
+    public void MuteEnv()
+    {
+        if(ENVMuted)
+        {
+            mixer.SetFloat("EnvVolume", Mathf.Log10(EnvSlider.value) * 20);
+            EnvBtn.sprite = onOffSprite[0];
+        }
+        else
+        {
+            mixer.SetFloat("EnvVolume", Mathf.Log10(0.001f) * 20);
+            EnvBtn.sprite = onOffSprite[1];
+        }
+        ENVMuted = !ENVMuted;
+    }
+
+    public void MuteBGM()
+    {
+        if (BGMuted)
+        {
+            mixer.SetFloat("BGMVolume", Mathf.Log10(BGSlider.value) * 20);
+            BGBtn.sprite = onOffSprite[0];
+        }
+        else
+        {
+            mixer.SetFloat("BGMVolume", Mathf.Log10(0.001f) * 20);
+            BGBtn.sprite = onOffSprite[1];
+        }
+        BGMuted = !BGMuted;
+    }
+
+    public void SetEnv()
+    {
+        float value = EnvSlider.value;
+        mixer.SetFloat("EnvVolume", Mathf.Log10(value) * 20);
+        if (value <= 0.003f) EnvBtn.sprite = onOffSprite[1];
+        else EnvBtn.sprite = onOffSprite[0];
+    }
+
+    public void SetBGM()
+    {
+        float value = BGSlider.value;
+        mixer.SetFloat("BGMVolume", Mathf.Log10(value) * 20);
+        if (value <= 0.003f) BGBtn.sprite = onOffSprite[1];
+        else EnvBtn.sprite = onOffSprite[0];
     }
 }
