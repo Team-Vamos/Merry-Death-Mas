@@ -56,6 +56,8 @@ MonoBehaviour:
   snowPileTime: 2
   respawnTime: 3
   playerHp: 10
+  playerMaxHp: 10
+  playerAutoHealingCoolTime: 10
   playerAtkSpd: 1
   FreezeTime: 2
   SnowBallDmg: 10
@@ -63,16 +65,28 @@ MonoBehaviour:
   StartDelay: 1
   TurretDmg: 1
   TurrentDelay: 1
+  TurretRange: 1
   BallSize: 3
   BallSpd: 100
   BallDmg: 3
   BallAtkDelay: 1
+  TreeMaxHp: 10
+  TreeHp: 20
+  TreeHeal: 10
   snowPoolManager: {fileID: 0}
   presentPoolManager: {fileID: 0}
   addCandyPool: {fileID: 0}
   candyTxt: {fileID: 0}
+  NightImage: {fileID: 0}
+  AfterNoonImage: {fileID: 0}
   addCcandyTxt: {fileID: 0}
   textPanel: {fileID: 0}
   RespawnTxt: {fileID: 0}
   RespawnPanel: {fileID: 0}
+  SnowCnt: {fileID: 0}
+  Hert: {fileID: 0}
   Enabled: 0
+  outOfSnow: {fileID: 0}
+  Danger: {fileID: 0}
+  Vanish: {fileID: 0}
+  hitSounds: []

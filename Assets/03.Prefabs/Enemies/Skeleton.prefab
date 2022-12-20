@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 674045957170235603}
   - component: {fileID: 5006616365226775232}
   - component: {fileID: 8978756231928209251}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: L.DownLeg.001
   m_TagString: EnemyAtk
   m_Icon: {fileID: 0}
@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e395c1d54b544d2489bcfa88cc58eff5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isBullet: 0
 --- !u!65 &8978756231928209251
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -232,9 +233,9 @@ GameObject:
   - component: {fileID: 6726945138521714208}
   - component: {fileID: 6482043062054364395}
   - component: {fileID: 989061035640435616}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Skeleton
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -322,7 +323,8 @@ MonoBehaviour:
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 1280
-  MaxHealth: 50
+  BulletPosition: {fileID: 0}
+  MaxHealth: 300
   healthBar: {fileID: 2709211988302761032}
   DropCandyMin: 10
   DropCandyMax: 10
