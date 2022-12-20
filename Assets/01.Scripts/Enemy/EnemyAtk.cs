@@ -10,6 +10,7 @@ public class EnemyAtk : MonoBehaviour
         {
             if(GetComponentInParent<EnemyAI>().isAtk)
             {
+                Debug.Log("PlayerAtk");
                 other.GetComponent<PlayerController>().GetDmg();
                 GetComponentInParent<EnemyAI>().isAtk = false;
             }
@@ -18,6 +19,7 @@ public class EnemyAtk : MonoBehaviour
         {
             if(GetComponentInParent<EnemyAI>().isAtk)
             {
+                Debug.Log("TreeAtk");
                 other.GetComponent<TreeHp>().getDmg();
                 GetComponentInParent<EnemyAI>().isAtk = false;
             }
