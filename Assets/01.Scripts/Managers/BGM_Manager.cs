@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BGM_Manager : MonoBehaviour
+public class BGM_Manager : MonoSingleton<BGM_Manager>
 {
     [SerializeField]
     private Transform record;
 
     [SerializeField]
-    private Image recordImage;
+    private RawImage recordImage;
 
     [SerializeField]
     private Image elbumImage;
@@ -17,15 +17,31 @@ public class BGM_Manager : MonoBehaviour
     [SerializeField]
     private Sprite[] ImageSprites;
 
+    [SerializeField]
+    private AudioClip[] musics;
 
+    private AudioSource audio;
+
+    private void Awake()
+    {
+        audio = GetComponent<AudioSource>();
+    }
 
     private void Update()
     {
-        SpinRecord();
+        if(recordImage != null && recordImage.isActiveAndEnabled)SpinRecord();
     }
 
     private void SpinRecord()
     {
         record.Rotate(0, 0, -5f);
+    }
+
+    public void TurnMusic(int music)
+    {
+        elbumImage.sprite = ImageSprites[music];
+        recordImage.texture = ImageSprites[music].texture;
+        audio.clip = musics[music];
+        audio.Play();
     }
 }
