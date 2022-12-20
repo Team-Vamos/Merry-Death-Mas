@@ -10,11 +10,8 @@ public class EnemyAtk : MonoBehaviour
     {
         if(!isBullet)
         {
-            if (GetComponentInParent<EnemyAI>().isAtk != null)
-            {
                 isBullet = false;
                 atkAble = GetComponentInParent<EnemyAI>().isAtk;
-            }
         }
         
         if (other.gameObject.CompareTag("Player"))
@@ -28,8 +25,9 @@ public class EnemyAtk : MonoBehaviour
         }
         if(other.gameObject.CompareTag("Tree"))
         {
-            if(atkAble)
-            {
+            if(!isBullet) atkAble = GetComponentInParent<EnemyAI>().isAtk;
+            if (atkAble)
+                {
                 Debug.Log("TreeAtk");
                 other.GetComponent<TreeHp>().getDmg();
                 if (isBullet) Destroy(gameObject);

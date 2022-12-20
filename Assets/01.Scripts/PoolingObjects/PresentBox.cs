@@ -10,7 +10,7 @@ public class PresentBox : PoolingObj
 
     public override void whenDestroy()
     {
-        int candy = GameManager.Instance.RandomCandy(3, 10);
+        int candy = GameManager.Instance.RandomCandy(3, 5);
         GameManager.Instance.AddCandy(candy);
         transform.SetParent(poolManager);
         transform.localPosition = Vector3.zero;

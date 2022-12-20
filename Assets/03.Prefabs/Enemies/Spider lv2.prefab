@@ -68,7 +68,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 2.25}
+  m_AnchoredPosition: {x: 0, y: 2.33}
   m_SizeDelta: {x: 80, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2560319829228828183
@@ -336,7 +336,7 @@ GameObject:
   - component: {fileID: 1337873925610952588}
   - component: {fileID: 5811172425356394304}
   m_Layer: 9
-  m_Name: Spider
+  m_Name: Spider lv2
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -404,10 +404,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   BulletPosition: {fileID: 0}
-  MaxHealth: 20
+  MaxHealth: 100
   healthBar: {fileID: 2560319829228828183}
-  DropCandyMin: 1
-  DropCandyMax: 1
+  DropCandyMin: 5
+  DropCandyMax: 7
   timeBetweenAttacks: 3
   projectile: {fileID: 0}
   attackRange: 0.8
@@ -428,7 +428,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 1.31
-  m_Speed: 4
+  m_Speed: 4.3
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120

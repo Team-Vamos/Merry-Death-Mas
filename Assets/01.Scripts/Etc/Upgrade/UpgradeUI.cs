@@ -50,7 +50,7 @@ public class UpgradeUI : MonoBehaviour
 
     private void Update()
     {
-        if (GameManager.Instance.getCandy <= upgradeInfo.UpgradeLevel[currentLevel].BuyCost)
+        if (GameManager.Instance.getCandy < upgradeInfo.UpgradeLevel[currentLevel].BuyCost)
         {
             BuyButton.interactable = false;
         }
@@ -111,7 +111,7 @@ public class UpgradeUI : MonoBehaviour
         GameManager.Instance.MultiplyShovelDmg(value1);
         Debug.Log(GameManager.Instance.ShovelDmg);
         Debug.Log(-upgradeInfo.UpgradeLevel[currentLevel].BuyCost);
-        if(GameManager.Instance.getCandy > upgradeInfo.UpgradeLevel[currentLevel].BuyCost)
+        if(GameManager.Instance.getCandy >= upgradeInfo.UpgradeLevel[currentLevel].BuyCost)
         GameManager.Instance.AddCandy(-upgradeInfo.UpgradeLevel[currentLevel].BuyCost);
 
         if (currentLevel + 1 == upgradeInfo.MaxUpgrade)
@@ -156,7 +156,7 @@ public class UpgradeUI : MonoBehaviour
     {
         GameManager.Instance.SnowBallDmg += (int)value1;
         Debug.Log(-upgradeInfo.UpgradeLevel[currentLevel].BuyCost);
-        if (GameManager.Instance.getCandy > upgradeInfo.UpgradeLevel[currentLevel].BuyCost)
+        if (GameManager.Instance.getCandy >= upgradeInfo.UpgradeLevel[currentLevel].BuyCost)
             GameManager.Instance.AddCandy(-upgradeInfo.UpgradeLevel[currentLevel].BuyCost);
 
         if (currentLevel + 1 == upgradeInfo.MaxUpgrade)
@@ -176,7 +176,7 @@ public class UpgradeUI : MonoBehaviour
         GameManager.Instance.playerMaxHp += (int)value1;
         GameManager.Instance.playerHp++;
         Debug.Log(-upgradeInfo.UpgradeLevel[currentLevel].BuyCost);
-        if (GameManager.Instance.getCandy > upgradeInfo.UpgradeLevel[currentLevel].BuyCost)
+        if (GameManager.Instance.getCandy >= upgradeInfo.UpgradeLevel[currentLevel].BuyCost)
             GameManager.Instance.AddCandy(-upgradeInfo.UpgradeLevel[currentLevel].BuyCost);
 
         if (currentLevel+1==upgradeInfo.MaxUpgrade)
@@ -200,7 +200,7 @@ public class UpgradeUI : MonoBehaviour
         GameManager.Instance.BallAtkDelay = value2;
         GameManager.Instance.BallSize = (int)value3;
         Debug.Log(-upgradeInfo.UpgradeLevel[currentLevel].BuyCost);
-        if (GameManager.Instance.getCandy > upgradeInfo.UpgradeLevel[currentLevel].BuyCost)
+        if (GameManager.Instance.getCandy >= upgradeInfo.UpgradeLevel[currentLevel].BuyCost)
             GameManager.Instance.AddCandy(-upgradeInfo.UpgradeLevel[currentLevel].BuyCost);
 
         if (currentLevel + 1 == upgradeInfo.MaxUpgrade)
@@ -230,7 +230,7 @@ public class UpgradeUI : MonoBehaviour
         GameManager.Instance.TurrentDelay = value2;
         GameManager.Instance.TurretRange = value3;
         Debug.Log(-upgradeInfo.UpgradeLevel[currentLevel].BuyCost);
-        if (GameManager.Instance.getCandy > upgradeInfo.UpgradeLevel[currentLevel].BuyCost)
+        if (GameManager.Instance.getCandy >= upgradeInfo.UpgradeLevel[currentLevel].BuyCost)
             GameManager.Instance.AddCandy(-upgradeInfo.UpgradeLevel[currentLevel].BuyCost);
 
         if (currentLevel + 1 == upgradeInfo.MaxUpgrade)
@@ -252,7 +252,7 @@ public class UpgradeUI : MonoBehaviour
         //공격 속도 조정 업그레이드
         GameManager.Instance.playerAtkSpd = value1;
         Debug.Log(-upgradeInfo.UpgradeLevel[currentLevel].BuyCost);
-        if (GameManager.Instance.getCandy > upgradeInfo.UpgradeLevel[currentLevel].BuyCost)
+        if (GameManager.Instance.getCandy >= upgradeInfo.UpgradeLevel[currentLevel].BuyCost)
             GameManager.Instance.AddCandy(-upgradeInfo.UpgradeLevel[currentLevel].BuyCost);
 
         if (currentLevel + 1 == upgradeInfo.MaxUpgrade)
@@ -274,7 +274,7 @@ public class UpgradeUI : MonoBehaviour
         GameManager.Instance.StartDelay = value2;
         GameManager.Instance.StarDmg = value1;
         Debug.Log(-upgradeInfo.UpgradeLevel[currentLevel].BuyCost);
-        if (GameManager.Instance.getCandy > upgradeInfo.UpgradeLevel[currentLevel].BuyCost)
+        if (GameManager.Instance.getCandy >= upgradeInfo.UpgradeLevel[currentLevel].BuyCost)
             GameManager.Instance.AddCandy(-upgradeInfo.UpgradeLevel[currentLevel].BuyCost);
         if (currentLevel + 1 == upgradeInfo.MaxUpgrade)
         {

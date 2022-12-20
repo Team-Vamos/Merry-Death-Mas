@@ -311,7 +311,7 @@ GameObject:
   - component: {fileID: 6444468153793391861}
   - component: {fileID: 2056563983796020083}
   - component: {fileID: 5657561364892474066}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Mouth
   m_TagString: EnemyAtk
   m_Icon: {fileID: 0}
@@ -360,6 +360,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e395c1d54b544d2489bcfa88cc58eff5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isBullet: 0
 --- !u!1 &3032004057452538274
 GameObject:
   m_ObjectHideFlags: 0
@@ -375,6 +376,7 @@ GameObject:
   - component: {fileID: 4347693642013807488}
   - component: {fileID: 1759342143149811738}
   - component: {fileID: -988148157945157361}
+  - component: {fileID: 6254262157556689771}
   m_Layer: 9
   m_Name: Snake_angry
   m_TagString: Enemy
@@ -495,6 +497,7 @@ MonoBehaviour:
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 1280
+  BulletPosition: {fileID: 0}
   MaxHealth: 100
   healthBar: {fileID: 5793118299671920036}
   DropCandyMin: 2
@@ -508,6 +511,7 @@ MonoBehaviour:
   atkCollider: {fileID: 2056563983796020083}
   visualEffect: {fileID: 679854386423748473}
   hpTxt: {fileID: 6018278604126870833}
+  audio: {fileID: 0}
 --- !u!114 &-988148157945157361
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -520,6 +524,102 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f92211b13728f74381606d680aa29a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!82 &6254262157556689771
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3032004057452538274}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &3243272918277623314
 GameObject:
   m_ObjectHideFlags: 0
@@ -1175,7 +1275,7 @@ PrefabInstance:
     - target: {fileID: 6421425408319321405, guid: 2deae3d6a5432ba4599ea8914f3d36d9,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 4
+      value: 3.417
       objectReference: {fileID: 0}
     - target: {fileID: 7926591012247257857, guid: 2deae3d6a5432ba4599ea8914f3d36d9,
         type: 3}
