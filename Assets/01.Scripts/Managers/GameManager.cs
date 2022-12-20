@@ -16,7 +16,7 @@ public class GameManager : MonoSingleton<GameManager>
     [SerializeField]
     private GameObject player;
 
-    private int candy = 0; //플레이어가 지닌 사탕 수
+    private int candy = 100; //플레이어가 지닌 사탕 수
     private int snows = 0; //플레이어가 지닌 눈 수
     private float shovelDmg = 4f; //삽 데미지 @@@@@@
 

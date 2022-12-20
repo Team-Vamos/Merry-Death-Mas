@@ -996,9 +996,9 @@ GameObject:
   - component: {fileID: 6036029144447596737}
   - component: {fileID: 3916981054353427753}
   - component: {fileID: 7706386824981087221}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Frog
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

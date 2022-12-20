@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 118413976818017238}
   - component: {fileID: 118413976818017239}
   - component: {fileID: 118413976818017245}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: SnowManBall
   m_TagString: SnowManBall
   m_Icon: {fileID: 0}
