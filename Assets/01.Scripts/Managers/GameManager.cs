@@ -182,6 +182,7 @@ public class GameManager : MonoSingleton<GameManager>
         StartCoroutine(CreateSnow());
         AddCandy(0);
         AddSnow(0);
+        BGM_Manager.Instance.BtnSounds();
     }
 
     private void Update()

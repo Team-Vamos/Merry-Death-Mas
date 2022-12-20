@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -22,14 +20,20 @@ public class BGM_Manager : MonoSingleton<BGM_Manager>
 
     private AudioSource audio;
 
-    private void Awake()
+    [SerializeField]
+    private AudioSource btnAudio;
+
+
+    private void Start()
     {
         audio = GetComponent<AudioSource>();
+        DontDestroyOnLoad(this);
+        BtnSounds();
     }
 
     private void Update()
     {
-        if(recordImage != null && recordImage.isActiveAndEnabled)SpinRecord();
+        if(recordImage != null && recordImage.isActiveAndEnabled) SpinRecord();
     }
 
     public void Init(Transform _record, RawImage _recordImage, Image _elbumImage)
@@ -51,5 +55,17 @@ public class BGM_Manager : MonoSingleton<BGM_Manager>
         recordImage.texture = ImageSprites[music].texture;
         audio.clip = musics[music];
         audio.Play();
+    }
+
+    public void BtnSounds()
+    {
+        Object[] btnsArr;
+        btnsArr = FindObjectsOfTypeAll(typeof(Button));
+
+        foreach (Object Btn in btnsArr)
+        {
+            Button btn = Btn as Button;
+            btn.onClick.AddListener(() => btnAudio.Play());
+        }
     }
 }
