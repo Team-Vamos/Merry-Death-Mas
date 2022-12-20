@@ -28,7 +28,6 @@ public class EnemySpawn : MonoBehaviour
 
     public Text timeText;
     public Text waveText;
-    public Text NowTimeText;
     private float time;
 
 
