@@ -36,7 +36,7 @@ public class EnemyAI : MonoBehaviour
 
     public LayerMask whatIsGround, whatIsPlayer;
 
-    private Transform BulletPosition;
+    public Transform BulletPosition;
 
     private float health;
 
@@ -205,8 +205,10 @@ public class EnemyAI : MonoBehaviour
             switch(enemyAtkType)
             {
                 case EnemyAtkType.longRange:
+                    isAtk = true;
                     Rigidbody rb = Instantiate(projectile, BulletPosition.position, Quaternion.identity).GetComponent<Rigidbody>();
                     rb.AddForce(transform.forward * 32f, ForceMode.Impulse);
+                    anim.CrossFade("Attack", 0.05f);
                     break;
                 case EnemyAtkType.shortRange:
                     isAtk = true;

@@ -4,24 +4,36 @@ using UnityEngine;
 
 public class EnemyAtk : MonoBehaviour
 {
+    public bool isBullet = false;
+    private bool atkAble = true;
     private void OnTriggerEnter(Collider other)
     {
+        if(!isBullet)
+        {
+            if (GetComponentInParent<EnemyAI>().isAtk != null)
+            {
+                isBullet = false;
+                atkAble = GetComponentInParent<EnemyAI>().isAtk;
+            }
+        }
+        
         if (other.gameObject.CompareTag("Player"))
         {
             if(GetComponentInParent<EnemyAI>().isAtk)
             {
                 Debug.Log("PlayerAtk");
                 other.GetComponent<PlayerController>().GetDmg();
-                GetComponentInParent<EnemyAI>().isAtk = false;
+                if(!isBullet)GetComponentInParent<EnemyAI>().isAtk = false;
             }
         }
         if(other.gameObject.CompareTag("Tree"))
         {
-            if(GetComponentInParent<EnemyAI>().isAtk)
+            if(atkAble)
             {
                 Debug.Log("TreeAtk");
                 other.GetComponent<TreeHp>().getDmg();
-                GetComponentInParent<EnemyAI>().isAtk = false;
+                if (isBullet) Destroy(gameObject);
+                else GetComponentInParent<EnemyAI>().isAtk = false;
             }
         }
     }
