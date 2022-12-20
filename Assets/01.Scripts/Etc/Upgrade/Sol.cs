@@ -33,9 +33,12 @@ public class Sol : MonoBehaviour
 
     private void OnValidate()
     {
-        for (int i = 0; i < YSP.childCount; i++)
+        if(YSP != null && YS != null)
         {
-            YS.Add(YSP.GetChild(i).gameObject);
+            for (int i = 0; i < YSP.childCount; i++)
+            {
+                YS.Add(YSP.GetChild(i).gameObject);
+            }
         }
     }
 

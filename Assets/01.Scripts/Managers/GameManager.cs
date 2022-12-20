@@ -193,7 +193,8 @@ public class GameManager : MonoSingleton<GameManager>
             {
                 OnESC();
             }
-            else
+            
+            if(Enabled == true)
             {
                 Resume();
             }

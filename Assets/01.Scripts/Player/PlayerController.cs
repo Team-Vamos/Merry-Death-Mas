@@ -80,6 +80,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private AudioClip snowDig;
 
+    [SerializeField]
+    private AudioSource hitAudio;
 
     private void OnEnable()
     {
@@ -338,6 +340,7 @@ public class PlayerController : MonoBehaviour
 
     public void GetDmg()
     {
+        hitAudio.Play();
         GameManager.Instance.playerHp--;
         GameManager.Instance.Hert.SetActive(true);
         StartCoroutine(Blink());
