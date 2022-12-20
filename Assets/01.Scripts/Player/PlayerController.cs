@@ -80,6 +80,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private AudioClip snowDig;
 
+    [SerializeField]
+    private AudioSource hitAudio;
 
     private void OnEnable()
     {
@@ -257,10 +259,15 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     public void afterDig()
     {
-        snowObj.GetComponent<SnowPile>().whenDestroy();
-        GameManager.Instance.AddSnow(Mathf.RoundToInt(snowObj.GetComponent<MeshRenderer>().material.GetFloat("_Height")));
-        snowObj = null;
-        isSnow = false;
+        if(snowObj != null)
+        {
+            snowObj.GetComponent<SnowPile>().whenDestroy();
+            GameManager.Instance.AddSnow(Mathf.RoundToInt(snowObj.GetComponent<MeshRenderer>().material.GetFloat("_Height")));
+            snowObj = null;
+            isSnow = false;
+        }
+        atkMode = AtkMode.Melee;
+        ableMove();
     }
     public void ableMove()
     {
@@ -333,6 +340,7 @@ public class PlayerController : MonoBehaviour
 
     public void GetDmg()
     {
+        hitAudio.Play();
         GameManager.Instance.playerHp--;
         GameManager.Instance.Hert.SetActive(true);
         StartCoroutine(Blink());

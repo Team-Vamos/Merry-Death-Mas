@@ -7,7 +7,7 @@ public class HpText : MonoBehaviour
 {
     private Text HpTxt;
 
-    private void Awake()
+    private void Start()
     {
         HpTxt = GetComponent<Text>();
     }

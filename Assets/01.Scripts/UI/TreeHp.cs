@@ -10,13 +10,15 @@ public class TreeHp : MonoBehaviour
     [SerializeField]
     private HpText hpText;
 
+    private AudioSource audioSource;
 
     private void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         hpText.SetHpText((int)GameManager.Instance.TreeHp, (int)GameManager.Instance.TreeMaxHp);
         TreeMaterial.color = Color.white;
     }
- 
+
     void Health()
     {
         HpBar.value = GameManager.Instance.TreeHp / GameManager.Instance.TreeMaxHp;
@@ -26,7 +28,12 @@ public class TreeHp : MonoBehaviour
     {
         GameManager.Instance.TreeHp--;
         hpText.SetHpText((int)GameManager.Instance.TreeHp, (int)GameManager.Instance.TreeMaxHp);
-        GameManager.Instance.DangerOn(GameManager.Instance.TreeHp < (GameManager.Instance.TreeMaxHp / 10) * 3);
+        if (GameManager.Instance.TreeHp < (GameManager.Instance.TreeMaxHp / 10) * 3)
+        {
+            audioSource.Play();
+            GameManager.Instance.DangerOn(true);
+        }
+
         Health();
         StartCoroutine(Blink());
     }
@@ -44,7 +51,7 @@ public class TreeHp : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         TreeMaterial.color = Color.white;
 
-        if(GameManager.Instance.TreeHp<0)
+        if (GameManager.Instance.TreeHp < 0)
         {
             //°ÔÀÓ ³¡
         }
