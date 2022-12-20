@@ -70,12 +70,15 @@ MonoBehaviour:
   BallSpd: 100
   BallDmg: 3
   BallAtkDelay: 1
-  TreeMaxHp: 10
-  TreeHp: 20
+  TreeMaxHp: 20
+  TreeHp: 10
   TreeHeal: 10
   snowPoolManager: {fileID: 0}
   presentPoolManager: {fileID: 0}
   addCandyPool: {fileID: 0}
+  BGBtn: {fileID: 0}
+  EnvBtn: {fileID: 0}
+  onOffSprite: []
   candyTxt: {fileID: 0}
   NightImage: {fileID: 0}
   AfterNoonImage: {fileID: 0}
@@ -88,5 +91,15 @@ MonoBehaviour:
   Enabled: 0
   outOfSnow: {fileID: 0}
   Danger: {fileID: 0}
+  settingPanel: {fileID: 0}
+  escPanel: {fileID: 0}
+  BGSlider: {fileID: 0}
+  EnvSlider: {fileID: 0}
   Vanish: {fileID: 0}
+  mixer: {fileID: 0}
+  Mixer: {fileID: 0}
+  BGmixer: {fileID: 0}
   hitSounds: []
+  record: {fileID: 0}
+  recordImage: {fileID: 0}
+  elbumImage: {fileID: 0}
