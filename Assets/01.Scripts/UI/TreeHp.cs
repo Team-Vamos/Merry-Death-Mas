@@ -17,6 +17,7 @@ public class TreeHp : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         hpText.SetHpText((int)GameManager.Instance.TreeHp, (int)GameManager.Instance.TreeMaxHp);
         TreeMaterial.color = Color.white;
+        InvokeRepeating("AutoHealing", GameManager.Instance.playerAutoHealingCoolTime, GameManager.Instance.playerAutoHealingCoolTime);
     }
 
     void Health()
@@ -40,9 +41,10 @@ public class TreeHp : MonoBehaviour
 
     public void AutoHealing()
     {
-        GameManager.Instance.TreeHp += GameManager.Instance.TreeHeal;
-        hpText.SetHpText((int)GameManager.Instance.TreeHp, (int)GameManager.Instance.TreeMaxHp);
-        GameManager.Instance.DangerOn(GameManager.Instance.TreeHp < (GameManager.Instance.TreeMaxHp / 10) * 3);
+        if (GameManager.Instance.TreeHp < GameManager.Instance.TreeMaxHp)
+        {
+            GameManager.Instance.TreeHp += GameManager.Instance.TreeHeal;
+        }
     }
 
     IEnumerator Blink()
