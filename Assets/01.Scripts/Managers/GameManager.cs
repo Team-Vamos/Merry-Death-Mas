@@ -355,6 +355,7 @@ public class GameManager : MonoSingleton<GameManager>
 
     private void OnESC()
     {
+        Cursor.visible = true;
         Debug.Log(",");
         escPanel.SetActive(true);
         settingPanel.SetActive(false);
@@ -365,6 +366,7 @@ public class GameManager : MonoSingleton<GameManager>
 
     public void Resume()
     {
+        Cursor.visible = false;
         Debug.Log("!");
         escPanel.SetActive(false);
         settingPanel.SetActive(false);

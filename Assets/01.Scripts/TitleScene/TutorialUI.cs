@@ -16,16 +16,9 @@ public class TutorialUI : MonoBehaviour
     public GameObject Play;
 
     public Sprite[] TutorialImage;
-    // Start is called before the first frame update
     void Start()
     {
         nowImage.sprite = TutorialImage[0];
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     private void FixedUpdate()
@@ -74,5 +67,17 @@ public class TutorialUI : MonoBehaviour
     public void TutorialUISetActiveFalse()
     {
         Tutorialui.SetActive(false);
+    }
+
+    public void CheckFirst()
+    {
+        if(BGM_Manager.Instance.isFirst)
+        {
+            TutorialUISetActive();
+        }
+        else
+        {
+            SceneMove.Instance.Play();
+        }
     }
 }

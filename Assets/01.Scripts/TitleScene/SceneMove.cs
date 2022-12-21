@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SceneMove : MonoBehaviour
+public class SceneMove : MonoSingleton<SceneMove>
 {
     public void Play()
     {
         Cursor.visible = false;
+        BGM_Manager.Instance.isFirst = false;
         SceneManager.LoadScene("Map");
     }
 
