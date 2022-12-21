@@ -31,21 +31,15 @@ public class UpgradeUI : MonoBehaviour
     private TreeUpgrade upgradeInfo { get => UpgradeData.TreeUpgrade[currentIndex]; }
     private void Start()
     {
+        for (int i = 0; i < Deco.childCount; i++)
+        {
+            Decoration.Add(Deco.GetChild(i).gameObject);
+        }
+
         infoPanel = GetComponent<UpgradeInfoPanel>();
         UpdateValues();
         UpdateLevelInfo();
         UpdateStatInfo();
-    }
-
-    private void OnValidate()
-    {
-        if (Deco != null)
-        {
-            for (int i = 0; i < Deco.childCount; i++)
-            {
-                Decoration.Add(Deco.GetChild(i).gameObject);
-            }
-        }
     }
 
     private void Update()
