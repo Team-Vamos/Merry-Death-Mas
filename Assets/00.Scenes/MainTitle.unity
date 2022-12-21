@@ -7976,7 +7976,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1014750473}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.6
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -8889,6 +8889,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: b8e738d6da9ba7a4999e6dc3a7fe2d8b, type: 3}
   - {fileID: 8300000, guid: 8e1f4645377d6234983a6f518218df35, type: 3}
   btnAudio: {fileID: 291880410}
+  isFirst: 1
 --- !u!4 &1530490599
 Transform:
   m_ObjectHideFlags: 0
@@ -16046,7 +16047,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 261461157}
         m_TargetAssemblyTypeName: TutorialUI, Assembly-CSharp
-        m_MethodName: TutorialUISetActive
+        m_MethodName: CheckFirst
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

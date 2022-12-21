@@ -55,7 +55,7 @@ public class TreeHp : MonoBehaviour
 
         if (GameManager.Instance.TreeHp < 1)
         {
-            GameManager.Instance.Ending();
+            GameManager.Instance.Ending(0);
         }
     }
 }

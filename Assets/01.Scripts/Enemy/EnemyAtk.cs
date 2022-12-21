@@ -29,7 +29,7 @@ public class EnemyAtk : MonoBehaviour
             if (atkAble)
                 {
                 Debug.Log("TreeAtk");
-                other.GetComponent<TreeHp>().getDmg();
+                other.GetComponent<TreeHp>()?.getDmg();
                 if (isBullet) Destroy(gameObject);
                 else GetComponentInParent<EnemyAI>().isAtk = false;
             }
