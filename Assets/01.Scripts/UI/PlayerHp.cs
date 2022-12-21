@@ -8,11 +8,9 @@ public class PlayerHp : MonoBehaviour
     public int Health; 
     public int MaxHealth; 
 
-    private List<Image> Heart = new List<Image>();
+    public Image[] Heart;
     public Sprite FullHeart;
     public Sprite EmptyHeart;
-
-    public Transform HeartObj;
 
     private void Start()
     {
@@ -42,7 +40,7 @@ public class PlayerHp : MonoBehaviour
 
     public void PlayerHpActive()
     {
-        for (int i = 0; i < Heart.Count; i++)
+        for (int i = 0; i < Heart.Length; i++)
         {
             if(i<Health)
             {
@@ -60,17 +58,6 @@ public class PlayerHp : MonoBehaviour
             else
             {
                 Heart[i].enabled = false;
-            }
-        }
-    }
-
-    private void OnValidate()
-    {
-        if (HeartObj != null)
-        {
-            for (int i = 0; i < HeartObj.childCount; i++)
-            {
-                Heart.Add(HeartObj.GetChild(i).GetComponent<Image>());
             }
         }
     }
