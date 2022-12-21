@@ -22324,6 +22324,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8dcbfe24ea82d04b9441cd4e4774073, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Health: 0
+  MaxHealth: 0
   FullHeart: {fileID: -114649954, guid: 93f505655b8e7ac458eafa1773a8c9e0, type: 3}
   EmptyHeart: {fileID: 379448817, guid: 93f505655b8e7ac458eafa1773a8c9e0, type: 3}
   HeartObj: {fileID: 1472004186}
@@ -38079,6 +38081,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8622644876656315222, guid: f0ca7188996eda744a40598da9ca48ce,
+        type: 3}
+      propertyPath: m_Value
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8622644876656315222, guid: f0ca7188996eda744a40598da9ca48ce,
         type: 3}

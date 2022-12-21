@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class PlayerHp : MonoBehaviour
 {
-    public int Health { get => GameManager.Instance.playerHp; }
-    public int MaxHealth { get => GameManager.Instance.playerMaxHp; }
+    public int Health; 
+    public int MaxHealth; 
 
     private List<Image> Heart = new List<Image>();
     public Sprite FullHeart;
@@ -16,6 +16,8 @@ public class PlayerHp : MonoBehaviour
 
     private void Start()
     {
+        Health = GameManager.Instance.playerHp;
+        MaxHealth = GameManager.Instance.playerMaxHp;
         InvokeRepeating("AutoHealing", GameManager.Instance.playerAutoHealingCoolTime, GameManager.Instance.playerAutoHealingCoolTime);
     }
 

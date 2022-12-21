@@ -11,6 +11,14 @@ public class Sol : MonoBehaviour
     public float deg;
     public float objSpeed { get => GameManager.Instance.BallSpd; }
 
+    private void Start()
+    {
+        for (int i = 0; i < YSP.childCount; i++)
+        {
+            YS.Add(YSP.GetChild(i).gameObject);
+        }
+    }
+
     void Update()
     {
         deg += Time.deltaTime * objSpeed;
@@ -28,17 +36,6 @@ public class Sol : MonoBehaviour
         else
         {
             deg = 0;
-        }
-    }
-
-    private void OnValidate()
-    {
-        if(YSP != null && YS != null)
-        {
-            for (int i = 0; i < YSP.childCount; i++)
-            {
-                YS.Add(YSP.GetChild(i).gameObject);
-            }
         }
     }
 
