@@ -1137,8 +1137,8 @@ MonoBehaviour:
   BulletPosition: {fileID: 0}
   MaxHealth: 100
   healthBar: {fileID: 3857162133051194064}
-  DropCandyMin: 10
-  DropCandyMax: 20
+  DropCandyMin: 200
+  DropCandyMax: 200
   timeBetweenAttacks: 3
   projectile: {fileID: 0}
   attackRange: 8
