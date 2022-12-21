@@ -39,9 +39,9 @@ public class PlayerHp : MonoBehaviour
 
     public void PlayerHpActive()
     {
-        for (int i = 0; i < Heart.Length; i++)
+        for (int i = 0; i < GameManager.Instance.playerMaxHp; i++)
         {
-            if(i<Health)
+            if(i<GameManager.Instance.playerHp)
             {
                 Heart[i].sprite = FullHeart;
             }
@@ -50,7 +50,7 @@ public class PlayerHp : MonoBehaviour
                 Heart[i].sprite = EmptyHeart;
             }
 
-            if (i < MaxHealth)
+            if (i < GameManager.Instance.playerMaxHp)
             {
                 Heart[i].enabled = true;
             }
