@@ -136,10 +136,10 @@ public class GameManager : MonoSingleton<GameManager>
     private Slider EnvSlider;
 
     [SerializeField]
-    private Button EndPanel;
+    private Button[] EndPanels;
 
     [SerializeField]
-    private Text endText;
+    private Text[] endTexts;
 
     [Header("Sounds")]
     [SerializeField]
@@ -428,27 +428,30 @@ public class GameManager : MonoSingleton<GameManager>
         else EnvBtn.sprite = onOffSprite[0];
     }
 
-    public void Ending()
+    public void Ending(int num)
     {
         if(!End)
         {
-            EndPanel.gameObject.SetActive(true);
-            StartCoroutine(FadeImage());
+            StartCoroutine(FadeImage(num));
         }
     }
 
-    private IEnumerator FadeImage()
+    private IEnumerator FadeImage(int num)
     {
+        Button EndPanel = EndPanels[num];
+        EndPanel.gameObject.SetActive(true);
+
         End = true;
         float i = 0;
+        Color _color = EndPanel.image.color;
         while (EndPanel.image.color.a < 0.99f)
         {
-            EndPanel.image.color = new Color(0f, 0f, 0f, i);
+            EndPanel.image.color = (_color + new Color(0f, 0f, 0f, i));
             i += 0.01f;
             yield return new WaitForSeconds(0.02f);
         }
         Time.timeScale = 0;
-        endText.gameObject.SetActive(true);
+        endTexts[num].gameObject.SetActive(true);
         EndPanel.onClick.AddListener(() =>
         {
             End = false;

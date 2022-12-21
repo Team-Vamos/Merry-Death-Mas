@@ -15,6 +15,7 @@ public class MonoSingleton<T> : MonoBehaviour where T : MonoSingleton<T>
                 Debug.LogWarning("[Instance] Instance" + typeof(T) + "is already destroyed. Returning null.");
                 return null;
             }
+
             lock (_locker)
             {
                 if (_instance == null)
@@ -28,6 +29,7 @@ public class MonoSingleton<T> : MonoBehaviour where T : MonoSingleton<T>
                 }
                 return _instance;
             }
+
         }
     }
     private void Start()
@@ -35,10 +37,7 @@ public class MonoSingleton<T> : MonoBehaviour where T : MonoSingleton<T>
         _instance = null;
         _shuttingDown = false;
     }
-    private void OnDestroy()
-    {
-        _shuttingDown = true;
-    }
+   
     private void OnApplicationQuit()
     {
         _shuttingDown = true;

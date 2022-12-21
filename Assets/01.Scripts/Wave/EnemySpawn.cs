@@ -22,7 +22,7 @@ public class EnemySpawn : MonoBehaviour
     public int NightTime;
     public int AfternoonTime;
 
-    private int WaveCnt = 0;
+    private int WaveCnt = 21;
     
     public bool night;
 
@@ -33,6 +33,7 @@ public class EnemySpawn : MonoBehaviour
     private AudioSource audio;
 
     public SpawnMonsters[] Wave;
+    private bool Ending = false;
 
     private void Awake()
     {
@@ -49,6 +50,7 @@ public class EnemySpawn : MonoBehaviour
         {
             if(night==true) // 아침 시작
             {
+                if (Ending) GameManager.Instance.Ending(1);
                 GameManager.Instance.ChangeImage(night);
                 time = AfternoonTime;
                 night = false;
@@ -59,7 +61,8 @@ public class EnemySpawn : MonoBehaviour
                 GameManager.Instance.ChangeImage(night);
                 time = NightTime;
                 night = true;
-                WaveCnt++;
+                if (WaveCnt + 1 < Wave.Length)WaveCnt++; 
+                else Ending = true;
                 waveText.text = WaveCnt.ToString();
             }
         }
