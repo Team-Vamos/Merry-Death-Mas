@@ -7,6 +7,7 @@ public class SceneMove : MonoBehaviour
 {
     public void Play()
     {
+        Cursor.visible = false;
         SceneManager.LoadScene("Map");
     }
 

@@ -22,7 +22,7 @@ public class EnemySpawn : MonoBehaviour
     public int NightTime;
     public int AfternoonTime;
 
-    private int WaveCnt = 21;
+    private int WaveCnt = 0;
     
     public bool night;
 

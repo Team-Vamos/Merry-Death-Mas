@@ -456,6 +456,7 @@ public class GameManager : MonoSingleton<GameManager>
         {
             End = false;
             Time.timeScale = 1;
+            Cursor.visible = true;
             SceneManager.LoadScene("MainTitle");
         });
     }

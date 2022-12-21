@@ -23,6 +23,7 @@ public class BGM_Manager : MonoSingleton<BGM_Manager>
     [SerializeField]
     private AudioSource btnAudio;
 
+    public bool isFirst = true;
 
     private void Start()
     {
