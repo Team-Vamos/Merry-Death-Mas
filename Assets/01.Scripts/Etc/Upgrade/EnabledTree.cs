@@ -51,6 +51,7 @@ public class EnabledTree : MonoBehaviour
             if(Input.GetKeyDown(KeyCode.E)&& GameManager.Instance.Enabled == false&& IsOpenTree)
             {
                 Time.timeScale = 0f;
+                Cursor.visible = true;
                 WaveCanvas.enabled = false;
                 TreeCanvas.enabled = true;
                 GameManager.Instance.Enabled = true;
@@ -60,6 +61,7 @@ public class EnabledTree : MonoBehaviour
             else if((Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Escape))&& GameManager.Instance.Enabled == true)
             {
                 ExitUI();
+                Cursor.visible = false;
             }
         }
         else
