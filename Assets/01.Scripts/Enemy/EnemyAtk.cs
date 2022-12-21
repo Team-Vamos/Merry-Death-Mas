@@ -18,7 +18,6 @@ public class EnemyAtk : MonoBehaviour
         {
             if(GetComponentInParent<EnemyAI>().isAtk)
             {
-                Debug.Log("PlayerAtk");
                 other.GetComponent<PlayerController>().GetDmg();
                 if(!isBullet)GetComponentInParent<EnemyAI>().isAtk = false;
             }
@@ -28,7 +27,6 @@ public class EnemyAtk : MonoBehaviour
             if(!isBullet) atkAble = GetComponentInParent<EnemyAI>().isAtk;
             if (atkAble)
                 {
-                Debug.Log("TreeAtk");
                 other.GetComponent<TreeHp>()?.getDmg();
                 if (isBullet) Destroy(gameObject);
                 else GetComponentInParent<EnemyAI>().isAtk = false;

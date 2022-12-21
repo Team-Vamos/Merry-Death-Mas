@@ -32,7 +32,6 @@ public class PlayerHp : MonoBehaviour
     {
         if (Health < MaxHealth)
         {
-            Debug.Log("치유되엇습ㄴ디ㅏ 하하");
             GameManager.Instance.playerHp++;
         }
 

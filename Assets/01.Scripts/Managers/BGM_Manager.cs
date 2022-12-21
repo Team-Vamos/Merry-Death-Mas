@@ -42,7 +42,6 @@ public class BGM_Manager : MonoSingleton<BGM_Manager>
 
     public void Init(Transform _record, RawImage _recordImage, Image _elbumImage)
     {
-        Debug.Log("Init");
         record = _record;
         recordImage = _recordImage;
         elbumImage = _elbumImage;

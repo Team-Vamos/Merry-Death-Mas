@@ -25,15 +25,18 @@ public class UpgradeUI : MonoBehaviour
     public int currentIndex = 0;
     public int currentLevel = 0;
 
-    public Transform Deco = null;
+    public Transform Deco;
     private List<GameObject> Decoration = new List<GameObject>();
 
     private TreeUpgrade upgradeInfo { get => UpgradeData.TreeUpgrade[currentIndex]; }
     private void Start()
     {
-        for (int i = 0; i < Deco.childCount; i++)
+        if(Deco != null)
         {
-            Decoration.Add(Deco.GetChild(i).gameObject);
+            for (int i = 0; i < Deco.childCount; i++)
+            {
+                Decoration.Add(Deco.GetChild(i).gameObject);
+            }
         }
 
         infoPanel = GetComponent<UpgradeInfoPanel>();
@@ -103,8 +106,6 @@ public class UpgradeUI : MonoBehaviour
     public void CandyCane() //됏다
     {
         GameManager.Instance.MultiplyShovelDmg(value1);
-        Debug.Log(GameManager.Instance.ShovelDmg);
-        Debug.Log(-upgradeInfo.UpgradeLevel[currentLevel].BuyCost);
         if(GameManager.Instance.getCandy >= upgradeInfo.UpgradeLevel[currentLevel].BuyCost)
         GameManager.Instance.AddCandy(-upgradeInfo.UpgradeLevel[currentLevel].BuyCost);
 
@@ -149,7 +150,6 @@ public class UpgradeUI : MonoBehaviour
     public void Candle() //됏다
     {
         GameManager.Instance.SnowBallDmg += (int)value1;
-        Debug.Log(-upgradeInfo.UpgradeLevel[currentLevel].BuyCost);
         if (GameManager.Instance.getCandy >= upgradeInfo.UpgradeLevel[currentLevel].BuyCost)
             GameManager.Instance.AddCandy(-upgradeInfo.UpgradeLevel[currentLevel].BuyCost);
 
@@ -169,7 +169,6 @@ public class UpgradeUI : MonoBehaviour
     {
         GameManager.Instance.playerMaxHp += (int)value1;
         GameManager.Instance.playerHp++;
-        Debug.Log(-upgradeInfo.UpgradeLevel[currentLevel].BuyCost);
         if (GameManager.Instance.getCandy >= upgradeInfo.UpgradeLevel[currentLevel].BuyCost)
             GameManager.Instance.AddCandy(-upgradeInfo.UpgradeLevel[currentLevel].BuyCost);
 
@@ -193,7 +192,6 @@ public class UpgradeUI : MonoBehaviour
         GameManager.Instance.BallDmg = value1;
         GameManager.Instance.BallAtkDelay = value2;
         GameManager.Instance.BallSize = (int)value3;
-        Debug.Log(-upgradeInfo.UpgradeLevel[currentLevel].BuyCost);
         if (GameManager.Instance.getCandy >= upgradeInfo.UpgradeLevel[currentLevel].BuyCost)
             GameManager.Instance.AddCandy(-upgradeInfo.UpgradeLevel[currentLevel].BuyCost);
 
@@ -223,7 +221,6 @@ public class UpgradeUI : MonoBehaviour
         GameManager.Instance.TurretDmg += value1;
         GameManager.Instance.TurrentDelay = value2;
         GameManager.Instance.TurretRange = value3;
-        Debug.Log(-upgradeInfo.UpgradeLevel[currentLevel].BuyCost);
         if (GameManager.Instance.getCandy >= upgradeInfo.UpgradeLevel[currentLevel].BuyCost)
             GameManager.Instance.AddCandy(-upgradeInfo.UpgradeLevel[currentLevel].BuyCost);
 
@@ -245,7 +242,6 @@ public class UpgradeUI : MonoBehaviour
     {
         //공격 속도 조정 업그레이드
         GameManager.Instance.playerAtkSpd = value1;
-        Debug.Log(-upgradeInfo.UpgradeLevel[currentLevel].BuyCost);
         if (GameManager.Instance.getCandy >= upgradeInfo.UpgradeLevel[currentLevel].BuyCost)
             GameManager.Instance.AddCandy(-upgradeInfo.UpgradeLevel[currentLevel].BuyCost);
 
@@ -267,7 +263,6 @@ public class UpgradeUI : MonoBehaviour
         }
         GameManager.Instance.StartDelay = value2;
         GameManager.Instance.StarDmg = value1;
-        Debug.Log(-upgradeInfo.UpgradeLevel[currentLevel].BuyCost);
         if (GameManager.Instance.getCandy >= upgradeInfo.UpgradeLevel[currentLevel].BuyCost)
             GameManager.Instance.AddCandy(-upgradeInfo.UpgradeLevel[currentLevel].BuyCost);
         if (currentLevel + 1 == upgradeInfo.MaxUpgrade)

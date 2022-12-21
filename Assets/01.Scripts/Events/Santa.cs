@@ -47,7 +47,6 @@ public class Santa : MonoBehaviour
         }
         else
         {
-            Debug.Log("?");
             GameObject present = GameManager.Instance.presentPoolManager.GetChild(0).gameObject;
             present.transform.SetParent(null);
             present.GetComponent<MeshFilter>().mesh = meshes[random];
