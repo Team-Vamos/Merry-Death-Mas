@@ -1221,7 +1221,7 @@ GameObject:
   - component: {fileID: 447526458}
   - component: {fileID: 447526457}
   m_Layer: 5
-  m_Name: RawImage
+  m_Name: MaskImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8031,7 +8031,7 @@ GameObject:
   - component: {fileID: 1272177193}
   - component: {fileID: 1272177192}
   m_Layer: 5
-  m_Name: RawImage
+  m_Name: Record CD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8226,7 +8226,7 @@ GameObject:
   - component: {fileID: 1323158537}
   - component: {fileID: 1323158536}
   m_Layer: 5
-  m_Name: RawImage
+  m_Name: Elbum
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11206,7 +11206,7 @@ GameObject:
   - component: {fileID: 4904262512844326173}
   - component: {fileID: 4904262512844326175}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: CamRotatePivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
