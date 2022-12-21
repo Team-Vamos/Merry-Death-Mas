@@ -26,8 +26,11 @@ public class BGM_Manager : MonoSingleton<BGM_Manager>
 
     private void Start()
     {
-        audio = GetComponent<AudioSource>();
+        Object[] objects = FindObjectsOfType<BGM_Manager>();
         DontDestroyOnLoad(this);
+        if (objects.Length > 1) Destroy(gameObject);
+
+        audio = GetComponent<AudioSource>();
         BtnSounds();
     }
 

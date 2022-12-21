@@ -32,7 +32,7 @@ public class MonoSingleton<T> : MonoBehaviour where T : MonoSingleton<T>
     }
     private void Start()
     {
-        DontDestroyOnLoad(gameObject);
+        _instance = null;
         _shuttingDown = false;
     }
     private void OnDestroy()

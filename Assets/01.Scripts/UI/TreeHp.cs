@@ -51,9 +51,9 @@ public class TreeHp : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         TreeMaterial.color = Color.white;
 
-        if (GameManager.Instance.TreeHp < 0)
+        if (GameManager.Instance.TreeHp < 1)
         {
-            //°ÔÀÓ ³¡
+            GameManager.Instance.Ending();
         }
     }
 }

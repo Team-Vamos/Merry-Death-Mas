@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
 using UnityEngine.UI;
 
@@ -134,6 +135,12 @@ public class GameManager : MonoSingleton<GameManager>
     [SerializeReference]
     private Slider EnvSlider;
 
+    [SerializeField]
+    private Button EndPanel;
+
+    [SerializeField]
+    private Text endText;
+
     [Header("Sounds")]
     [SerializeField]
     private AudioClip Vanish;
@@ -174,6 +181,8 @@ public class GameManager : MonoSingleton<GameManager>
     [SerializeField]
     private Image elbumImage;
 
+    private bool End = false;
+
     private void Start()
     {
         playerHp = playerMaxHp;
@@ -187,14 +196,13 @@ public class GameManager : MonoSingleton<GameManager>
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if(Input.GetKeyUp(KeyCode.Escape))
         {
             if(Enabled == false)
             {
                 OnESC();
             }
-            
-            if(Enabled == true)
+            else if(Enabled == true)
             {
                 Resume();
             }
@@ -347,6 +355,7 @@ public class GameManager : MonoSingleton<GameManager>
 
     private void OnESC()
     {
+        Debug.Log(",");
         escPanel.SetActive(true);
         settingPanel.SetActive(false);
         BGM_Manager.Instance.Init(record, recordImage, elbumImage);
@@ -356,6 +365,7 @@ public class GameManager : MonoSingleton<GameManager>
 
     public void Resume()
     {
+        Debug.Log("!");
         escPanel.SetActive(false);
         settingPanel.SetActive(false);
         Enabled = false;
@@ -416,5 +426,34 @@ public class GameManager : MonoSingleton<GameManager>
         mixer.SetFloat("BGMVolume", Mathf.Log10(value) * 20);
         if (value <= 0.003f) BGBtn.sprite = onOffSprite[1];
         else EnvBtn.sprite = onOffSprite[0];
+    }
+
+    public void Ending()
+    {
+        if(!End)
+        {
+            EndPanel.gameObject.SetActive(true);
+            StartCoroutine(FadeImage());
+        }
+    }
+
+    private IEnumerator FadeImage()
+    {
+        End = true;
+        float i = 0;
+        while (EndPanel.image.color.a < 0.99f)
+        {
+            EndPanel.image.color = new Color(0f, 0f, 0f, i);
+            i += 0.01f;
+            yield return new WaitForSeconds(0.02f);
+        }
+        Time.timeScale = 0;
+        endText.gameObject.SetActive(true);
+        EndPanel.onClick.AddListener(() =>
+        {
+            End = false;
+            Time.timeScale = 1;
+            SceneManager.LoadScene("MainTitle");
+        });
     }
 }
