@@ -41,7 +41,7 @@ public class TreeHp : MonoBehaviour
 
     public void AutoHealing()
     {
-        if (GameManager.Instance.TreeHp < GameManager.Instance.TreeMaxHp)
+        if ((GameManager.Instance.TreeHp + GameManager.Instance.TreeHeal) < GameManager.Instance.TreeMaxHp)
         {
             GameManager.Instance.TreeHp += GameManager.Instance.TreeHeal;
             HpBar.value = GameManager.Instance.TreeHp / GameManager.Instance.TreeMaxHp;
