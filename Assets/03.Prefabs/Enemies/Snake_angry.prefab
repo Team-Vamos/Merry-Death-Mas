@@ -498,10 +498,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1280
   BulletPosition: {fileID: 0}
-  MaxHealth: 100
+  MaxHealth: 80
   healthBar: {fileID: 5793118299671920036}
-  DropCandyMin: 2
-  DropCandyMax: 3
+  DropCandyMin: 4
+  DropCandyMax: 5
   timeBetweenAttacks: 4
   projectile: {fileID: 0}
   attackRange: 1.1
